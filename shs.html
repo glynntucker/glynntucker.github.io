@@ -2,8 +2,22 @@
 <html>
 <body>
 	<title>SHS Properties</title>
-		<a href="/index.html"><img src="GTLOGO.png" align="right" width=250px></a>
 		<body style="font-family:verdana;" align="center">
+			<div class="header">
+				<ul>
+  				<li><a class="active" href="/index">Home</a></li>
+  				<li><a href="/bolts">Bolts</a></li>
+  				<li><a href="/ub">UB</a></li>
+  				<li><a href="/uc">UC</a></li>
+  				<li><a href="/shs">SHS</a></li>
+  				<li><a href="/rhs">RHS</a></li>
+  				<li><a href="/chs">CHS</a></li>
+					<li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="GTLOGO.png" align="center" width=125px></a></li>
+				</ul>
+
+
+
+			</div>
 			<h3 align="left">SHS Properties</h3><br></br>
 			<div class="inputBox" align="middle">
 				<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
@@ -976,6 +990,35 @@
 </html>
 
 <style>
+
+ul {
+  list-style-type: none;
+  margin: 0;
+	padding: 0px;
+  overflow: hidden;
+  background-color: #4a4a4a;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #084887;
+}
+
+li.finalLogo a:hover {
+  background-color: #ffffff;
+}
+
 	.rotateOrder div {
 		-webkit-transform: rotate(-90.0deg);
 		position: absolute;
@@ -1024,7 +1067,7 @@
 	}
 
 	.button {
-	  	background-color: #084886; /* Green */
+	  	background-color: #084887;
 	  	border: none;
 	  	color: #DDDDDD;
 	  	padding: 2px 2px;
