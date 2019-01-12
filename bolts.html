@@ -60,37 +60,37 @@
 						<th>kN</th>
 						<th>kN</th>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>M12</td>
 						<td>27</td>
 						<td>15.1</td>
 						<td>22.4</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>M16</td>
 						<td>50.2</td>
 						<td>28.6</td>
 						<td>39.9</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>M20</td>
 						<td>78.4</td>
 						<td>44.6</td>
 						<td>62.3</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>M24</td>
 						<td>113</td>
 						<td>64.3</td>
 						<td>89.7</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>M30</td>
 						<td>180</td>
 						<td>103</td>
 						<td>140</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>M36</td>
 						<td>261</td>
 						<td>151</td>
@@ -109,44 +109,44 @@
 						</colgroup>
 
 						<!-- ENTER TABLE DATA BELOW -->
-						<tr>
+						<tr onclick="changeColour(this)">
 							<th rowspan="4">Designation</th>
 							<th rowspan="2">Axial Tension</th>
 							<th colspan="2">Shear Values</th>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<th>Threads inc</th>
 							<th>Theads exc</th>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<th>&Phi;N<sub>tf</sub></th>
 							<th>&Phi;V<sub>fn</sub></th>
 							<th>&Phi;V<sub>fn</sub></th>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<th>kN</th>
 							<th>kN</th>
 							<th>kN</th>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<td>M16</td>
 							<td>104</td>
 							<td>59.3</td>
 							<td>82.7</td>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<td>M20</td>
 							<td>163</td>
 							<td>92.6</td>
 							<td>129</td>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<td>M24</td>
 							<td>234</td>
 							<td>133</td>
 							<td>186</td>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 							<td>M30</td>
 							<td>373</td>
 							<td>214</td>
@@ -164,49 +164,49 @@
 								</colgroup>
 
 								<!-- ENTER TABLE DATA BELOW -->
-								<tr>
+								<tr onclick="changeColour(this)">
 						<th>Nominal Diameter of Fastener</th>
 						<th>Sheared or Hand Flame Cut Edge</th>
 						<th>Rolled Plate: Machine Flame Cut, Sawn or Planed Edge</th>
 						<th>Rolled Edge of a Rolled Flat Bar or Section</th>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<th>mm</th>
 						<th>mm</th>
 						<th>mm</th>
 						<th>mm</th>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>12</td>
 						<td>21</td>
 						<td>18</td>
 						<td>15</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>16</td>
 						<td>28</td>
 						<td>24</td>
 						<td>20</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>20</td>
 						<td>35</td>
 						<td>30</td>
 						<td>25</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>24</td>
 						<td>42</td>
 						<td>36</td>
 						<td>30</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>30</td>
 						<td>53</td>
 						<td>45</td>
 						<td>38</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>36</td>
 						<td>63</td>
 						<td>54</td>
@@ -434,4 +434,9 @@ function myFunction() {
 		  }
 		}
 }
+
+function changeColour(o){
+		o.style.backgroundColor=(o.style.backgroundColor=='red')?('transparent'):('red');
+}
+
 </script>

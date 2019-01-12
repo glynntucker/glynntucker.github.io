@@ -79,7 +79,7 @@
 							<th>mm</td>
 							<th>mm<sup>2</sup></td>
 						</tr>
-						<tr>
+						<tr onclick="changeColour(this)">
 						<td>310UC158</td>
 						<td>158</td>
 						<td>327</td>
@@ -91,7 +91,7 @@
 						<td>20100</td>
 						<td>1</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>310UC137</td>
 						<td>137</td>
 						<td>321</td>
@@ -103,7 +103,7 @@
 						<td>17500</td>
 						<td>2</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>310UC118</td>
 						<td>118</td>
 						<td>315</td>
@@ -115,7 +115,7 @@
 						<td>15000</td>
 						<td>3</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>310UC96.8</td>
 						<td>96.8</td>
 						<td>308</td>
@@ -127,7 +127,7 @@
 						<td>12400</td>
 						<td>4</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>250UC89.5</td>
 						<td>89.5</td>
 						<td>260</td>
@@ -139,7 +139,7 @@
 						<td>11400</td>
 						<td>5</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>250UC72.9</td>
 						<td>72.9</td>
 						<td>254</td>
@@ -151,7 +151,7 @@
 						<td>9320</td>
 						<td>6</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>200UC59.5</td>
 						<td>59.3</td>
 						<td>210</td>
@@ -163,7 +163,7 @@
 						<td>7620</td>
 						<td>7</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>200UC52.2</td>
 						<td>52.2</td>
 						<td>206</td>
@@ -175,7 +175,7 @@
 						<td>6660</td>
 						<td>8</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>200UC46.2</td>
 						<td>46.2</td>
 						<td>203</td>
@@ -187,7 +187,7 @@
 						<td>5900</td>
 						<td>9</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>150UC37.2</td>
 						<td>37.2</td>
 						<td>162</td>
@@ -199,7 +199,7 @@
 						<td>4730</td>
 						<td>10</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>150UC30.0</td>
 						<td>30</td>
 						<td>158</td>
@@ -211,7 +211,7 @@
 						<td>3860</td>
 						<td>11</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>150UC23.4</td>
 						<td>23.4</td>
 						<td>152</td>
@@ -223,7 +223,7 @@
 						<td>2980</td>
 						<td>12</td>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<td>100UC14.8</td>
 						<td>14.8</td>
 						<td>97</td>
@@ -476,6 +476,10 @@ rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 switching = true;
 }
 }
+}
+
+function changeColour(o){
+		o.style.backgroundColor=(o.style.backgroundColor=='red')?('transparent'):('red');
 }
 
 </script>
