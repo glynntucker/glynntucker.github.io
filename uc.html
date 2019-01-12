@@ -1,7 +1,16 @@
 <!DOCTYPE html>
+<!--
+Possibly remove mass sorting, identical to size sorting - UB too
+
+
+
+
+
+
+-->
 <html>
 <body>
-	<title>PFC Properties</title>
+	<title>UC Properties</title>
 	<body style="font-family:verdana;" align="center">
 		<div class="header">
 			<ul>
@@ -27,136 +36,215 @@
 				<li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="GTLOGO.png" align="center" width=125px></a></li>
 			</ul>
 		</ul>
-					<h3 align="Center">PFC Properties</h3>
+					<h3 align="Center">UC Properties</h3>
 					<p>Search, sort or hover over a member to see its properties.</p>
 					<div class="inputBox" align="middle">
 						<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
 					</div>
 
-					<button class="button" onclick="sortSizeDown(6)">Decreasing Size</button>
-					<button class="button" onclick="sortSizeUp(6)">Increasing Size</button>
-					<button class="button" onclick="sortMassDown(5)">Decreasing Mass</button>
-					<button class="button" onclick="sortMassUp(5)">Increasing Mass</button>
+					<button class="button" onclick="sortSizeDown(9)">Decreasing Size</button>
+					<button class="button" onclick="sortSizeUp(9)">Increasing Size</button>
+					<button class="button" onclick="sortMassDown(1)">Decreasing Mass</button>
+					<button class="button" onclick="sortMassUp(1)">Increasing Mass</button>
 					<br>
 					<br>
 
 					<table id="myTable" align="center">
 						<colgroup>
-							<col span="1" width="">
-							<col span="1" width="">
-							<col span="1" width="">
-							<col span="1" width="">
-							<col span="1" width="">
-							<col span="1" width="">
-							<col span="1" width="">
+							<col span="1" width="85">
+							<col span="1" width="45">
+							<col span="1" width="50">
+							<col span="1" width="57">
+							<col span="1" width="84">
+							<col span="1" width="84">
+							<col span="1" width="72">
+							<col span="1" width="72">
+							<col span="1" width="55">
+							<col span="1" width="10">
 						</colgroup>
 
 						<!-- ENTER TABLE DATA BELOW -->
 						<tr>
-						<th rowspan="2">Member</th>
-						<th>Depth</th>
-						<th>Flange Width</th>
-						<th>Flange Thickness</th>
-						<th>Web Thickness</th>
-						<th>Mass</td>
-						<th rowspan="2" class='rotateOrder'><div>Order</div></th>
-					</tr>
-					<tr>
-						<th>mm</th>
-						<th>mm</th>
-						<th>mm</th>
-						<th>mm</th>
-						<th>kg/m</th>
-					</tr>
-					<tr>
-						<td>380PFC</td>
-						<td>380</td>
-						<td>100</td>
-						<td>17.5</td>
-						<td>10</td>
-						<td>55.2</td>
+							<th rowspan="3">Member</th>
+							<th rowspan="2">Mass</th>
+							<th colspan="6">Dimensions</th>
+							<th>Gross Area</th>
+							<th rowspan="3" class='rotateOrder'><div>Order</div></th>
+						</tr>
+						<tr>
+							<th>Depth</td>
+							<th>Flange Width</td>
+							<th>Flange Thickness</td>
+							<th>Web Thickness</td>
+							<th>Root Radius</td>
+							<th>Depth Between Flanges</td>
+							<th>A<sub>g</sub></td>
+						</tr>
+						<tr>
+							<th>kg/m</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm<sup>2</sup></td>
+						</tr>
+						<tr>
+						<td>310UC158</td>
+						<td>158</td>
+						<td>327</td>
+						<td>311</td>
+						<td>25</td>
+						<td>15.7</td>
+						<td>16.5</td>
+						<td>277</td>
+						<td>20100</td>
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>300PFC</td>
-						<td>300</td>
-						<td>90</td>
-						<td>16</td>
-						<td>8</td>
-						<td>40.1</td>
+						<td>310UC137</td>
+						<td>137</td>
+						<td>321</td>
+						<td>309</td>
+						<td>21.7</td>
+						<td>13.8</td>
+						<td>16.5</td>
+						<td>277</td>
+						<td>17500</td>
 						<td>2</td>
 					</tr>
 					<tr>
-						<td>250PFC</td>
-						<td>250</td>
-						<td>90</td>
-						<td>15</td>
-						<td>8</td>
-						<td>35.5</td>
+						<td>310UC118</td>
+						<td>118</td>
+						<td>315</td>
+						<td>307</td>
+						<td>18.7</td>
+						<td>11.9</td>
+						<td>16.5</td>
+						<td>277</td>
+						<td>15000</td>
 						<td>3</td>
 					</tr>
 					<tr>
-						<td>230PFC</td>
-						<td>230</td>
-						<td>75</td>
-						<td>12</td>
-						<td>6.5</td>
-						<td>25.1</td>
+						<td>310UC96.8</td>
+						<td>96.8</td>
+						<td>308</td>
+						<td>305</td>
+						<td>15.4</td>
+						<td>9.9</td>
+						<td>16.5</td>
+						<td>277</td>
+						<td>12400</td>
 						<td>4</td>
 					</tr>
 					<tr>
-						<td>200PFC</td>
-						<td>200</td>
-						<td>75</td>
-						<td>12</td>
-						<td>6</td>
-						<td>22.9</td>
+						<td>250UC89.5</td>
+						<td>89.5</td>
+						<td>260</td>
+						<td>256</td>
+						<td>17.3</td>
+						<td>10.5</td>
+						<td>14</td>
+						<td>225</td>
+						<td>11400</td>
 						<td>5</td>
 					</tr>
 					<tr>
-						<td>180PFC</td>
-						<td>180</td>
-						<td>75</td>
-						<td>11</td>
-						<td>6</td>
-						<td>20.9</td>
+						<td>250UC72.9</td>
+						<td>72.9</td>
+						<td>254</td>
+						<td>254</td>
+						<td>14.2</td>
+						<td>8.6</td>
+						<td>14</td>
+						<td>225</td>
+						<td>9320</td>
 						<td>6</td>
 					</tr>
 					<tr>
-						<td>150PFC</td>
-						<td>150</td>
-						<td>75</td>
-						<td>9.5</td>
-						<td>6</td>
-						<td>17.7</td>
+						<td>200UC59.5</td>
+						<td>59.3</td>
+						<td>210</td>
+						<td>205</td>
+						<td>14.2</td>
+						<td>9.3</td>
+						<td>11.4</td>
+						<td>181</td>
+						<td>7620</td>
 						<td>7</td>
 					</tr>
 					<tr>
-						<td>125PFC</td>
-						<td>125</td>
-						<td>65</td>
-						<td>7.5</td>
-						<td>4.7</td>
-						<td>11.9</td>
+						<td>200UC52.2</td>
+						<td>52.2</td>
+						<td>206</td>
+						<td>204</td>
+						<td>12.5</td>
+						<td>8</td>
+						<td>11.4</td>
+						<td>181</td>
+						<td>6660</td>
 						<td>8</td>
 					</tr>
 					<tr>
-						<td>100PFC</td>
-						<td>100</td>
-						<td>50</td>
-						<td>6.7</td>
-						<td>4.2</td>
-						<td>8.33</td>
+						<td>200UC46.2</td>
+						<td>46.2</td>
+						<td>203</td>
+						<td>203</td>
+						<td>11</td>
+						<td>7.3</td>
+						<td>11.4</td>
+						<td>181</td>
+						<td>5900</td>
 						<td>9</td>
 					</tr>
 					<tr>
-						<td>75PFC</td>
-						<td>75</td>
-						<td>40</td>
-						<td>6.1</td>
-						<td>3.8</td>
-						<td>5.92</td>
+						<td>150UC37.2</td>
+						<td>37.2</td>
+						<td>162</td>
+						<td>154</td>
+						<td>11.5</td>
+						<td>8.1</td>
+						<td>8.9</td>
+						<td>139</td>
+						<td>4730</td>
 						<td>10</td>
+					</tr>
+					<tr>
+						<td>150UC30.0</td>
+						<td>30</td>
+						<td>158</td>
+						<td>153</td>
+						<td>9.4</td>
+						<td>6.6</td>
+						<td>8.9</td>
+						<td>139</td>
+						<td>3860</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>150UC23.4</td>
+						<td>23.4</td>
+						<td>152</td>
+						<td>152</td>
+						<td>6.8</td>
+						<td>6.1</td>
+						<td>8.9</td>
+						<td>139</td>
+						<td>2980</td>
+						<td>12</td>
+					</tr>
+					<tr>
+						<td>100UC14.8</td>
+						<td>14.8</td>
+						<td>97</td>
+						<td>99</td>
+						<td>7</td>
+						<td>5</td>
+						<td>10</td>
+						<td>83</td>
+						<td>1890</td>
+						<td>13</td>
 					</tr>
 					</table>
 			</div>
@@ -253,7 +341,6 @@ position: absolute;
 vertical-align: middle;
 padding-top: 5px;
 width:10px;
-font-size: 11px;
 }
 
 body {background-color: #b0b0b0;}
@@ -344,7 +431,7 @@ switching = false;
 rows = table.rows;
 /*Loop through all table rows (except the
 first, which contains table headers):*/
-for (i = 2; i < (rows.length - 1); i++) {
+for (i = 3; i < (rows.length - 1); i++) {
 //start by saying there should be no switching:
 shouldSwitch = false;
 /*Get the two elements you want to compare,
@@ -379,7 +466,7 @@ switching = false;
 rows = table.rows;
 /*Loop through all table rows (except the
 first, which contains table headers):*/
-for (i = 2; i < (rows.length - 1); i++) {
+for (i = 3; i < (rows.length - 1); i++) {
 //start by saying there should be no switching:
 shouldSwitch = false;
 /*Get the two elements you want to compare,
@@ -414,7 +501,7 @@ switching = false;
 rows = table.rows;
 /*Loop through all table rows (except the
 first, which contains table headers):*/
-for (i = 2; i < (rows.length - 1); i++) {
+for (i = 3; i < (rows.length - 1); i++) {
 //start by saying there should be no switching:
 shouldSwitch = false;
 /*Get the two elements you want to compare,
@@ -449,7 +536,7 @@ switching = false;
 rows = table.rows;
 /*Loop through all table rows (except the
 first, which contains table headers):*/
-for (i = 2; i < (rows.length - 1); i++) {
+for (i = 3; i < (rows.length - 1); i++) {
 //start by saying there should be no switching:
 shouldSwitch = false;
 /*Get the two elements you want to compare,
