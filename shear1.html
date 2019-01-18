@@ -5,7 +5,7 @@
   <!-- Plotly.js -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<style>body {background-color: #b0b0b0;}</style>
+<style>body {background-image: #b0b0b0;}</style>
 
 </head>
 
@@ -125,6 +125,8 @@
           <option value="UB">UB</option>
           <option value="UC">UC</option>
           <option value="PFC">PFC</option>
+          <option value="WC">WC</option>
+          <option value="RHS 450">RHS 450 Grade</option>
         </select>
 			</div>
 			<br>
@@ -132,16 +134,16 @@
 
 				<table id="myTable" align="center">
 					<colgroup>
-						<col span="1" width="90">
+						<col span="1" width="85">
 						<col span="1" width="80">
 					</colgroup>
 
 					<!-- ENTER TABLE DATA BELOW -->
-					<tr>
+					<tr onclick="changeColour(this)">
 						<th rowspan="2">Member</th>
 						<th>Shear Capacity</th>
 					</tr>
-					<tr>
+					<tr onclick="changeColour(this)">
 						<th>kN</td>
 					</tr>
           <tr onclick="changeColour(this)">
@@ -347,6 +349,78 @@
 					<tr onclick="changeColour(this)">
 						<td>75PFC</td>
 						<td>49.2</td>
+					</tr>
+          <tr onclick="changeColour(this)">
+						<td>500WC440</td>
+						<td>3010</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>500WC414</td>
+						<td>2490</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>500WC383</td>
+						<td>2490</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>500WC340</td>
+						<td>2190</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>500WC290</td>
+						<td>1850</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>500WC267</td>
+						<td>1850</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>500WC228</td>
+						<td>1850</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC361</td>
+						<td>2690</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC328</td>
+						<td>1910</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC303</td>
+						<td>1910</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC270</td>
+						<td>1700</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC212</td>
+						<td>1440</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC181</td>
+						<td>1440</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>400WC144</td>
+						<td>1150</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>350WC280</td>
+						<td>1500</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>350WC258</td>
+						<td>1500</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>350WC230</td>
+						<td>1340</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+						<td>350WC197</td>
+						<td>1130</td>
 					</tr>
 					<!-- ENTER TABLE DATA ABOVE -->
 				</table>
