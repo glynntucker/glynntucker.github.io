@@ -10,8 +10,8 @@
 </head>
 
 <div class="header" style="z-index:1">
-  <ul>
-    <li><a href="/index">Home</a></li>
+  <ul class="headerList">
+    <li class="headerLi"><a href="/index">Home</a></li>
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
       <div class="dropdown-content">
@@ -28,14 +28,14 @@
         <a href="/properties/chs">CHS</a>
       </div>
     </li>
-    <li><a href="/properties/bolts">Bolts</a></li>
-    <li><a href="/properties/welds">Welds</a></li>
+    <li class="headerLi"><a href="/properties/bolts">Bolts</a></li>
+    <li class="headerLi"><a href="/properties/welds">Welds</a></li>
     <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=125px></a></li>
-  </ul>
+  </ol>
 
 
   <style>
-  ul {
+  ul.headerList {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -43,11 +43,15 @@
     background-color: #333;
   }
 
-  li {
+  li.headerLi {
     float: left;
   }
 
-  li a, .dropbtn {
+  li.dropdown {
+    float: left;
+  }
+
+  li.headerLi a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -55,7 +59,21 @@
     text-decoration: none;
   }
 
-  li a:hover, .dropdown:hover .dropbtn {
+  li.headerLi a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li.dropdown a:hover, .dropdown:hover .dropbtn {
     -webkit-transition: background-color 0.25s ease-out;
     transition: background-color 0.25s ease-out;
     background-color: #084887;
@@ -105,19 +123,75 @@
      	color: white;
      	text-align: center;
   	}
-
-  	.rotateOrder div {
-  		-webkit-transform: rotate(-90.0deg);
-  		position: absolute;
-  		vertical-align: middle;
-  		padding-top: 5px;
-  		width:10px;
-  	}
   </style>
 
 </div>
 
 <body style="font-family:arial;" align="center">
 <title>Home</title>
+<br></br>
+<div class="left">
+  <h3>Links:</h3>
+  <ul>
+    <li>
+      <a href="/properties/ub">UB</a>
+    </li>
+    <li>
+      <a href="/properties/ub">UB</a>
+    </li>
+    <li>
+      <a href="/properties/ub">UB</a>
+    </li>
+  </ul>
+</div>
+
+<div class="main">
+  <p>Main Content</p>
+</div>
+
+<div class="right">
+  <h3>Links:</h3>
+  <p>test</p>
+</div>
 </body>
 </html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing:border-box;
+}
+
+ul {
+  list-style-type: none;
+  color:black;
+}
+
+.left {
+  background-color:#d0d0d0;
+  padding:20px;
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+.main {
+  background-color:#6c6c6c;
+  padding:20px;
+  float:left;
+  width:60%; /* The width is 60%, by default */
+}
+
+.right {
+  color: white;
+  background-color:#3d3d3d;
+  padding:20px;
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+</style>
