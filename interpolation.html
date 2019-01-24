@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style> body {background-color: #b0b0b0;}</style>
+
+</head>
+
+<div class="header">
+  <ul>
+    <li><a href="/index">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/ub">UB</a>
+        <a href="/properties/uc">UC</a>
+        <a href="/properties/pfc">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/shs">SHS</a>
+        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/chs">CHS</a>
+      </div>
+    </li>
+    <li><a href="/properties/bolts">Bolts</a></li>
+    <li><a href="/properties/welds">Welds</a></li>
+    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="GTLOGO.png" align="center" width=125px></a></li>
+  </ul>
+
+
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+  	background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li.finalLogo a:hover {
+    -webkit-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+    background-color: #ffffff;
+  }
+
+  	.footer {
+  	  position: fixed;
+     	left: 0;
+     	bottom: 0;
+     	width: 100%;
+     	background-color: #2f2f2f;
+     	color: white;
+     	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
+  	}
+  </style>
+
+</div>
+
+<title>UB Member Capacity</title>
+<body style="font-family:arial;" align="center">
+<h3 align="Center">UB Capacity</h3>
+<button onclick="interpolate()" class="changeGraphButton" id="changeGraphButton">Click me to Change Displayed Graph</button></p>
+<div class="inputBox" align="middle">
+  <p>x1 <input type="text" id="x1" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()">
+  <input type="text" id="x2" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()"> x2</p>
+</div>
+<div class="inputBox" align="middle">
+  <p>y1<input type="text" id="y1" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()">
+  <input type="text" id="y2" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()">
+</div>
+<p id="interpolatedValue">Test: </p>
+
+</body>
+</html>
+
+<style>
+</style>
+
+<script>
+function interpolate() {
+  var x1 = document.getElementById("x1").value;
+  var x2 = document.getElementById("x2").value;
+  var y1 = document.getElementById("y1").value;
+  var y2 = document.getElementById("y2").value;
+
+  
+
+  document.getElementById("interpolatedValue").innerHTML = x1 + x2 + y1 + y2;
+}
+
+</script>
