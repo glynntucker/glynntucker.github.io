@@ -116,20 +116,40 @@
 
 </div>
 
-<title>UB Member Capacity</title>
+<title>Two Way Interpolation</title>
 <body style="font-family:arial;" align="center">
-<h3 align="Center">UB Capacity</h3>
-<button onclick="interpolate()" class="changeGraphButton" id="changeGraphButton">Click me to Change Displayed Graph</button></p>
-<div class="inputBox" align="middle">
-  <p>x1 <input type="text" id="x1" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()">
-  <input type="text" id="x2" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()"> x2</p>
-</div>
-<div class="inputBox" align="middle">
-  <p>y1<input type="text" id="y1" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()">
-  <input type="text" id="y2" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member" oninput="interpolate()">
-</div>
-<p id="interpolatedValue">Test: </p>
-
+  <div class="twoWay">
+    <h3 align="Center">Two Way Interpolation</h3>
+    <button onclick="interpolate()">Click me to Interpolate!</button></p>
+    <div class="inputBox" align="middle">
+      <p>x0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x3</p>
+      <p>y0 <input disabled type="text" id="00" placeholder="" title="">
+      <input type="text" id="10" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="20" placeholder="Enter Custom Value" title="Enter Custom Value">
+      <input type="text" id="30" placeholder="Enter Known Value" title="Enter Known Value"></p>
+    </div>
+    <div class="inputBox" align="middle">
+      <p>y1 <input type="text" id="01" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="11" placeholder="Enter Known Value" title="Enter Known Value">
+      <input disabled type="text" id="21" placeholder="" title="">
+      <input type="text" id="31" placeholder="Enter Known Value" title="Enter Known Value"></p>
+    </div>
+    <div class="inputBox" align="middle">
+      <p>y2 <input type="text" id="02" placeholder="Enter Custom Value" title="Enter Custom Value">
+      <input disabled type="text" id="12" placeholder="" title="">
+      <input disabled type="text" id="22" placeholder="" title="">
+      <input disabled type="text" id="32" placeholder="" title=""></p>
+    </div>
+    <div class="inputBox" align="middle">
+      <p>y3 <input type="text" id="03" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="13" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="23" placeholder="" title="">
+      <input type="text" id="33" placeholder="Enter Known Value" title="Enter Known Value"></p>
+    </div>
+    <p id="interpolatedValueTest">Test: </p>
+    <p id="interpolatedValue"></p>
+  </div>
 </body>
 </html>
 
@@ -138,14 +158,26 @@
 
 <script>
 function interpolate() {
-  var x1 = document.getElementById("x1").value;
-  var x2 = document.getElementById("x2").value;
-  var y1 = document.getElementById("y1").value;
-  var y2 = document.getElementById("y2").value;
+  var i00 = document.getElementById("00").value;
+  var i10 = document.getElementById("10").value;
+  var i20 = document.getElementById("20").value;
+  var i30 = document.getElementById("30").value;
+  var i01 = document.getElementById("01").value;
+  var i11 = document.getElementById("11").value;
+  var i21 = document.getElementById("21").value;
+  var i31 = document.getElementById("31").value;
+  var i02 = document.getElementById("02").value;
+  var i12 = document.getElementById("12").value;
+  var i22 = document.getElementById("22").value;
+  var i32 = document.getElementById("32").value;
+  var i03 = document.getElementById("03").value;
+  var i13 = document.getElementById("13").value;
+  var i23 = document.getElementById("23").value;
+  var i33 = document.getElementById("33").value;
 
-  
+  var interpol = ((((i30-i20)*(i03-i02))/(i30-i10)*(i03-i01))*i11);
 
-  document.getElementById("interpolatedValue").innerHTML = x1 + x2 + y1 + y2;
+  document.getElementById("interpolatedValue").innerHTML = "The value at an x co-ordinate of: " + i20 + " and y co-ordinate of: " + i02 + " is: " + interpol;
 }
 
 </script>
