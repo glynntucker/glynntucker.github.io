@@ -175,7 +175,7 @@ function interpolate() {
   var i23 = document.getElementById("23").value;
   var i33 = document.getElementById("33").value;
 
-  var interpol = ((((i30-i20)*(i03-i02))/(i30-i10)*(i03-i01))*i11);
+  var interpol = ((((i30-i20)*(i03-i02))/((i30-i10)*(i03-i01))*i11)+((((i20-i10)*(i03-i02))/((i30-i10)*(i03-i01)))*i31);
 
   document.getElementById("interpolatedValue").innerHTML = "The value at an x co-ordinate of: " + i20 + " and y co-ordinate of: " + i02 + " is: " + interpol;
 }
