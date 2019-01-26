@@ -138,16 +138,15 @@
     <div class="inputBox" align="middle">
       <p>y2 <input type="text" id="02" placeholder="Enter Custom Value" title="Enter Custom Value">
       <input disabled type="text" id="12" placeholder="" title="">
-      <input disabled type="text" id="22" placeholder="" title="">
+      <input disabled type="text" id="22" placeholder="" title="" style="text-align:center">
       <input disabled type="text" id="32" placeholder="" title=""></p>
     </div>
     <div class="inputBox" align="middle">
       <p>y3 <input type="text" id="03" placeholder="Enter Known Value" title="Enter Known Value">
       <input type="text" id="13" placeholder="Enter Known Value" title="Enter Known Value">
-      <input type="text" id="23" placeholder="" title="">
+      <input disabled type="text" id="23" placeholder="" title="">
       <input type="text" id="33" placeholder="Enter Known Value" title="Enter Known Value"></p>
     </div>
-    <p id="interpolatedValueTest">Test: </p>
     <p id="interpolatedValue"></p>
   </div>
 </body>
@@ -175,9 +174,10 @@ function interpolate() {
   var i23 = document.getElementById("23").value;
   var i33 = document.getElementById("33").value;
 
-  var interpol = ((((i30-i20)*(i03-i02))/((i30-i10)*(i03-i01))*i11)+((((i20-i10)*(i03-i02))/((i30-i10)*(i03-i01)))*i31);
+  var interpol = (((i30-i20)*(i03-i02))/((i30-i10)*(i03-i01))*i11)+((((i20-i10)*(i03-i02))/((i30-i10)*(i03-i01)))*i31)+(((i30-i20)*(i02-i01))/((i30-i10)*(i03-i01))*i13)
+  +((((i20-i10)*(i02-i01))/((i30-i10)*(i03-i01)))*i33);
 
-  document.getElementById("interpolatedValue").innerHTML = "The value at an x co-ordinate of: " + i20 + " and y co-ordinate of: " + i02 + " is: " + interpol;
+  document.getElementById("22").value = interpol;
+  document.getElementById("interpolatedValue").innerHTML = "The value at an x co-ordinate of " + i20 + " and y co-ordinate of " + i02 + " is: " + interpol;
 }
-
 </script>
