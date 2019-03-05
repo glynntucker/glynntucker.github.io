@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style>body {background-color: #b0b0b0;}</style>
+
+</head>
+
+<div class="header">
+  <ul>
+    <li><a href="/index">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/ub">UB</a>
+        <a href="/properties/uc">UC</a>
+        <a href="/properties/pfc">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/shs">SHS</a>
+        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/chs">CHS</a>
+      </div>
+    </li>
+    <li><a href="/properties/bolts">Bolts</a></li>
+    <li><a href="/properties/welds">Welds</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Concrete</a>
+      <div class="dropdown-content">
+        <a href="/conc/mesh">Mesh/Steel</a>
+        <a href="/conc/rhs">RHS</a>
+        <a href="/conc/chs">CHS</a>
+      </div>
+    </li>
+    <li class="headerLi"><a href="/interpolation">Interpolation</a></li>
+    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=125px></a></li>
+  </ul>
+
+
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+  	background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li.finalLogo a:hover {
+    -webkit-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+    background-color: #ffffff;
+  }
+
+  	.footer {
+  	  position: fixed;
+     	left: 0;
+     	bottom: 0;
+     	width: 100%;
+     	background-color: #2f2f2f;
+     	color: white;
+     	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
+  	}
+  </style>
+
+</div>
+<title>RHS Properties</title>
+<body style="font-family:arial;" align="center">
+			<h3 align="Center">RHS Properties</h3>
+			<p>Search, sort or hover over a member to see its properties.</p>
+			<div class="inputBox" align="middle">
+				<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+			</div>
+
+			<button class="button" onclick="sortSizeDown(15)">Decreasing Size</button>
+			<button class="button" onclick="sortSizeUp(15)">Increasing Size</button>
+			<button class="button" onclick="sortMassDown(7)">Decreasing Mass</button>
+			<button class="button" onclick="sortMassUp(7)">Increasing Mass</button>
+			<br>
+			<br>
+
+				<table id="myTable" align="center">
+					<colgroup>
+						<col span="1" width="130">
+						<col span="1" width="35">
+						<col span="1" width="12">
+						<col span="1" width="35">
+						<col span="1" width="12">
+						<col span="1" width="35">
+						<col span="1" width="37">
+						<col span="1" width="45">
+						<col span="1" width="92">
+						<col span="1" width="70">
+						<col span="1" width="70">
+						<col span="1" width="47">
+						<col span="1" width="47">
+						<col span="1" width="47">
+						<col span="1" width="47">
+						<col span="1" width="20">
+					</colgroup>
+
+					<!-- ENTER TABLE DATA BELOW -->
+					<tr>
+						<th rowspan="3">Member</th>
+						<th colspan="6">Dimensions</th>
+						<th rowspan="2">Mass</th>
+						<th>Gross Area</th>
+						<th rowspan="2">I<sub>xx</sub></td>
+						<th rowspan="2">I<sub>yy</sub></td>
+						<th colspan="2">Grade350</th>
+						<th colspan="2">Grade450</th>
+						<th rowspan="3" class='rotateOrder'><div>Order</div></th>
+					</tr>
+					<tr>
+						<th>d</td>
+						<th rowspan="2"></td>
+						<th>b</td>
+						<th rowspan="2"></td>
+						<th>t</td>
+						<th rowspan="2"></td>
+						<th>A<sub>g</sub></td>
+						<th>&Phi;M<sub>sx</sub></td>
+						<th>&Phi;M<sub>sy</sub></td>
+						<th>&Phi;M<sub>sx</sub></td>
+						<th>&Phi;M<sub>sy</sub></td>
+					</tr>
+					<tr>
+						<th>mm</td>
+						<th>mm</td>
+						<th>mm</td>
+						<th>kg/m</td>
+						<th>mm<sup>2</sup></td>
+						<th>10<sup>6</sup> mm<sup>4</sup></td>
+						<th>10<sup>6</sup> mm<sup>4</sup></td>
+						<th>kNm</td>
+						<th>kNm</td>
+						<th>kNm</td>
+						<th>kNm</td>
+					</tr>
+					<tr onclick="changeColour(this)">
+					<td>250x150x9.0RHS</td>
+					<td>250</td>
+					<td>x</td>
+					<td>150</td>
+					<td>x</td>
+					<td>9</td>
+					<td>RHS</td>
+					<td>51.8</td>
+					<td>6600</td>
+					<td>53.7</td>
+					<td>24.3</td>
+					<td>168</td>
+					<td>117</td>
+					<td></td>
+					<td></td>
+					<td>1</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>250x150x6.0RHS</td>
+					<td>250</td>
+					<td>x</td>
+					<td>150</td>
+					<td>x</td>
+					<td>6</td>
+					<td>RHS</td>
+					<td>35.6</td>
+					<td>4530</td>
+					<td>38.4</td>
+					<td>17.5</td>
+					<td>118</td>
+					<td>65.6</td>
+					<td></td>
+					<td></td>
+					<td>2</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>250x150x5.0RHS</td>
+					<td>250</td>
+					<td>x</td>
+					<td>150</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>29.9</td>
+					<td>3810</td>
+					<td>32.7</td>
+					<td>15</td>
+					<td>94.4</td>
+					<td>49.3</td>
+					<td></td>
+					<td></td>
+					<td>3</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>200x100x9.0RHS</td>
+					<td>200</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>9</td>
+					<td>RHS</td>
+					<td>37.7</td>
+					<td>4800</td>
+					<td>22.8</td>
+					<td>7.64</td>
+					<td>92.4</td>
+					<td>56.8</td>
+					<td></td>
+					<td></td>
+					<td>4</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>200x100x6.0RHS</td>
+					<td>200</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>6</td>
+					<td>RHS</td>
+					<td>26.2</td>
+					<td>3330</td>
+					<td>16.7</td>
+					<td>5.69</td>
+					<td>66.2</td>
+					<td>37.3</td>
+					<td></td>
+					<td></td>
+					<td>5</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>200x100x5.0RHS</td>
+					<td>200</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>22.1</td>
+					<td>2810</td>
+					<td>14.4</td>
+					<td>4.92</td>
+					<td>56.5</td>
+					<td>28.4</td>
+					<td></td>
+					<td></td>
+					<td>6</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>200x100x4.0RHS</td>
+					<td>200</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>4</td>
+					<td>RHS</td>
+					<td>17.9</td>
+					<td>2280</td>
+					<td>11.9</td>
+					<td>4.07</td>
+					<td>46.2</td>
+					<td>19.9</td>
+					<td></td>
+					<td></td>
+					<td>7</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x100x6.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>6</td>
+					<td>RHS</td>
+					<td>21.4</td>
+					<td>2730</td>
+					<td>8.17</td>
+					<td>4.36</td>
+					<td>42.3</td>
+					<td>32</td>
+					<td></td>
+					<td></td>
+					<td>8</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x100x5.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>18.2</td>
+					<td>2310</td>
+					<td>7.07</td>
+					<td>3.79</td>
+					<td>36.3</td>
+					<td>26.3</td>
+					<td></td>
+					<td></td>
+					<td>9</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x100x4.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>100</td>
+					<td>x</td>
+					<td>4</td>
+					<td>RHS</td>
+					<td>14.8</td>
+					<td>1880</td>
+					<td>5.87</td>
+					<td>3.15</td>
+					<td>29.8</td>
+					<td>19.2</td>
+					<td></td>
+					<td></td>
+					<td>10</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x50x5.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>14.2</td>
+					<td>1810</td>
+					<td>4.44</td>
+					<td>0.765</td>
+					<td>24.8</td>
+					<td>10.7</td>
+					<td>31.9</td>
+					<td>12.9</td>
+					<td>11</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x50x4.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>4</td>
+					<td>RHS</td>
+					<td>11.6</td>
+					<td>1480</td>
+					<td>3.74</td>
+					<td>0.653</td>
+					<td>20.6</td>
+					<td>7.91</td>
+					<td>26.5</td>
+					<td>9.19</td>
+					<td>12</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x50x3.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>8.96</td>
+					<td>1140</td>
+					<td>2.99</td>
+					<td>0.526</td>
+					<td>16.2</td>
+					<td>5.03</td>
+					<td>20.8</td>
+					<td>5.89</td>
+					<td>13</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x50x2.5RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>7.53</td>
+					<td>959</td>
+					<td>2.54</td>
+					<td>0.452</td>
+					<td></td>
+					<td></td>
+					<td>17.6</td>
+					<td>4.4</td>
+					<td>14</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>150x50x2.0RHS</td>
+					<td>150</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>6.07</td>
+					<td>774</td>
+					<td>2.08</td>
+					<td>0.372</td>
+					<td></td>
+					<td></td>
+					<td>14</td>
+					<td>3.1</td>
+					<td>15</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>125x75x6.0RHS</td>
+					<td>125</td>
+					<td>x</td>
+					<td>75</td>
+					<td>x</td>
+					<td>6</td>
+					<td>RHS</td>
+					<td>16.7</td>
+					<td>2130</td>
+					<td>4.16</td>
+					<td>1.87</td>
+					<td>26.5</td>
+					<td>18.6</td>
+					<td>34.1</td>
+					<td>23.9</td>
+					<td>16</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>125x75x5.0RHS</td>
+					<td>125</td>
+					<td>x</td>
+					<td>75</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>14.2</td>
+					<td>1810</td>
+					<td>3.64</td>
+					<td>1.65</td>
+					<td>22.9</td>
+					<td>16.1</td>
+					<td>29.5</td>
+					<td>20.5</td>
+					<td>17</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>125x75x4.0RHS</td>
+					<td>125</td>
+					<td>x</td>
+					<td>75</td>
+					<td>x</td>
+					<td>4</td>
+					<td>RHS</td>
+					<td>11.6</td>
+					<td>1480</td>
+					<td>3.05</td>
+					<td>1.39</td>
+					<td>19</td>
+					<td>12.6</td>
+					<td>24.4</td>
+					<td>15.1</td>
+					<td>18</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>125x75x3.0RHS</td>
+					<td>125</td>
+					<td>x</td>
+					<td>75</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>8.96</td>
+					<td>1140</td>
+					<td>2.43</td>
+					<td>1.11</td>
+					<td>14.9</td>
+					<td>8.3</td>
+					<td>18.8</td>
+					<td>9.8</td>
+					<td>19</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>125x75x2.5RHS</td>
+					<td>125</td>
+					<td>x</td>
+					<td>75</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>7.53</td>
+					<td>959</td>
+					<td>2.07</td>
+					<td>0.942</td>
+					<td></td>
+					<td></td>
+					<td>14.1</td>
+					<td>7.39</td>
+					<td>20</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>125x75x2.0RHS</td>
+					<td>125</td>
+					<td>x</td>
+					<td>75</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>6.07</td>
+					<td>774</td>
+					<td>1.69</td>
+					<td>0.771</td>
+					<td></td>
+					<td></td>
+					<td>10</td>
+					<td>5.27</td>
+					<td>21</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x6.0RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>6</td>
+					<td>RHS</td>
+					<td>12</td>
+					<td>1530</td>
+					<td>1.71</td>
+					<td>0.567</td>
+					<td>14.3</td>
+					<td>8.74</td>
+					<td>18.4</td>
+					<td>11.2</td>
+					<td>22</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x5.0RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>10.3</td>
+					<td>1310</td>
+					<td>1.53</td>
+					<td>0.511</td>
+					<td>12.5</td>
+					<td>7.69</td>
+					<td>16.1</td>
+					<td>9.88</td>
+					<td>23</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x4.0RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>4</td>
+					<td>RHS</td>
+					<td>8.49</td>
+					<td>1080</td>
+					<td>1.31</td>
+					<td>0.441</td>
+					<td>10.5</td>
+					<td>6.48</td>
+					<td>13.5</td>
+					<td>8.23</td>
+					<td>24</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x3.5RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>3.5</td>
+					<td>RHS</td>
+					<td>7.53</td>
+					<td>959</td>
+					<td>1.18</td>
+					<td>0.4</td>
+					<td>9.43</td>
+					<td>5.71</td>
+					<td>12.1</td>
+					<td>6.92</td>
+					<td>25</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x3.0RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>6.6</td>
+					<td>841</td>
+					<td>1.06</td>
+					<td>0.361</td>
+					<td>8.4</td>
+					<td>4.73</td>
+					<td>10.8</td>
+					<td>5.63</td>
+					<td>26</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x2.5RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>5.56</td>
+					<td>709</td>
+					<td>0.912</td>
+					<td>0.311</td>
+					<td>7.14</td>
+					<td>3.59</td>
+					<td>9.18</td>
+					<td>4.22</td>
+					<td>27</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>100x50x2.0RHS</td>
+					<td>100</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>4.5</td>
+					<td>574</td>
+					<td>0.75</td>
+					<td>0.257</td>
+					<td>5.83</td>
+					<td>2.51</td>
+					<td>7.37</td>
+					<td>2.97</td>
+					<td>28</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x6.0RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>6</td>
+					<td>RHS</td>
+					<td>9.67</td>
+					<td>1230</td>
+					<td>0.8</td>
+					<td>0.421</td>
+					<td>8.84</td>
+					<td>6.66</td>
+					<td>11.4</td>
+					<td>8.56</td>
+					<td>29</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x5.0RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>5</td>
+					<td>RHS</td>
+					<td>8.35</td>
+					<td>1060</td>
+					<td>0.726</td>
+					<td>0.384</td>
+					<td>7.84</td>
+					<td>5.92</td>
+					<td>10.1</td>
+					<td>7.61</td>
+					<td>30</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x4.0RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>4</td>
+					<td>RHS</td>
+					<td>6.92</td>
+					<td>881</td>
+					<td>0.63</td>
+					<td>0.335</td>
+					<td>6.66</td>
+					<td>5.03</td>
+					<td>8.56</td>
+					<td>6.47</td>
+					<td>31</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x3.0RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>5.42</td>
+					<td>691</td>
+					<td>0.522</td>
+					<td>0.278</td>
+					<td>5.38</td>
+					<td>4.07</td>
+					<td>6.92</td>
+					<td>5.17</td>
+					<td>32</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x2.5RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>4.58</td>
+					<td>584</td>
+					<td>0.45</td>
+					<td>0.24</td>
+					<td>4.6</td>
+					<td>3.34</td>
+					<td>5.91</td>
+					<td>4.03</td>
+					<td>33</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x2.0RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>3.72</td>
+					<td>474</td>
+					<td>0.372</td>
+					<td>0.199</td>
+					<td>3.77</td>
+					<td>2.43</td>
+					<td>4.77</td>
+					<td>2.86</td>
+					<td>34</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x50x1.6RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>50</td>
+					<td>x</td>
+					<td>1.6</td>
+					<td>RHS</td>
+					<td>3.01</td>
+					<td>383</td>
+					<td>0.305</td>
+					<td>0.164</td>
+					<td></td>
+					<td></td>
+					<td>3.34</td>
+					<td>2.03</td>
+					<td>35</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x25x2.5RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>3.6</td>
+					<td>459</td>
+					<td>0.285</td>
+					<td>0.0487</td>
+					<td>3.17</td>
+					<td>1.36</td>
+					<td>4.07</td>
+					<td>1.64</td>
+					<td>36</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x25x2.0RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>2.93</td>
+					<td>374</td>
+					<td>0.238</td>
+					<td>0.0414</td>
+					<td>2.62</td>
+					<td>1</td>
+					<td>3.36</td>
+					<td>1.17</td>
+					<td>37</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>75x25x1.6RHS</td>
+					<td>75</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>1.6</td>
+					<td>RHS</td>
+					<td>2.38</td>
+					<td>303</td>
+					<td>0.197</td>
+					<td>0.0347</td>
+					<td>2.15</td>
+					<td>0.699</td>
+					<td>2.76</td>
+					<td>0.816</td>
+					<td>38</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>65x35x3.0RHS</td>
+					<td>65</td>
+					<td>x</td>
+					<td>35</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>4.25</td>
+					<td>541</td>
+					<td>0.281</td>
+					<td>0.106</td>
+					<td>3.46</td>
+					<td>2.24</td>
+					<td>4.45</td>
+					<td>2.88</td>
+					<td>39</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>65x35x2.5RHS</td>
+					<td>65</td>
+					<td>x</td>
+					<td>35</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>3.6</td>
+					<td>459</td>
+					<td>0.244</td>
+					<td>0.0926</td>
+					<td>2.98</td>
+					<td>1.93</td>
+					<td>3.83</td>
+					<td>2.41</td>
+					<td>40</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>65x35x2.0RHS</td>
+					<td>65</td>
+					<td>x</td>
+					<td>35</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>2.93</td>
+					<td>374</td>
+					<td>0.204</td>
+					<td>0.0778</td>
+					<td>2.46</td>
+					<td>1.48</td>
+					<td>3.16</td>
+					<td>1.77</td>
+					<td>41</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x25x3.0RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>3.07</td>
+					<td>391</td>
+					<td>0.112</td>
+					<td>0.0367</td>
+					<td>1.85</td>
+					<td>1.12</td>
+					<td>2.37</td>
+					<td>1.44</td>
+					<td>42</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x25x2.5RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>2.62</td>
+					<td>334</td>
+					<td>0.0989</td>
+					<td>0.0328</td>
+					<td>1.61</td>
+					<td>0.982</td>
+					<td>2.07</td>
+					<td>1.26</td>
+					<td>43</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x25x2.0RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>2.15</td>
+					<td>274</td>
+					<td>0.0838</td>
+					<td>0.0281</td>
+					<td>1.34</td>
+					<td>0.824</td>
+					<td>1.73</td>
+					<td>1.05</td>
+					<td>44</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x25x1.6RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>25</td>
+					<td>x</td>
+					<td>1.6</td>
+					<td>RHS</td>
+					<td>1.75</td>
+					<td>223</td>
+					<td>0.0702</td>
+					<td>0.0237</td>
+					<td>1.11</td>
+					<td>0.644</td>
+					<td>1.43</td>
+					<td>0.777</td>
+					<td>45</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x20x3.0RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>20</td>
+					<td>x</td>
+					<td>3</td>
+					<td>RHS</td>
+					<td>2.83</td>
+					<td>361</td>
+					<td>0.0951</td>
+					<td>0.0212</td>
+					<td>1.62</td>
+					<td>0.827</td>
+					<td>2.09</td>
+					<td>1.06</td>
+					<td>46</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x20x2.5RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>20</td>
+					<td>x</td>
+					<td>2.5</td>
+					<td>RHS</td>
+					<td>2.42</td>
+					<td>309</td>
+					<td>0.0848</td>
+					<td>0.0192</td>
+					<td>1.42</td>
+					<td>0.729</td>
+					<td>1.83</td>
+					<td>0.938</td>
+					<td>47</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x20x2.0RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>20</td>
+					<td>x</td>
+					<td>2</td>
+					<td>RHS</td>
+					<td>1.99</td>
+					<td>254</td>
+					<td>0.0723</td>
+					<td>0.0167</td>
+					<td>1.19</td>
+					<td>0.616</td>
+					<td>1.53</td>
+					<td>0.783</td>
+					<td>48</td>
+				</tr>
+				<tr onclick="changeColour(this)">
+					<td>50x20x1.6RHS</td>
+					<td>50</td>
+					<td>x</td>
+					<td>20</td>
+					<td>x</td>
+					<td>1.6</td>
+					<td>RHS</td>
+					<td>1.63</td>
+					<td>207</td>
+					<td>0.0608</td>
+					<td>0.0142</td>
+					<td>0.99</td>
+					<td>0.484</td>
+					<td>1.27</td>
+					<td>0.582</td>
+					<td>49</td>
+				</tr>
+					<!-- ENTER TABLE DATA ABOVE -->
+				</table>
+		</body>
+
+
+		<!--<footer class="footer">
+			<br></br>
+				<br></br>
+		</footer>-->
+		<br></br>
+		<br></br>
+</body>
+
+
+
+</html>
+
+<style>
+	.rotateOrder div {
+		-webkit-transform: rotate(-90.0deg);
+		position: absolute;
+		vertical-align: middle;
+		padding-top: 5px;
+		width:10px;
+	}
+
+	table {
+		overflow: hidden;
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+	}
+
+	#myTable td, th {
+		border: 1px solid #000000;
+	}
+
+	#myTable tr:nth-child(odd) {
+		background-color: #B8B5B5;
+	}
+
+	#myTable tr:nth-child(even) {
+		background-color: #a4a0a0;
+	}
+
+	#myInput {
+	  font-size: 16px; /* Increase font-size */
+	  padding: 5px 5px 5px 5px; /* Add some padding */
+	  border: 1px solid #ddd; /* Add a grey border */
+	  margin-bottom: 12px; /* Add some space below the input */
+	}
+
+	#myTable tr:hover {
+	  /* Add a grey background color to the table header and on hover */
+		background-color: #084886;
+		color: #DDDDDD;
+	}
+
+	#myTable th{
+		background-color: #dbdbdb;
+		color: #000000;
+		text-align: center;
+	}
+
+	.button {
+	  	background-color: #084887;
+	  	border: none;
+	  	color: #DDDDDD;
+	  	padding: 2px 2px;
+	  	text-align: center;
+	  	text-decoration: none;
+	  	display: inline-block;
+	  	font-size: 16px;
+			border-radius: 2px;
+		}
+
+</style>
+
+<script>
+function searchFunction() {
+		// Declare variables
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+		  td = tr[i].getElementsByTagName("td")[0];
+		  if (td) {
+		    txtValue = td.textContent || td.innerText;
+		    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		      tr[i].style.display = "";
+		    } else {
+		      tr[i].style.display = "none";
+		    }
+		  }
+		}
+}
+
+function sortMassDown(n) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 3; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+function sortMassUp(n) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 3; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) > Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+function sortSizeDown(n) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 3; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) > Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+function sortSizeUp(n) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 3; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+function changeColour(o){
+		o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
+}
+
+</script>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style> body {background-color: #b0b0b0;}</style>
+
+</head>
+
+<div class="header">
+  <ul>
+    <li><a href="/index">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/ub">UB</a>
+        <a href="/properties/uc">UC</a>
+        <a href="/properties/pfc">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/shs">SHS</a>
+        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/chs">CHS</a>
+      </div>
+    </li>
+    <li><a href="/properties/bolts">Bolts</a></li>
+    <li><a href="/properties/welds">Welds</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Concrete</a>
+      <div class="dropdown-content">
+        <a href="/conc/mesh">Mesh/Steel</a>
+        <a href="/conc/rhs">RHS</a>
+        <a href="/conc/chs">CHS</a>
+      </div>
+    </li>
+    <li class="headerLi"><a href="/interpolation">Interpolation</a></li>
+    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="GTLOGO.png" align="center" width=125px></a></li>
+  </ul>
+
+
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+  	background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li.finalLogo a:hover {
+    -webkit-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+    background-color: #ffffff;
+  }
+
+  	.footer {
+  	  position: fixed;
+     	left: 0;
+     	bottom: 0;
+     	width: 100%;
+     	background-color: #2f2f2f;
+     	color: white;
+     	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
+  	}
+  </style>
+
+</div>
+
+<title>Two Way Interpolation</title>
+<body style="font-family:arial;" align="center">
+  <div class="twoWay">
+    <h3 align="Center">Two Way Interpolation</h3>
+    <button onclick="interpolate()">Click me to Interpolate!</button></p>
+    <div class="inputBox" align="middle">
+      <p>x0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x3</p>
+      <p>y0 <input disabled type="text" id="00" placeholder="" title="">
+      <input type="text" id="10" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="20" placeholder="Enter Custom Value" title="Enter Custom Value">
+      <input type="text" id="30" placeholder="Enter Known Value" title="Enter Known Value"></p>
+    </div>
+    <div class="inputBox" align="middle">
+      <p>y1 <input type="text" id="01" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="11" placeholder="Enter Known Value" title="Enter Known Value">
+      <input disabled type="text" id="21" placeholder="" title="">
+      <input type="text" id="31" placeholder="Enter Known Value" title="Enter Known Value"></p>
+    </div>
+    <div class="inputBox" align="middle">
+      <p>y2 <input type="text" id="02" placeholder="Enter Custom Value" title="Enter Custom Value">
+      <input disabled type="text" id="12" placeholder="" title="">
+      <input disabled type="text" id="22" placeholder="" title="" style="text-align:center">
+      <input disabled type="text" id="32" placeholder="" title=""></p>
+    </div>
+    <div class="inputBox" align="middle">
+      <p>y3 <input type="text" id="03" placeholder="Enter Known Value" title="Enter Known Value">
+      <input type="text" id="13" placeholder="Enter Known Value" title="Enter Known Value">
+      <input disabled type="text" id="23" placeholder="" title="">
+      <input type="text" id="33" placeholder="Enter Known Value" title="Enter Known Value"></p>
+    </div>
+    <p id="interpolatedValue"></p>
+  </div>
+</body>
+</html>
+
+<style>
+</style>
+
+<script>
+function interpolate() {
+  var i00 = document.getElementById("00").value;
+  var i10 = document.getElementById("10").value;
+  var i20 = document.getElementById("20").value;
+  var i30 = document.getElementById("30").value;
+  var i01 = document.getElementById("01").value;
+  var i11 = document.getElementById("11").value;
+  var i21 = document.getElementById("21").value;
+  var i31 = document.getElementById("31").value;
+  var i02 = document.getElementById("02").value;
+  var i12 = document.getElementById("12").value;
+  var i22 = document.getElementById("22").value;
+  var i32 = document.getElementById("32").value;
+  var i03 = document.getElementById("03").value;
+  var i13 = document.getElementById("13").value;
+  var i23 = document.getElementById("23").value;
+  var i33 = document.getElementById("33").value;
+
+  var interpol = (((i30-i20)*(i03-i02))/((i30-i10)*(i03-i01))*i11)+((((i20-i10)*(i03-i02))/((i30-i10)*(i03-i01)))*i31)+(((i30-i20)*(i02-i01))/((i30-i10)*(i03-i01))*i13)
+  +((((i20-i10)*(i02-i01))/((i30-i10)*(i03-i01)))*i33);
+
+  document.getElementById("22").value = interpol;
+  document.getElementById("interpolatedValue").innerHTML = "The value at an x co-ordinate of " + i20 + " and y co-ordinate of " + i02 + " is: " + interpol;
+}
+</script>

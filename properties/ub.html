@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style>body {background-color: #b0b0b0;}</style>
+
+</head>
+
+<div class="header">
+  <ul>
+    <li><a href="/index">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/ub">UB</a>
+        <a href="/properties/uc">UC</a>
+        <a href="/properties/pfc">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/shs">SHS</a>
+        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/chs">CHS</a>
+      </div>
+    </li>
+    <li><a href="/properties/bolts">Bolts</a></li>
+    <li><a href="/properties/welds">Welds</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Concrete</a>
+      <div class="dropdown-content">
+        <a href="/conc/mesh">Mesh/Steel</a>
+        <a href="/conc/rhs">RHS</a>
+        <a href="/conc/chs">CHS</a>
+      </div>
+    </li>
+    <li class="headerLi"><a href="/interpolation">Interpolation</a></li>
+    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=125px></a></li>
+  </ul>
+
+
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+  	background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li.finalLogo a:hover {
+    -webkit-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+    background-color: #ffffff;
+  }
+
+  	.footer {
+  	  position: fixed;
+     	left: 0;
+     	bottom: 0;
+     	width: 100%;
+     	background-color: #2f2f2f;
+     	color: white;
+     	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
+  	}
+  </style>
+
+</div>
+<title>UB Properties</title>
+<body style="font-family:arial;" align="center">
+
+<h3 align="Center">UB Properties</h3>
+<p>Search, sort or hover over a member to see its properties.</p>
+<div class="inputBox" align="middle">
+<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+</div>
+
+<button class="button" onclick="sortSizeDown(9)">Decreasing Size</button>
+<button class="button" onclick="sortSizeUp(9)">Increasing Size</button>
+<button class="button" onclick="sortMassDown(1)">Decreasing Mass</button>
+<button class="button" onclick="sortMassUp(1)">Increasing Mass</button>
+<br>
+<br>
+
+					<table id="myTable" align="center">
+						<colgroup>
+							<col span="1" width="85">
+							<col span="1" width="45">
+							<col span="1" width="50">
+							<col span="1" width="57">
+							<col span="1" width="84">
+							<col span="1" width="84">
+							<col span="1" width="72">
+							<col span="1" width="72">
+							<col span="1" width="55">
+							<col span="1" width="10">
+						</colgroup>
+
+						<!-- ENTER TABLE DATA BELOW -->
+						<tr>
+							<th rowspan="3">Member</th>
+							<th rowspan="2">Mass</th>
+							<th colspan="6">Dimensions</th>
+							<th>Gross Area</th>
+							<th rowspan="3" class='rotateOrder'><div>Order</div></th>
+						</tr>
+						<tr>
+							<th>Depth</td>
+							<th>Flange Width</td>
+							<th>Flange Thickness</td>
+							<th>Web Thickness</td>
+							<th>Root Radius</td>
+							<th>Depth Between Flanges</td>
+							<th>A<sub>g</sub></td>
+						</tr>
+						<tr>
+							<th>kg/m</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm</td>
+							<th>mm<sup>2</sup></td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>610UB125</td>
+							<td>125</td>
+							<td>612</td>
+							<td>229</td>
+							<td>19.6</td>
+							<td>11.9</td>
+							<td>14</td>
+							<td>572</td>
+							<td>16000</td>
+							<td>1</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>610UB113</td>
+							<td>113</td>
+							<td>607</td>
+							<td>228</td>
+							<td>17.3</td>
+							<td>11.2</td>
+							<td>14</td>
+							<td>572</td>
+							<td>14500</td>
+							<td>2</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>610UB101</td>
+							<td>101</td>
+							<td>602</td>
+							<td>228</td>
+							<td>14.8</td>
+							<td>10.6</td>
+							<td>14</td>
+							<td>572</td>
+							<td>13000</td>
+							<td>3</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>530UB92.4</td>
+							<td>92.4</td>
+							<td>533</td>
+							<td>209</td>
+							<td>15.6</td>
+							<td>10.2</td>
+							<td>14</td>
+							<td>502</td>
+							<td>11800</td>
+							<td>4</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>530UB82.0</td>
+							<td>82</td>
+							<td>528</td>
+							<td>209</td>
+							<td>13.2</td>
+							<td>9.6</td>
+							<td>14</td>
+							<td>502</td>
+							<td>10500</td>
+							<td>5</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>460UB82.1</td>
+							<td>82.1</td>
+							<td>460</td>
+							<td>191</td>
+							<td>16</td>
+							<td>9.9</td>
+							<td>11.4</td>
+							<td>428</td>
+							<td>10500</td>
+							<td>6</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>460UB74.6</td>
+							<td>74.6</td>
+							<td>457</td>
+							<td>190</td>
+							<td>14.5</td>
+							<td>9.1</td>
+							<td>11.4</td>
+							<td>428</td>
+							<td>9520</td>
+							<td>7</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>460UB67.1</td>
+							<td>67.1</td>
+							<td>454</td>
+							<td>190</td>
+							<td>12.7</td>
+							<td>8.5</td>
+							<td>11.4</td>
+							<td>428</td>
+							<td>8580</td>
+							<td>8</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>410UB59.7</td>
+							<td>59.7</td>
+							<td>406</td>
+							<td>178</td>
+							<td>12.8</td>
+							<td>7.8</td>
+							<td>11.4</td>
+							<td>381</td>
+							<td>7640</td>
+							<td>9</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>410UB53.7</td>
+							<td>53.7</td>
+							<td>403</td>
+							<td>178</td>
+							<td>10.9</td>
+							<td>7.6</td>
+							<td>11.4</td>
+							<td>381</td>
+							<td>6890</td>
+							<td>10</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>360UB56.7</td>
+							<td>56.7</td>
+							<td>359</td>
+							<td>172</td>
+							<td>13</td>
+							<td>8</td>
+							<td>11.4</td>
+							<td>333</td>
+							<td>7240</td>
+							<td>11</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>360UB50.7</td>
+							<td>50.7</td>
+							<td>356</td>
+							<td>171</td>
+							<td>11.5</td>
+							<td>7.3</td>
+							<td>11.4</td>
+							<td>333</td>
+							<td>6470</td>
+							<td>12</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>360UB44.7</td>
+							<td>44.7</td>
+							<td>352</td>
+							<td>171</td>
+							<td>9.7</td>
+							<td>6.9</td>
+							<td>11.4</td>
+							<td>333</td>
+							<td>5720</td>
+							<td>13</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>310UB46.2</td>
+							<td>46.2</td>
+							<td>307</td>
+							<td>166</td>
+							<td>11.8</td>
+							<td>6.7</td>
+							<td>11.4</td>
+							<td>284</td>
+							<td>5930</td>
+							<td>14</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>310UB40.4</td>
+							<td>40.4</td>
+							<td>304</td>
+							<td>165</td>
+							<td>10.2</td>
+							<td>6.1</td>
+							<td>11.4</td>
+							<td>284</td>
+							<td>5210</td>
+							<td>15</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>310UB32.0</td>
+							<td>32</td>
+							<td>298</td>
+							<td>149</td>
+							<td>8</td>
+							<td>5.5</td>
+							<td>13</td>
+							<td>282</td>
+							<td>4080</td>
+							<td>16</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>250UB37.3</td>
+							<td>37.3</td>
+							<td>256</td>
+							<td>146</td>
+							<td>10.9</td>
+							<td>6.4</td>
+							<td>8.9</td>
+							<td>234</td>
+							<td>4750</td>
+							<td>17</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>250UB31.4</td>
+							<td>31.4</td>
+							<td>252</td>
+							<td>146</td>
+							<td>8.6</td>
+							<td>6.1</td>
+							<td>8.9</td>
+							<td>234</td>
+							<td>4010</td>
+							<td>18</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>250UB25.7</td>
+							<td>25.7</td>
+							<td>248</td>
+							<td>124</td>
+							<td>8</td>
+							<td>5</td>
+							<td>12</td>
+							<td>232</td>
+							<td>3270</td>
+							<td>19</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>200UB29.8</td>
+							<td>29.8</td>
+							<td>207</td>
+							<td>134</td>
+							<td>9.6</td>
+							<td>6.3</td>
+							<td>8.9</td>
+							<td>188</td>
+							<td>3820</td>
+							<td>20</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>200UB25.4</td>
+							<td>25.4</td>
+							<td>203</td>
+							<td>133</td>
+							<td>7.8</td>
+							<td>5.8</td>
+							<td>8.9</td>
+							<td>188</td>
+							<td>3230</td>
+							<td>21</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>200UB22.3</td>
+							<td>22.3</td>
+							<td>202</td>
+							<td>133</td>
+							<td>7</td>
+							<td>5</td>
+							<td>8.9</td>
+							<td>188</td>
+							<td>2870</td>
+							<td>22</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>200UB18.2</td>
+							<td>18.2</td>
+							<td>198</td>
+							<td>99</td>
+							<td>7</td>
+							<td>4.5</td>
+							<td>11</td>
+							<td>184</td>
+							<td>2320</td>
+							<td>23</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>180UB22.2</td>
+							<td>22.2</td>
+							<td>179</td>
+							<td>90</td>
+							<td>10</td>
+							<td>6</td>
+							<td>8.9</td>
+							<td>159</td>
+							<td>2820</td>
+							<td>24</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>180UB18.1</td>
+							<td>18.1</td>
+							<td>175</td>
+							<td>90</td>
+							<td>8</td>
+							<td>5</td>
+							<td>8.9</td>
+							<td>159</td>
+							<td>2300</td>
+							<td>25</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>180UB16.1</td>
+							<td>16.1</td>
+							<td>173</td>
+							<td>90</td>
+							<td>7</td>
+							<td>4.5</td>
+							<td>8.9</td>
+							<td>159</td>
+							<td>2040</td>
+							<td>26</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>150UB18.0</td>
+							<td>18</td>
+							<td>155</td>
+							<td>75</td>
+							<td>9.5</td>
+							<td>6</td>
+							<td>8</td>
+							<td>136</td>
+							<td>2300</td>
+							<td>27</td>
+						</tr>
+						<tr onclick="changeColour(this)">
+							<td>150UB14.0</td>
+							<td>14</td>
+							<td>150</td>
+							<td>75</td>
+							<td>7</td>
+							<td>5</td>
+							<td>8</td>
+							<td>136</td>
+							<td>1780</td>
+							<td>28</td>
+						</tr>
+					</table>
+			</div>
+		</div>
+	</body>
+
+
+	<!--<footer class="footer">
+		<br></br>
+	</footer>-->
+	<br></br>
+	<br></br>
+</body>
+
+
+
+</html>
+
+<style>
+
+.rotateOrder div {
+-webkit-transform: rotate(-90.0deg);
+position: absolute;
+vertical-align: middle;
+padding-top: 5px;
+width:10px;
+}
+
+table {
+overflow: hidden;
+font-family: arial, sans-serif;
+border-collapse: collapse;
+}
+
+#myTable td, th {
+border: 1px solid #000000;
+}
+
+#myTable tr:nth-child(odd) {
+background-color: #B8B5B5;
+}
+
+#myTable tr:nth-child(even) {
+background-color: #a4a0a0;
+}
+
+#myInput {
+font-size: 16px; /* Increase font-size */
+padding: 5px 5px 5px 5px; /* Add some padding */
+border: 1px solid #ddd; /* Add a grey border */
+margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable tr:hover {
+/* Add a grey background color to the table header and on hover */
+background-color: #084886;
+color: #DDDDDD;
+}
+
+#myTable th{
+background-color: #dbdbdb;
+color: #000000;
+text-align: center;
+}
+
+.button {
+background-color: #084887;
+border: none;
+color: #DDDDDD;
+padding: 2px 2px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+border-radius: 2px;
+}
+
+</style>
+
+<script>
+function searchFunction() {
+// Declare variables
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTable");
+tr = table.getElementsByTagName("tr");
+
+// Loop through all table rows, and hide those who don't match the search query
+for (i = 0; i < tr.length; i++) {
+td = tr[i].getElementsByTagName("td")[0];
+if (td) {
+txtValue = td.textContent || td.innerText;
+if (txtValue.toUpperCase().indexOf(filter) > -1) {
+tr[i].style.display = "";
+} else {
+tr[i].style.display = "none";
+}
+}
+}
+}
+
+function sortSizeDown(n) {
+var table, rows, switching, i, x, y, shouldSwitch;
+table = document.getElementById("myTable");
+switching = true;
+/*Make a loop that will continue until
+no switching has been done:*/
+while (switching) {
+//start by saying: no switching is done:
+switching = false;
+rows = table.rows;
+/*Loop through all table rows (except the
+first, which contains table headers):*/
+for (i = 3; i < (rows.length - 1); i++) {
+//start by saying there should be no switching:
+shouldSwitch = false;
+/*Get the two elements you want to compare,
+one from current row and one from the next:*/
+x = rows[i].getElementsByTagName("TD")[n];
+y = rows[i + 1].getElementsByTagName("TD")[n];
+//check if the two rows should switch place:
+if (Number(x.innerHTML) > Number(y.innerHTML)) {
+//if so, mark as a switch and break the loop:
+shouldSwitch = true;
+break;
+}
+}
+if (shouldSwitch) {
+/*If a switch has been marked, make the switch
+and mark that a switch has been done:*/
+rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+switching = true;
+}
+}
+}
+
+function sortSizeUp(n) {
+var table, rows, switching, i, x, y, shouldSwitch;
+table = document.getElementById("myTable");
+switching = true;
+/*Make a loop that will continue until
+no switching has been done:*/
+while (switching) {
+//start by saying: no switching is done:
+switching = false;
+rows = table.rows;
+/*Loop through all table rows (except the
+first, which contains table headers):*/
+for (i = 3; i < (rows.length - 1); i++) {
+//start by saying there should be no switching:
+shouldSwitch = false;
+/*Get the two elements you want to compare,
+one from current row and one from the next:*/
+x = rows[i].getElementsByTagName("TD")[n];
+y = rows[i + 1].getElementsByTagName("TD")[n];
+//check if the two rows should switch place:
+if (Number(x.innerHTML) < Number(y.innerHTML)) {
+//if so, mark as a switch and break the loop:
+shouldSwitch = true;
+break;
+}
+}
+if (shouldSwitch) {
+/*If a switch has been marked, make the switch
+and mark that a switch has been done:*/
+rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+switching = true;
+}
+}
+}
+
+
+function changeColour(o){
+		o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
+}
+
+</script>
