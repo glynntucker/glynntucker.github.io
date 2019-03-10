@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style> body {background-color: #b0b0b0;}</style>
+
+</head>
+
+<div class="header">
+  <ul>
+    <li><a href="/index">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/ub">UB</a>
+        <a href="/properties/uc">UC</a>
+        <a href="/properties/pfc">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Moment Capacities</a>
+      <div class="dropdown-content">
+        <a href="/momentgraphs/ubgraph">UB</a>
+        <a href="/momentgraphs/ucgraph">UC</a>
+        <a href="/momentgraphs/pfcgraph">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/shs">SHS</a>
+        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/chs">CHS</a>
+      </div>
+    </li>
+    <li><a href="/properties/bolts">Bolts</a></li>
+    <li><a href="/properties/welds">Welds</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Concrete</a>
+      <div class="dropdown-content">
+        <a href="/conc/mesh">Mesh/Steel</a>
+      </div>
+    </li>
+    <li class="headerLi"><a href="/interpolation">Interpolation</a></li>
+    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=125px></a></li>
+  </ul>
+
+
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+  	background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li.finalLogo a:hover {
+    -webkit-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+    background-color: #ffffff;
+  }
+
+  	.footer {
+  	  position: fixed;
+     	left: 0;
+     	bottom: 0;
+     	width: 100%;
+     	background-color: #2f2f2f;
+     	color: white;
+     	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
+  	}
+  </style>
+
+</div>
+
+<title>UB Member Capacity</title>
+<body style="font-family:arial;" align="center">
+<h3 align="Center">PFC Capacity</h3>
+<p>Displayed Graph</p>
+<div align="center" class="ucGraph" style="display:block;"><div id="ucGraph"></div></div>
+
+</body>
+</html>
+<script type="text/javascript">
+var trace1 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [238,238,230,212,192,173,156,140,127,115,106,97.2,89.9,78.1,68.8,61.5,55.5,50.6,46.5,43,39.9,37.3,35,33,31.2],
+  name: '75PFC',
+  type: 'scatter',
+};
+var trace2 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [152,152,144,131,117,105,93.8,84.4,76.4,69.6,63.9,58.9,54.6,47.5,42,37.6,34,31.1,28.6,26.4,24.6,23,21.6,20.3,19.2],
+  name: '100PFC',
+  type: 'scatter',
+};
+var trace3 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [114,114,108,98.6,89.3,80.7,73.2,66.6,61,56.1,51.8,48.1,44.9,39.4,35.1,31.6,28.7,26.3,24.2,22.5,20.9,19.6,18.4,17.4,16.4],
+  name: '125PFC',
+  type: 'scatter',
+};
+var trace4 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [73.2,73.2,66.9,59,51.6,45.2,39.9,35.5,31.9,28.9,26.3,24.2,22.4,19.4,17.1,15.3,13.8,12.6,11.6,10.7,9.94,9.29,8.71,8.21,7.76],
+  name: '150PFC',
+  type: 'scatter',
+};
+var trace5 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [59.7,59.7,54.8,48.9,43.3,38.5,34.5,31.1,28.2,25.7,23.7,21.9,20.3,17.7,15.7,14.1,12.8,11.7,10.7,10,9.26,8.66,8.14,7.67,7.25],
+  name: '180PFC',
+  type: 'scatter',
+};
+var trace6 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [49.1,49.1,45.2,40.4,35.9,32.1,28.8,26.1,23.7,21.7,20,18.5,17.2,15.1,13.4,12,10.9,10,9.17,8.5,7.91,7.4,6.95,6.56,6.2],
+  name: '200PFC',
+  type: 'scatter',
+};
+var trace7 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [37.2,37.2,34,30.3,27,24.1,21.7,19.6,17.9,16.4,15.1,14,13,11.4,10.1,9.1,8.26,7.55,6.96,6.44,6,5.62,5.27,4.97,4.7],
+  name: '230PFC',
+  type: 'scatter',
+};
+var trace8 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [21,20.8,18.5,16.1,14,12.3,10.9,9.71,8.76,7.96,7.29,6.72,6.22,5.41,4.79,4.28,3.88,3.54,3.25,3.01,2.8,2.62,2.46,2.31,2.19],
+  name: '250PFC',
+  type: 'scatter',
+};
+var trace9 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [11.6,11.2,9.55,8.11,6.97,6.06,5.34,4.76,4.28,3.88,3.55,3.26,3.02,2.62,2.31,2.07,1.87,1.71,1.57,1.45,1.35,1.26,1.18,1.12,1.05],
+		name: '300PFC',
+  type: 'scatter',
+};
+var trace10 = {
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  y: [6.16,5.76,4.87,4.15,3.59,3.14,2.77,2.48,2.23,2.03,1.85,1.71,1.58,1.37,1.21,1.09,0.983,0.897,0.825,0.763,0.71,0.664,0.623,0.587,0.555],
+  name: '380PFC',
+  type: 'scatter',
+};
+var data = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10];
+var layout = {
+	plot_bgcolor: "#dbd9d9",
+	paper_bgcolor: "#dbd9d9",
+  autosize: false,
+  width: 900,
+  height: 750,
+	showlegend: true,
+  title: {
+    text:'PFC Member Capacity (kNm)',
+    font: {
+      size: 24
+    },
+    xref: 'paper',
+    x: 0.05,
+  },
+  xaxis: {
+		range: [0, 22],
+    zeroline: true,
+    linecolor: '#636363',
+    linewidth: 1,
+    title: {
+      text: 'Le Effective Length (m)',
+      font: {
+        size: 18,
+        color: '#7f7f7f'
+      }
+    },
+  },
+  yaxis: {
+		range: [0, 700],
+    zeroline: true,
+    linecolor: '#636363',
+    linewidth: 1,
+    title: {
+      text: 'Member Capacity',
+      font: {
+        size: 18,
+        color: '#7f7f7f'
+      }
+    }
+  }
+};
+Plotly.newPlot('ucGraph', data, layout);
+</script>
