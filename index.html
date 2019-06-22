@@ -2,9 +2,6 @@
 <html>
 
 <head>
-  <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
 <style>body {background-image: url("bg1920.jpg"); background-repeat: repeat-x;}</style>
 
 </head>
@@ -26,6 +23,12 @@
         <a href="/momentgraphs/ubgraph">UB</a>
         <a href="/momentgraphs/ucgraph">UC</a>
         <a href="/momentgraphs/pfcgraph">PFC</a>
+        <a href="/momentgraphs/rhs350graph">RHS350</a>
+        <a href="/momentgraphs/rhs450graph">RHS450</a>
+        <a href="/momentgraphs/shs350graph">SHS350</a>
+        <a href="/momentgraphs/shs450graph">SHS450</a>
+        <a href="/momentgraphs/shs350graph">CHS250</a>
+        <a href="/momentgraphs/shs450graph">CHS350</a>
       </div>
     </li>
     <li class="dropdown">
@@ -34,12 +37,6 @@
         <a href="/properties/shs">SHS</a>
         <a href="/properties/rhs">RHS</a>
         <a href="/properties/chs">CHS</a>
-        <a href="/momentgraphs/rhs350graph">RHS350</a>
-        <a href="/momentgraphs/rhs450graph">RHS450</a>
-        <a href="/momentgraphs/shs350graph">SHS350</a>
-        <a href="/momentgraphs/shs450graph">SHS450</a>
-        <a href="/momentgraphs/shs350graph">CHS250</a>
-        <a href="/momentgraphs/shs450graph">CHS350</a>
       </div>
     </li>
     <li><a href="/properties/bolts">Bolts</a></li>
@@ -56,7 +53,7 @@
   </ul>
 
   <style>
-  ul.headerList {
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -64,15 +61,11 @@
     background-color: #333;
   }
 
-  li.headerLi {
+  li {
     float: left;
   }
 
-  li.dropdown {
-    float: left;
-  }
-
-  li.headerLi a, .dropbtn {
+  li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -80,7 +73,7 @@
     text-decoration: none;
   }
 
-  li.headerLi a:hover, .dropdown:hover .dropbtn {
+  li a:hover, .dropdown:hover .dropbtn {
     -webkit-transition: background-color 0.25s ease-out;
     transition: background-color 0.25s ease-out;
     background-color: #084887;
@@ -129,6 +122,14 @@
      	background-color: #2f2f2f;
      	color: white;
      	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
   	}
   </style>
 
