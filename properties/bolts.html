@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style>body {background-color: #b0b0b0;}</style>
+
+</head>
+
+<div class="header">
+  <ul>
+    <li><a href="/index">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/ub">UB</a>
+        <a href="/properties/uc">UC</a>
+        <a href="/properties/pfc">PFC</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Moment Capacities</a>
+      <div class="dropdown-content">
+        <a href="/momentgraphs/ubgraph">UB</a>
+        <a href="/momentgraphs/ucgraph">UC</a>
+        <a href="/momentgraphs/pfcgraph">PFC</a>
+        <a href="/momentgraphs/rhs350graph">RHS350</a>
+        <a href="/momentgraphs/rhs450graph">RHS450</a>
+        <a href="/momentgraphs/shs350graph">SHS350</a>
+        <a href="/momentgraphs/shs450graph">SHS450</a>
+        <a href="/momentgraphs/shs350graph">CHS250</a>
+        <a href="/momentgraphs/shs450graph">CHS350</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
+      <div class="dropdown-content">
+        <a href="/properties/shs">SHS</a>
+        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/chs">CHS</a>
+      </div>
+    </li>
+    <li><a href="/properties/bolts">Bolts</a></li>
+    <li><a href="/properties/welds">Welds</a></li>
+    <li><a href="/plate">Plates</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Concrete</a>
+      <div class="dropdown-content">
+        <a href="/conc/mesh">Mesh/Steel</a>
+      </div>
+    </li>
+    <li class="headerLi"><a href="/interpolation">Interpolation</a></li>
+    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=125px></a></li>
+  </ul>
+
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+    background-color: #084887;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+  	background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li.finalLogo a:hover {
+    -webkit-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+    background-color: #ffffff;
+  }
+
+  	.footer {
+  	  position: fixed;
+     	left: 0;
+     	bottom: 0;
+     	width: 100%;
+     	background-color: #2f2f2f;
+     	color: white;
+     	text-align: center;
+  	}
+
+  	.rotateOrder div {
+  		-webkit-transform: rotate(-90.0deg);
+  		position: absolute;
+  		vertical-align: middle;
+  		padding-top: 5px;
+  		width:10px;
+  	}
+  </style>
+
+</div>
+<title>Bolt Properties</title>
+<body style="font-family:arial;" align="center">
+				<h3 align="Center">Bolt Properties</h3>
+				<p>Search bolt grade and capacities.</p>
+			<div>
+      <div class="row">
+        <div class="columnouter"><h2></h2></div>
+        <div class="column">
+    			<h4 align="center">4.6/S</h4>
+    				<table id="myTable" align="center">
+    					<colgroup>
+    						<col span="1" width="100">
+    						<col span="1" width="65">
+    						<col span="2" width="62">
+    					</colgroup>
+
+    					<!-- ENTER TABLE DATA BELOW -->
+    					<tr>
+    						<th rowspan="4">Designation</th>
+    						<th rowspan="2">Axial Tension</th>
+    						<th colspan="2">Shear Values</th>
+    					</tr>
+    					<tr>
+    						<th>Threads inc</th>
+    						<th>Theads exc</th>
+    					</tr>
+    					<tr>
+    						<th>&Phi;N<sub>tf</sub></th>
+    						<th>&Phi;V<sub>fn</sub></th>
+    						<th>&Phi;V<sub>fn</sub></th>
+    					</tr>
+    					<tr>
+    						<th>kN</th>
+    						<th>kN</th>
+    						<th>kN</th>
+    					</tr>
+    					<tr onclick="changeColour(this)">
+    						<td>M12</td>
+    						<td>27</td>
+    						<td>15.1</td>
+    						<td>22.4</td>
+    					</tr>
+    					<tr onclick="changeColour(this)">
+    						<td>M16</td>
+    						<td>50.2</td>
+    						<td>28.6</td>
+    						<td>39.9</td>
+    					</tr>
+    					<tr onclick="changeColour(this)">
+    						<td>M20</td>
+    						<td>78.4</td>
+    						<td>44.6</td>
+    						<td>62.3</td>
+    					</tr>
+    					<tr onclick="changeColour(this)">
+    						<td>M24</td>
+    						<td>113</td>
+    						<td>64.3</td>
+    						<td>89.7</td>
+    					</tr>
+    					<tr onclick="changeColour(this)">
+    						<td>M30</td>
+    						<td>180</td>
+    						<td>103</td>
+    						<td>140</td>
+    					</tr>
+    					<tr onclick="changeColour(this)">
+    						<td>M36</td>
+    						<td>261</td>
+    						<td>151</td>
+    						<td>202</td>
+    					</tr>
+
+    					<!-- ENTER TABLE DATA ABOVE -->
+    				</table><br></br>
+        </div>
+        <div class="column">
+    				<h4 align="center">8.8/S, 8.8/TB, 8.8/TF</h4>
+    				<table id="myTable" align="center">
+    						<colgroup>
+    							<col span="1" width="100">
+    							<col span="1" width="65">
+    							<col span="2" width="62">
+    						</colgroup>
+
+    						<!-- ENTER TABLE DATA BELOW -->
+    						<tr onclick="changeColour(this)">
+    							<th rowspan="4">Designation</th>
+    							<th rowspan="2">Axial Tension</th>
+    							<th colspan="2">Shear Values</th>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<th>Threads inc</th>
+    							<th>Theads exc</th>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<th>&Phi;N<sub>tf</sub></th>
+    							<th>&Phi;V<sub>fn</sub></th>
+    							<th>&Phi;V<sub>fn</sub></th>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<th>kN</th>
+    							<th>kN</th>
+    							<th>kN</th>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<td>M16</td>
+    							<td>104</td>
+    							<td>59.3</td>
+    							<td>82.7</td>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<td>M20</td>
+    							<td>163</td>
+    							<td>92.6</td>
+    							<td>129</td>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<td>M24</td>
+    							<td>234</td>
+    							<td>133</td>
+    							<td>186</td>
+    						</tr>
+    						<tr onclick="changeColour(this)">
+    							<td>M30</td>
+    							<td>373</td>
+    							<td>214</td>
+    							<td>291</td>
+    						</tr>
+    					</table><br></br>
+
+
+    				</div>
+        </div>
+        <div class="columnouter"><h2></h2></div>
+        <h4 align="center">Minimum Edge Distance</h4>
+        <table id="myTable" align="center">
+          <colgroup>
+            <col span="1" width="100">
+            <col span="1" width="100">
+            <col span="1" width="100">
+            <col span="1" width="100">
+          </colgroup>
+
+          <!-- ENTER TABLE DATA BELOW -->
+          <tr onclick="changeColour(this)">
+            <th>Nominal Diameter of Fastener</th>
+            <th>Sheared or Hand Flame Cut Edge</th>
+            <th>Rolled Plate: Machine Flame Cut, Sawn or Planed Edge</th>
+            <th>Rolled Edge of a Rolled Flat Bar or Section</th>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <th>mm</th>
+            <th>mm</th>
+            <th>mm</th>
+            <th>mm</th>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <td>12</td>
+            <td>21</td>
+            <td>18</td>
+            <td>15</td>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <td>16</td>
+            <td>28</td>
+            <td>24</td>
+            <td>20</td>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <td>20</td>
+            <td>35</td>
+            <td>30</td>
+            <td>25</td>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <td>24</td>
+            <td>42</td>
+            <td>36</td>
+            <td>30</td>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <td>30</td>
+            <td>53</td>
+            <td>45</td>
+            <td>38</td>
+          </tr>
+          <tr onclick="changeColour(this)">
+            <td>36</td>
+            <td>63</td>
+            <td>54</td>
+            <td>45</td>
+          </tr>
+
+            <!-- ENTER TABLE DATA ABOVE -->
+        </table>
+
+		</body>
+	</div>
+	<br></br>
+	<br></br>
+</body>
+
+
+<!--<footer class="footer">
+	<br></br>
+		<br></br>
+</footer>-->
+
+
+
+</html>
+
+<style>
+.column {
+  float: left;
+  width: 25%;
+}
+.columnouter {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.inputBox {
+		margin: auto;
+	}
+
+	table {
+		overflow: hidden;
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+	}
+
+	#myTable td, th {
+		border: 1px solid #000000;
+	}
+
+	#myTable tr:nth-child(odd) {
+		background-color: #B8B5B5;
+	}
+
+	#myTable tr:nth-child(even) {
+		background-color: #a4a0a0;
+	}
+
+	#myInput {
+	  font-size: 16px; /* Increase font-size */
+	  padding: 5px 5px 5px 5px; /* Add some padding */
+	  border: 1px solid #ddd; /* Add a grey border */
+	  margin-bottom: 12px; /* Add some space below the input */
+	}
+
+	#myTable tr:hover {
+	  /* Add a grey background color to the table header and on hover */
+		background-color: #084887;
+		color: #DDDDDD;
+	}
+
+	#myTable th{
+		background-color: #dbdbdb;
+		color: #000000;
+		text-align: center;
+	}
+
+</style>
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc";
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+function myFunction() {
+		// Declare variables
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+		  td = tr[i].getElementsByTagName("td")[0];
+		  if (td) {
+		    txtValue = td.textContent || td.innerText;
+		    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		      tr[i].style.display = "";
+		    } else {
+		      tr[i].style.display = "none";
+		    }
+		  }
+		}
+}
+
+function changeColour(o){
+		o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
+}
+
+</script>
