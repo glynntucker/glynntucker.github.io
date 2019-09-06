@@ -25,6 +25,12 @@
         <a href="/momentgraphs/ubgraph">UB</a>
         <a href="/momentgraphs/ucgraph">UC</a>
         <a href="/momentgraphs/pfcgraph">PFC</a>
+        <a href="/momentgraphs/rhs350graph">RHS350</a>
+        <a href="/momentgraphs/rhs450graph">RHS450</a>
+        <a href="/momentgraphs/shs350graph">SHS350</a>
+        <a href="/momentgraphs/shs450graph">SHS450</a>
+        <a href="/momentgraphs/shs350graph">CHS250</a>
+        <a href="/momentgraphs/shs450graph">CHS350</a>
       </div>
     </li>
     <li class="dropdown">
@@ -33,12 +39,6 @@
         <a href="/properties/shs">SHS</a>
         <a href="/properties/rhs">RHS</a>
         <a href="/properties/chs">CHS</a>
-        <a href="/momentgraphs/rhs350graph">RHS350</a>
-        <a href="/momentgraphs/rhs450graph">RHS450</a>
-        <a href="/momentgraphs/shs350graph">SHS350</a>
-        <a href="/momentgraphs/shs450graph">SHS450</a>
-        <a href="/momentgraphs/shs350graph">CHS250</a>
-        <a href="/momentgraphs/shs450graph">CHS350</a>
       </div>
     </li>
     <li><a href="/properties/bolts">Bolts</a></li>
@@ -138,9 +138,9 @@
 
 </div>
 
-<title>PFC Member Capacity</title>
+<title>RHS350 Member Capacity</title>
 <body style="font-family:arial;" align="center">
-<h3 align="Center">PFC Capacity</h3>
+<h3 align="Center">RHS350 Capacity</h3>
 <p>Displayed Graph</p>
 <div align="center" class="ucGraph" style="display:block;"><div id="ucGraph"></div></div>
 
@@ -148,66 +148,19 @@
 </html>
 <script type="text/javascript">
 var trace1 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [238,238,230,212,192,173,156,140,127,115,106,97.2,89.9,78.1,68.8,61.5,55.5,50.6,46.5,43,39.9,37.3,35,33,31.2],
-  name: '380PFC',
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6],
+  y: [2.84,2.84,2.84,2.84,2.84,2.84,2.78,2.75,2.73,2.7,2.68,2.65,2.62],
+  name: '75x50x1.5 RHS',
   type: 'scatter',
 };
 var trace2 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [152,152,144,131,117,105,93.8,84.4,76.4,69.6,63.9,58.9,54.6,47.5,42,37.6,34,31.1,28.6,26.4,24.6,23,21.6,20.3,19.2],
-  name: '300PFC',
+  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6],
+  y: [3.77,3.77,3.77,3.77,3.77,3.77,3.67,3.64,3.6,3.56,3.52,3.48,3.45],
+  name: '75x50x2 RHS',
   type: 'scatter',
 };
-var trace3 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [114,114,108,98.6,89.3,80.7,73.2,66.6,61,56.1,51.8,48.1,44.9,39.4,35.1,31.6,28.7,26.3,24.2,22.5,20.9,19.6,18.4,17.4,16.4],
-  name: '250PFC',
-  type: 'scatter',
-};
-var trace4 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [73.2,73.2,66.9,59,51.6,45.2,39.9,35.5,31.9,28.9,26.3,24.2,22.4,19.4,17.1,15.3,13.8,12.6,11.6,10.7,9.94,9.29,8.71,8.21,7.76],
-  name: '230PFC',
-  type: 'scatter',
-};
-var trace5 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [59.7,59.7,54.8,48.9,43.3,38.5,34.5,31.1,28.2,25.7,23.7,21.9,20.3,17.7,15.7,14.1,12.8,11.7,10.7,10,9.26,8.66,8.14,7.67,7.25],
-  name: '200PFC',
-  type: 'scatter',
-};
-var trace6 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [49.1,49.1,45.2,40.4,35.9,32.1,28.8,26.1,23.7,21.7,20,18.5,17.2,15.1,13.4,12,10.9,10,9.17,8.5,7.91,7.4,6.95,6.56,6.2],
-  name: '180PFC',
-  type: 'scatter',
-};
-var trace7 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [37.2,37.2,34,30.3,27,24.1,21.7,19.6,17.9,16.4,15.1,14,13,11.4,10.1,9.1,8.26,7.55,6.96,6.44,6,5.62,5.27,4.97,4.7],
-  name: '150PFC',
-  type: 'scatter',
-};
-var trace8 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [21,20.8,18.5,16.1,14,12.3,10.9,9.71,8.76,7.96,7.29,6.72,6.22,5.41,4.79,4.28,3.88,3.54,3.25,3.01,2.8,2.62,2.46,2.31,2.19],
-  name: '125PFC',
-  type: 'scatter',
-};
-var trace9 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [11.6,11.2,9.55,8.11,6.97,6.06,5.34,4.76,4.28,3.88,3.55,3.26,3.02,2.62,2.31,2.07,1.87,1.71,1.57,1.45,1.35,1.26,1.18,1.12,1.05],
-		name: '100PFC',
-  type: 'scatter',
-};
-var trace10 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [6.16,5.76,4.87,4.15,3.59,3.14,2.77,2.48,2.23,2.03,1.85,1.71,1.58,1.37,1.21,1.09,0.983,0.897,0.825,0.763,0.71,0.664,0.623,0.587,0.555],
-  name: '75PFC',
-  type: 'scatter',
-};
-var data = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10];
+
+var data = [trace1,trace2];
 var layout = {
 	plot_bgcolor: "#dbd9d9",
 	paper_bgcolor: "#dbd9d9",
@@ -216,7 +169,7 @@ var layout = {
   height: 750,
 	showlegend: true,
   title: {
-    text:'PFC Member Capacity (kNm)',
+    text:'RHS350 Member Capacity (kNm)',
     font: {
       size: 24
     },
@@ -224,7 +177,7 @@ var layout = {
     x: 0.05,
   },
   xaxis: {
-		range: [0, 18],
+		range: [0, 22],
     zeroline: true,
     linecolor: '#636363',
     linewidth: 1,
@@ -237,7 +190,7 @@ var layout = {
     },
   },
   yaxis: {
-		range: [0, 250],
+		range: [0, 20],
     zeroline: true,
     linecolor: '#636363',
     linewidth: 1,
