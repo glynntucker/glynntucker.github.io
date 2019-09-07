@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Google Charts -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <style> body {background-color: #b0b0b0;}</style>
 
@@ -142,66 +142,25 @@
 <body style="font-family:arial;" align="center">
 <h3 align="Center">RHS350 Capacity</h3>
 <p>Displayed Graph</p>
-<div align="center" class="ucGraph" style="display:block;"><div id="ucGraph"></div></div>
+<div id="vis_div" style="width: 600px; height: 400px;"></div>
 
 </body>
 </html>
 <script type="text/javascript">
-var trace1 = {
-  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6],
-  y: [2.84,2.84,2.84,2.84,2.84,2.84,2.78,2.75,2.73,2.7,2.68,2.65,2.62],
-  name: '75x50x1.5 RHS',
-  type: 'scatter',
-};
-var trace2 = {
-  x: [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6],
-  y: [3.77,3.77,3.77,3.77,3.77,3.77,3.67,3.64,3.6,3.56,3.52,3.48,3.45],
-  name: '75x50x2 RHS',
-  type: 'scatter',
-};
+google.charts.load('current');
+      google.charts.setOnLoadCallback(drawVisualization);
 
-var data = [trace1,trace2];
-var layout = {
-	plot_bgcolor: "#dbd9d9",
-	paper_bgcolor: "#dbd9d9",
-  autosize: false,
-  width: 900,
-  height: 750,
-	showlegend: true,
-  title: {
-    text:'RHS350 Member Capacity (kNm)',
-    font: {
-      size: 24
-    },
-    xref: 'paper',
-    x: 0.05,
-  },
-  xaxis: {
-		range: [0, 22],
-    zeroline: true,
-    linecolor: '#636363',
-    linewidth: 1,
-    title: {
-      text: 'Le Effective Length (m)',
-      font: {
-        size: 18,
-        color: '#7f7f7f'
+      function drawVisualization() {
+        var wrapper = new google.visualization.ChartWrapper({
+          chartType: 'LineChart',
+          dataSourceUrl: 'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1',
+          query: 'SELECT A,D WHERE D > 100 ORDER BY D',
+          options: {'title': 'Countries'},
+          containerId: 'vis_div'
+        });
+        wrapper.draw()
+
+        // No query callback handler needed!
       }
-    },
-  },
-  yaxis: {
-		range: [0, 20],
-    zeroline: true,
-    linecolor: '#636363',
-    linewidth: 1,
-    title: {
-      text: 'Member Capacity',
-      font: {
-        size: 18,
-        color: '#7f7f7f'
-      }
-    }
-  }
-};
-Plotly.newPlot('ucGraph', data, layout);
+</script>
 </script>
