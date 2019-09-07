@@ -142,7 +142,7 @@
 <body style="font-family:arial;" align="center">
 <h3 align="Center">RHS350 Capacity</h3>
 <p>Displayed Graph</p>
-<div align="center" class="RHS3501Graph" style="display:block;"><div id="RHS3501Graph"><p></p></div><div id="RHS3502Graph"></div></div>
+<div align="center" class="RHS350Graph" style="display:block;"><div id="RHS3501Graph"><p></p></div><div id="RHS3502Graph"><p></p></div><div id="RHS3503Graph"></div></div>
 </body>
 </html>
 
@@ -426,7 +426,7 @@ var trace46 = {
 
 
 //GRAPH 1
-var data1 = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10,trace11,trace12,trace13,trace14,trace15,trace16,trace17,trace18,trace19];
+var data1 = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10,trace11,trace12,trace13,trace14,trace15];
 var layout1 = {
 	plot_bgcolor: "#dbd9d9",
 	paper_bgcolor: "#dbd9d9",
@@ -456,7 +456,7 @@ var layout1 = {
     },
   },
   yaxis: {
-		range: [0, 400],
+		range: [0, 900],
     zeroline: true,
     linecolor: '#636363',
     linewidth: 1,
@@ -472,8 +472,54 @@ var layout1 = {
 Plotly.newPlot('RHS3501Graph', data1, layout1);
 
 //GRAPH 2
-var data2 = [trace20,trace21,trace22,trace23,trace24,trace25,trace26,trace27,trace28,trace29,trace30,trace31,trace32,trace33,trace34,trace35,trace36,trace37,trace38,trace39,trace40,trace41,trace42,trace43,trace44,trace45,trace46];
+var data2 = [trace16,trace17,trace18,trace19,trace20,trace21,trace22,trace23,trace24,trace25,trace26,trace27,trace28,trace29,trace30,trace31,trace32,trace33,trace34];
 var layout2 = {
+	plot_bgcolor: "#dbd9d9",
+	paper_bgcolor: "#dbd9d9",
+  autosize: false,
+  width: 900,
+  height: 750,
+	showlegend: true,
+  title: {
+    text:'RHS Grade 350 Member Capacity (kNm)',
+    font: {
+      size: 24
+    },
+    xref: 'paper',
+    x: 0.05,
+  },
+  xaxis: {
+		range: [0, 18],
+    zeroline: true,
+    linecolor: '#636363',
+    linewidth: 1,
+    title: {
+      text: 'Le Effective Length (m)',
+      font: {
+        size: 18,
+        color: '#7f7f7f'
+      }
+    },
+  },
+  yaxis: {
+		range: [0, 100],
+    zeroline: true,
+    linecolor: '#636363',
+    linewidth: 1,
+    title: {
+      text: 'Member Capacity',
+      font: {
+        size: 18,
+        color: '#7f7f7f'
+      }
+    }
+  }
+};
+Plotly.newPlot('RHS3502Graph', data2, layout2);
+
+//GRAPH 3
+var data3 = [trace35,trace36,trace37,trace38,trace39,trace40,trace41,trace42,trace43,trace44,trace45,trace46];
+var layout3 = {
 	plot_bgcolor: "#dbd9d9",
 	paper_bgcolor: "#dbd9d9",
   autosize: false,
@@ -502,7 +548,7 @@ var layout2 = {
     },
   },
   yaxis: {
-		range: [0, 75],
+		range: [0, 15],
     zeroline: true,
     linecolor: '#636363',
     linewidth: 1,
@@ -515,5 +561,5 @@ var layout2 = {
     }
   }
 };
-Plotly.newPlot('RHS3502Graph', data2, layout2);
+Plotly.newPlot('RHS3503Graph', data3, layout3);
 </script>
