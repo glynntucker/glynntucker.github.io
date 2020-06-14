@@ -22,22 +22,22 @@
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Moment Capacities</a>
       <div class="dropdown-content">
-        <a href="/momentgraphs/ubgraph">UB</a>
-        <a href="/momentgraphs/ucgraph">UC</a>
-        <a href="/momentgraphs/pfcgraph">PFC</a>
-        <a href="/momentgraphs/rhs350graph">RHS350</a>
-        <a href="/momentgraphs/rhs450graph">RHS450</a>
-        <a href="/momentgraphs/shs350graph">SHS350</a>
-        <a href="/momentgraphs/shs450graph">SHS450</a>
-        <a href="/momentgraphs/shs350graph">CHS250</a>
-        <a href="/momentgraphs/shs450graph">CHS350</a>
+        <a href="/moment/ub">UB</a>
+        <a href="/moment/uc">UC</a>
+        <a href="/moment/pfc">PFC</a>
+        <a href="/moment/rhs250">CHS250</a>
+        <a href="/moment/rhs450">CHS450</a>
+        <a href="/moment/shs250">SHS250</a>
+        <a href="/moment/shs450">SHS450</a>
+        <a href="/moment/shs250">CHS250</a>
+        <a href="/moment/shs450">CHS250</a>
       </div>
     </li>
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
       <div class="dropdown-content">
         <a href="/properties/shs">SHS</a>
-        <a href="/properties/rhs">RHS</a>
+        <a href="/properties/rhs">CHS</a>
         <a href="/properties/chs">CHS</a>
       </div>
     </li>
@@ -51,7 +51,9 @@
       </div>
     </li>
     <li class="headerLi"><a href="/interpolation">Interpolation</a></li>
-    <li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=125px></a></li>
+    <!--<li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=200px></a></li>-->
+    <li class="GT SP" style="float:right"><a href="https://glynntucker.sharepoint.com" target="_blanks">Sharepoint Home</a></li>
+
   </ul>
 
 
@@ -138,11 +140,11 @@
 
 </div>
 
-<title>RHS350 Member Capacity</title>
+<title>RHS450 Member Capacity</title>
 <body style="font-family:arial;" align="center">
-  <h3 align="Center">RHS350 Capacity</h3>
+  <h3 align="Center">RHS450 Capacity</h3>
   <p>Displayed Graph</p>
-  <div align="center" class="RHS350Graph" style="display:block;"><div id="RHS3501Graph"><p></p></div><div id="RHS3502Graph"><p></p></div><div id="RHS3503Graph"></div></div>
+  <div align="center" class="RHS450Graph" style="display:block;"><div id="RHS4501Graph"><p></p></div><div id="RHS4502Graph"><p></p></div><div id="RHS4503Graph"></div></div>
 </body>
 </html>
 
@@ -435,7 +437,7 @@ var layout1 = {
   height: 750,
   showlegend: true,
   title: {
-    text:'RHS Grade 350 Member Capacity (kNm)',
+    text:'RHS Grade 450 Member Capacity (kNm)',
     font: {
       size: 24
     },
@@ -469,7 +471,7 @@ var layout1 = {
     }
   }
 };
-Plotly.newPlot('RHS3501Graph', data1, layout1);
+Plotly.newPlot('RHS4501Graph', data1, layout1);
 
 //GRAPH 2
 var data2 = [trace16,trace17,trace18,trace19,trace20,trace21,trace22,trace23,trace24,trace25,trace26,trace27,trace28,trace29,trace30,trace31,trace32,trace33,trace34];
@@ -481,7 +483,7 @@ var layout2 = {
   height: 750,
   showlegend: true,
   title: {
-    text:'RHS Grade 350 Member Capacity (kNm)',
+    text:'RHS Grade 450 Member Capacity (kNm)',
     font: {
       size: 24
     },
@@ -515,7 +517,7 @@ var layout2 = {
     }
   }
 };
-Plotly.newPlot('RHS3502Graph', data2, layout2);
+Plotly.newPlot('RHS4502Graph', data2, layout2);
 
 //GRAPH 3
 var data3 = [trace35,trace36,trace37,trace38,trace39,trace40,trace41,trace42,trace43,trace44,trace45,trace46];
@@ -527,7 +529,7 @@ var layout3 = {
   height: 750,
   showlegend: true,
   title: {
-    text:'RHS Grade 350 Member Capacity (kNm)',
+    text:'RHS Grade 450 Member Capacity (kNm)',
     font: {
       size: 24
     },
@@ -561,5 +563,5 @@ var layout3 = {
     }
   }
 };
-Plotly.newPlot('RHS3503Graph', data3, layout3);
+Plotly.newPlot('RHS4503Graph', data3, layout3);
 </script>
