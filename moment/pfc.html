@@ -17,109 +17,372 @@
 
 </body>
 </html>
-<script type="text/javascript">
-var trace1 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [238,238,230,212,192,173,156,140,127,115,106,97.2,89.9,78.1,68.8,61.5,55.5,50.6,46.5,43,39.9,37.3,35,33,31.2],
-  name: '380PFC',
-  type: 'scatter',
-};
-var trace2 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [152,152,144,131,117,105,93.8,84.4,76.4,69.6,63.9,58.9,54.6,47.5,42,37.6,34,31.1,28.6,26.4,24.6,23,21.6,20.3,19.2],
-  name: '300PFC',
-  type: 'scatter',
-};
-var trace3 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [114,114,108,98.6,89.3,80.7,73.2,66.6,61,56.1,51.8,48.1,44.9,39.4,35.1,31.6,28.7,26.3,24.2,22.5,20.9,19.6,18.4,17.4,16.4],
-  name: '250PFC',
-  type: 'scatter',
-};
-var trace4 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [73.2,73.2,66.9,59,51.6,45.2,39.9,35.5,31.9,28.9,26.3,24.2,22.4,19.4,17.1,15.3,13.8,12.6,11.6,10.7,9.94,9.29,8.71,8.21,7.76],
-  name: '230PFC',
-  type: 'scatter',
-};
-var trace5 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [59.7,59.7,54.8,48.9,43.3,38.5,34.5,31.1,28.2,25.7,23.7,21.9,20.3,17.7,15.7,14.1,12.8,11.7,10.7,10,9.26,8.66,8.14,7.67,7.25],
-  name: '200PFC',
-  type: 'scatter',
-};
-var trace6 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [49.1,49.1,45.2,40.4,35.9,32.1,28.8,26.1,23.7,21.7,20,18.5,17.2,15.1,13.4,12,10.9,10,9.17,8.5,7.91,7.4,6.95,6.56,6.2],
-  name: '180PFC',
-  type: 'scatter',
-};
-var trace7 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [37.2,37.2,34,30.3,27,24.1,21.7,19.6,17.9,16.4,15.1,14,13,11.4,10.1,9.1,8.26,7.55,6.96,6.44,6,5.62,5.27,4.97,4.7],
-  name: '150PFC',
-  type: 'scatter',
-};
-var trace8 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [21,20.8,18.5,16.1,14,12.3,10.9,9.71,8.76,7.96,7.29,6.72,6.22,5.41,4.79,4.28,3.88,3.54,3.25,3.01,2.8,2.62,2.46,2.31,2.19],
-  name: '125PFC',
-  type: 'scatter',
-};
-var trace9 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [11.6,11.2,9.55,8.11,6.97,6.06,5.34,4.76,4.28,3.88,3.55,3.26,3.02,2.62,2.31,2.07,1.87,1.71,1.57,1.45,1.35,1.26,1.18,1.12,1.05],
-		name: '100PFC',
-  type: 'scatter',
-};
-var trace10 = {
-  x: [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,7,8,9,10,11,12,13,14,15,16,17,18],
-  y: [6.16,5.76,4.87,4.15,3.59,3.14,2.77,2.48,2.23,2.03,1.85,1.71,1.58,1.37,1.21,1.09,0.983,0.897,0.825,0.763,0.71,0.664,0.623,0.587,0.555],
-  name: '75PFC',
-  type: 'scatter',
-};
-var data = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10];
-var layout = {
-	plot_bgcolor: "#dbd9d9",
-	paper_bgcolor: "#dbd9d9",
-  autosize: false,
-  width: 900,
-  height: 750,
-	showlegend: true,
-  title: {
-    text:'PFC Member Capacity (kNm)',
-    font: {
-      size: 24
-    },
-    xref: 'paper',
-    x: 0.05,
-  },
-  xaxis: {
-		range: [0, 18],
-    zeroline: true,
-    linecolor: '#636363',
-    linewidth: 1,
-    title: {
-      text: 'Le Effective Length (m)',
-      font: {
-        size: 18,
-        color: '#7f7f7f'
-      }
-    },
-  },
-  yaxis: {
-		range: [0, 250],
-    zeroline: true,
-    linecolor: '#636363',
-    linewidth: 1,
-    title: {
-      text: 'Member Capacity',
-      font: {
-        size: 18,
-        color: '#7f7f7f'
-      }
-    }
-  }
-};
-Plotly.newPlot('ucGraph', data, layout);
-</script>
+<table id="myTable" align="center">
+  <colgroup>
+    <col span="1" width="110">
+    <col span="4" width="55">
+    <col span="25" width="40">
+  </colgroup>
+  <tr onclick="changeColour(this)">
+    <th>Designation</th>
+    <th>Mass</th>
+    <th>ΦMs</th>
+    <th>ΦVv</th>
+    <th>FLR</th>
+    <th colspan="25">Design Member Moment Capacities, ΦMbx (kNm) at Effective Length lex in (mm)</th>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <th>Section</th>
+    <th>kg/m</th>
+    <th>kNm</th>
+    <th>kN</th>
+    <th>mm</th>
+    <th>0</th>
+    <th>500</th>
+    <th>1,000</th>
+    <th>1,500</th>
+    <th>2,000</th>
+    <th>2,500</th>
+    <th>3,000</th>
+    <th>3,500</th>
+    <th>4,000</th>
+    <th>4,500</th>
+    <th>5,000</th>
+    <th>5,500</th>
+    <th>6,000</th>
+    <th>7,000</th>
+    <th>8,000</th>
+    <th>9,000</th>
+    <th>10,000</th>
+    <th>11,000</th>
+    <th>12,000</th>
+    <th>13,000</th>
+    <th>14,000</th>
+    <th>15,000</th>
+    <th>16,000</th>
+    <th>17,000</th>
+    <th>18,000</th>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>380 PFC</td>
+    <td>55.2</td>
+    <td>238</td>
+    <td>657</td>
+    <td>575</td>
+    <td>238</td>
+    <td>238</td>
+    <td>230</td>
+    <td>212</td>
+    <td>192</td>
+    <td>173</td>
+    <td>156</td>
+    <td>140</td>
+    <td>127</td>
+    <td>115</td>
+    <td>106</td>
+    <td>97.2</td>
+    <td>89.9</td>
+    <td>78.1</td>
+    <td>68.8</td>
+    <td>61.5</td>
+    <td>55.5</td>
+    <td>50.6</td>
+    <td>46.5</td>
+    <td>43</td>
+    <td>39.9</td>
+    <td>37.3</td>
+    <td>35</td>
+    <td>33</td>
+    <td>31.2</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>300 PFC</td>
+    <td>40.1</td>
+    <td>152</td>
+    <td>415</td>
+    <td>513</td>
+    <td>152</td>
+    <td>152</td>
+    <td>144</td>
+    <td>131</td>
+    <td>117</td>
+    <td>105</td>
+    <td>93.8</td>
+    <td>84.4</td>
+    <td>76.4</td>
+    <td>69.6</td>
+    <td>63.9</td>
+    <td>58.9</td>
+    <td>54.6</td>
+    <td>47.5</td>
+    <td>42</td>
+    <td>37.6</td>
+    <td>34</td>
+    <td>31.1</td>
+    <td>28.6</td>
+    <td>26.4</td>
+    <td>24.6</td>
+    <td>23</td>
+    <td>21.6</td>
+    <td>20.3</td>
+    <td>19.2</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>250 PFC</td>
+    <td>35.5</td>
+    <td>114</td>
+    <td>346</td>
+    <td>519</td>
+    <td>114</td>
+    <td>114</td>
+    <td>108</td>
+    <td>98.6</td>
+    <td>89.3</td>
+    <td>80.7</td>
+    <td>73.2</td>
+    <td>66.6</td>
+    <td>61</td>
+    <td>56.1</td>
+    <td>51.8</td>
+    <td>48.1</td>
+    <td>44.9</td>
+    <td>39.4</td>
+    <td>35.1</td>
+    <td>31.6</td>
+    <td>28.7</td>
+    <td>26.3</td>
+    <td>24.2</td>
+    <td>22.5</td>
+    <td>20.9</td>
+    <td>19.6</td>
+    <td>18.4</td>
+    <td>17.4</td>
+    <td>16.4</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>230 PFC</td>
+    <td>25.1</td>
+    <td>73.2</td>
+    <td>258</td>
+    <td>429</td>
+    <td>73.2</td>
+    <td>73.2</td>
+    <td>66.9</td>
+    <td>59</td>
+    <td>51.6</td>
+    <td>45.2</td>
+    <td>39.9</td>
+    <td>35.5</td>
+    <td>31.9</td>
+    <td>28.9</td>
+    <td>26.3</td>
+    <td>24.2</td>
+    <td>22.4</td>
+    <td>19.4</td>
+    <td>17.1</td>
+    <td>15.3</td>
+    <td>13.8</td>
+    <td>12.6</td>
+    <td>11.6</td>
+    <td>10.7</td>
+    <td>9.94</td>
+    <td>9.29</td>
+    <td>8.71</td>
+    <td>8.21</td>
+    <td>7.76</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>200 PFC</td>
+    <td>22.9</td>
+    <td>59.7</td>
+    <td>207</td>
+    <td>435</td>
+    <td>59.7</td>
+    <td>59.7</td>
+    <td>54.8</td>
+    <td>48.9</td>
+    <td>43.3</td>
+    <td>38.5</td>
+    <td>34.5</td>
+    <td>31.1</td>
+    <td>28.2</td>
+    <td>25.7</td>
+    <td>23.7</td>
+    <td>21.9</td>
+    <td>20.3</td>
+    <td>17.7</td>
+    <td>15.7</td>
+    <td>14.1</td>
+    <td>12.8</td>
+    <td>11.7</td>
+    <td>10.7</td>
+    <td>10</td>
+    <td>9.26</td>
+    <td>8.66</td>
+    <td>8.14</td>
+    <td>7.67</td>
+    <td>7.25</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>180 PFC</td>
+    <td>20.9</td>
+    <td>49.1</td>
+    <td>187</td>
+    <td>435</td>
+    <td>49.1</td>
+    <td>49.1</td>
+    <td>45.2</td>
+    <td>40.4</td>
+    <td>35.9</td>
+    <td>32.1</td>
+    <td>28.8</td>
+    <td>26.1</td>
+    <td>23.7</td>
+    <td>21.7</td>
+    <td>20</td>
+    <td>18.5</td>
+    <td>17.2</td>
+    <td>15.1</td>
+    <td>13.4</td>
+    <td>12</td>
+    <td>10.9</td>
+    <td>10</td>
+    <td>9.17</td>
+    <td>8.5</td>
+    <td>7.91</td>
+    <td>7.4</td>
+    <td>6.95</td>
+    <td>6.56</td>
+    <td>6.2</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>150 PFC</td>
+    <td>17.7</td>
+    <td>37.2</td>
+    <td>156</td>
+    <td>422</td>
+    <td>37.2</td>
+    <td>37.2</td>
+    <td>34</td>
+    <td>30.3</td>
+    <td>27</td>
+    <td>24.1</td>
+    <td>21.7</td>
+    <td>19.6</td>
+    <td>17.9</td>
+    <td>16.4</td>
+    <td>15.1</td>
+    <td>14</td>
+    <td>13</td>
+    <td>11.4</td>
+    <td>10.1</td>
+    <td>9.1</td>
+    <td>8.26</td>
+    <td>7.55</td>
+    <td>6.96</td>
+    <td>6.44</td>
+    <td>6</td>
+    <td>5.62</td>
+    <td>5.27</td>
+    <td>4.97</td>
+    <td>4.7</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>125 PFC</td>
+    <td>11.9</td>
+    <td>21</td>
+    <td>102</td>
+    <td>368</td>
+    <td>21</td>
+    <td>20.8</td>
+    <td>18.5</td>
+    <td>16.1</td>
+    <td>14</td>
+    <td>12.3</td>
+    <td>10.9</td>
+    <td>9.71</td>
+    <td>8.76</td>
+    <td>7.96</td>
+    <td>7.29</td>
+    <td>6.72</td>
+    <td>6.22</td>
+    <td>5.41</td>
+    <td>4.79</td>
+    <td>4.28</td>
+    <td>3.88</td>
+    <td>3.54</td>
+    <td>3.25</td>
+    <td>3.01</td>
+    <td>2.8</td>
+    <td>2.62</td>
+    <td>2.46</td>
+    <td>2.31</td>
+    <td>2.19</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>100 PFC</td>
+    <td>8.33</td>
+    <td>11.6</td>
+    <td>72.6</td>
+    <td>281</td>
+    <td>11.6</td>
+    <td>11.2</td>
+    <td>9.55</td>
+    <td>8.11</td>
+    <td>6.97</td>
+    <td>6.06</td>
+    <td>5.34</td>
+    <td>4.76</td>
+    <td>4.28</td>
+    <td>3.88</td>
+    <td>3.55</td>
+    <td>3.26</td>
+    <td>3.02</td>
+    <td>2.62</td>
+    <td>2.31</td>
+    <td>2.07</td>
+    <td>1.87</td>
+    <td>1.71</td>
+    <td>1.57</td>
+    <td>1.45</td>
+    <td>1.35</td>
+    <td>1.26</td>
+    <td>1.18</td>
+    <td>1.12</td>
+    <td>1.05</td>
+  </tr>
+  <tr onclick="changeColour(this)">
+    <td>75 PFC</td>
+    <td>5.92</td>
+    <td>6.16</td>
+    <td>49.2</td>
+    <td>223</td>
+    <td>6.16</td>
+    <td>5.76</td>
+    <td>4.87</td>
+    <td>4.15</td>
+    <td>3.59</td>
+    <td>3.14</td>
+    <td>2.77</td>
+    <td>2.48</td>
+    <td>2.23</td>
+    <td>2.03</td>
+    <td>1.85</td>
+    <td>1.71</td>
+    <td>1.58</td>
+    <td>1.37</td>
+    <td>1.21</td>
+    <td>1.09</td>
+    <td>0.983</td>
+    <td>0.897</td>
+    <td>0.825</td>
+    <td>0.763</td>
+    <td>0.71</td>
+    <td>0.664</td>
+    <td>0.623</td>
+    <td>0.587</td>
+    <td>0.555</td>
+  </tr>
+  <!-- ENTER TABLE DATA ABOVE -->
+</table>
+<script src="../tables.js"></script>

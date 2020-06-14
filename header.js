@@ -23,8 +23,8 @@ document.write(`
   <a href="/moment/rhs450">RHS450</a>
   <a href="/moment/shs350">SHS350</a>
   <a href="/moment/shs450">SHS450</a>
-  <a href="/moment/shs250">CHS250</a>
-  <a href="/moment/shs350">CHS350</a>
+  <a href="/moment/chs250">CHS250</a>
+  <a href="/moment/chs350">CHS350</a>
   </div>
   </li>
   <li><a href="/properties/bolts">Bolts</a></li>
