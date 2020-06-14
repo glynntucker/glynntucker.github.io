@@ -10,7 +10,7 @@ document.write(`
   <a href="/properties/pfc">PFC</a>
   <a href="/properties/rhs">RHS</a>
   <a href="/properties/shs">SHS</a>
-  <a href="/properties/chs">CHS</a>
+  <a href="/properties/rhs">CHS</a>
   </div>
   </li>
   <li class="dropdown">
