@@ -12,9 +12,10 @@ table {
   overflow: hidden;
   font-family: arial, sans-serif;
   border-collapse: collapse;
+  border: 1px solid #000000;
 }
 
-#myTable th, th {
+#myTable th, td {
   border: 1px solid #000000;
 }
 
