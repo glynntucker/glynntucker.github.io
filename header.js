@@ -3,11 +3,14 @@ document.write(`
   <ul>
   <li><a href="/index">Home</a></li>
   <li class="dropdown">
-  <a href="javascript:void(0)" class="dropbtn">Open Sections</a>
+  <a href="javascript:void(0)" class="dropbtn">Section Properties</a>
   <div class="dropdown-content">
   <a href="/properties/ub">UB</a>
   <a href="/properties/uc">UC</a>
   <a href="/properties/pfc">PFC</a>
+  <a href="/properties/rhs">RHS</a>
+  <a href="/properties/shs">SHS</a>
+  <a href="/properties/chs">CHS</a>
   </div>
   </li>
   <li class="dropdown">
@@ -22,14 +25,6 @@ document.write(`
   <a href="/moment/shs450">SHS450</a>
   <a href="/moment/shs250">CHS250</a>
   <a href="/moment/shs450">CHS350</a>
-  </div>
-  </li>
-  <li class="dropdown">
-  <a href="javascript:void(0)" class="dropbtn">Hollow Sections</a>
-  <div class="dropdown-content">
-  <a href="/properties/shs">SHS</a>
-  <a href="/properties/rhs">CHS</a>
-  <a href="/properties/chs">CHS</a>
   </div>
   </li>
   <li><a href="/properties/bolts">Bolts</a></li>
@@ -127,5 +122,4 @@ document.write(`
     }
   </style>
   </div>
-
   `);
