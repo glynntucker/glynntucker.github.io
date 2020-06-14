@@ -19,12 +19,12 @@ document.write(`
   <a href="/moment/ub">UB</a>
   <a href="/moment/uc">UC</a>
   <a href="/moment/pfc">PFC</a>
-  <a href="/moment/rhs250">RHS350</a>
+  <a href="/moment/rhs350">RHS350</a>
   <a href="/moment/rhs450">RHS450</a>
-  <a href="/moment/shs250">SHS350</a>
+  <a href="/moment/shs350">SHS350</a>
   <a href="/moment/shs450">SHS450</a>
   <a href="/moment/shs250">CHS250</a>
-  <a href="/moment/shs450">CHS350</a>
+  <a href="/moment/shs350">CHS350</a>
   </div>
   </li>
   <li><a href="/properties/bolts">Bolts</a></li>
