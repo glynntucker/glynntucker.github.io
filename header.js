@@ -23,8 +23,22 @@ document.write(`
   <a href="/moment/rhs450">RHS450</a>
   <a href="/moment/shs350">SHS350</a>
   <a href="/moment/shs450">SHS450</a>
-  <a href="/moment/chs250">CHS250</a>
-  <a href="/moment/chs350">CHS350</a>
+  <a href="/moment/shs250">CHS250</a>
+  <a href="/moment/shs350">CHS350</a>
+  </div>
+  </li>
+  <li class="dropdown">
+  <a href="javascript:void(0)" class="dropbtn">Compression Capacities</a>
+  <div class="dropdown-content">
+  <a href="/comp/ub">UB</a>
+  <a href="/comp/uc">UC</a>
+  <a href="/comp/pfc">PFC</a>
+  <a href="/comp/rhs350">RHS350</a>
+  <a href="/comp/rhs450">RHS450</a>
+  <a href="/comp/shs350">SHS350</a>
+  <a href="/comp/shs450">SHS450</a>
+  <a href="/comp/shs250">CHS250</a>
+  <a href="/comp/shs350">CHS350</a>
   </div>
   </li>
   <li><a href="/properties/bolts">Bolts</a></li>
@@ -103,23 +117,23 @@ document.write(`
     background-color: #ffffff;
   }
 
-    .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #2f2f2f;
-      color: white;
-      text-align: center;
-    }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #2f2f2f;
+    color: white;
+    text-align: center;
+  }
 
-    .rotateOrder div {
-      -webkit-transform: rotate(-90.0deg);
-      position: absolute;
-      vertical-align: middle;
-      padding-top: 5px;
-      width:10px;
-    }
+  .rotateOrder div {
+    -webkit-transform: rotate(-90.0deg);
+    position: absolute;
+    vertical-align: middle;
+    padding-top: 5px;
+    width:10px;
+  }
   </style>
   </div>
   `);

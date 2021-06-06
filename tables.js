@@ -46,6 +46,10 @@ table {
   text-align: center;
 }
 
+#myTable tr{
+  text-align: center;
+}
+
 .button {
   background-color: #084887;
   border: none;
