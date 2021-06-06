@@ -61,7 +61,7 @@ document.write(`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #282828;
   }
 
   li {
@@ -70,10 +70,11 @@ document.write(`
 
   li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: #969696;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-weight: bold;
   }
 
   li a:hover, .dropdown:hover .dropbtn {
@@ -85,6 +86,8 @@ document.write(`
   li.dropdown {
     display: inline-block;
   }
+
+body {background-color: #3C3C3C;}
 
   .dropdown-content {
     display: none;

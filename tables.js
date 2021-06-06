@@ -20,11 +20,11 @@ table {
 }
 
 #myTable tr:nth-child(odd) {
-  background-color: #B8B5B5;
+  background-color: #b7d7e8;
 }
 
 #myTable tr:nth-child(even) {
-  background-color: #a4a0a0;
+  background-color: #cfe0e8;
 }
 
 #myInput {
@@ -41,7 +41,7 @@ table {
 }
 
 #myTable th{
-  background-color: #dbdbdb;
+  background-color: #87bdd8;
   color: #000000;
   text-align: center;
 }
@@ -228,7 +228,7 @@ function sortSizeUp(n) {
 }
 
 function changeColour(o){
-  o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
+  o.style.backgroundColor=(o.style.backgroundColor=='steelblue')?(''):('steelblue');
 }
 
 </script>
