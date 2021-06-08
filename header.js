@@ -43,7 +43,7 @@ document.write(`
   </li>
   <li><a href="/properties/bolts">Bolts</a></li>
   <li><a href="/properties/welds">Welds</a></li>
-  <li><a href="/plate">Plates</a></li>
+  <li><a href="/properties/plate">Plates</a></li>
   <li class="dropdown">
   <a href="/conc/concrete" class="dropbtn">Concrete</a>
   <div class="dropdown-content">
