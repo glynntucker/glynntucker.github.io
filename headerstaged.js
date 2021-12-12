@@ -1,59 +1,59 @@
 document.write(`
-  <div class="headerbar">
-    <h1>Header</h1>
-  </div>
-  <div class="sidenav">
+<div class="headerbar">
+  <h1>Header</h1>
+</div>
+<div class="sidenav">
 
   <a href="/index">Home</a>
 
   <button class="dropdown-btn">Section Properties
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <i class="fa fa-caret-down"></i>
+  </button>
 
-      <div class="dropdown-container">
-  <a href="/properties/ub">UB</a>
-  <a href="/properties/uc">UC</a>
-  <a href="/properties/pfc">PFC</a>
-  <a href="/properties/rhs">RHS</a>
-  <a href="/properties/shs">SHS</a>
-  <a href="/properties/chs">CHS</a>
+  <div class="dropdown-container">
+    <a href="/properties/ub">UB</a>
+    <a href="/properties/uc">UC</a>
+    <a href="/properties/pfc">PFC</a>
+    <a href="/properties/rhs">RHS</a>
+    <a href="/properties/shs">SHS</a>
+    <a href="/properties/chs">CHS</a>
   </div>
 
 
   <button class="dropdown-btn">Moment Capacities
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <i class="fa fa-caret-down"></i>
+  </button>
 
-      <div class="dropdown-container">
+  <div class="dropdown-container">
 
-  <a href="/moment/ub">UB</a>
-  <a href="/moment/uc">UC</a>
-  <a href="/moment/pfc">PFC</a>
-  <a href="/moment/rhs350">RHS350</a>
-  <a href="/moment/rhs450">RHS450</a>
-  <a href="/moment/shs350">SHS350</a>
-  <a href="/moment/shs450">SHS450</a>
-  <a href="/moment/shs250">CHS250</a>
-  <a href="/moment/shs350">CHS350</a>
+    <a href="/moment/ub">UB</a>
+    <a href="/moment/uc">UC</a>
+    <a href="/moment/pfc">PFC</a>
+    <a href="/moment/rhs350">RHS350</a>
+    <a href="/moment/rhs450">RHS450</a>
+    <a href="/moment/shs350">SHS350</a>
+    <a href="/moment/shs450">SHS450</a>
+    <a href="/moment/shs250">CHS250</a>
+    <a href="/moment/shs350">CHS350</a>
   </div>
 
 
   <button class="dropdown-btn">Compression Capacities
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <i class="fa fa-caret-down"></i>
+  </button>
 
-      <div class="dropdown-container">
+  <div class="dropdown-container">
 
 
-  <a href="/comp/ub">UB</a>
-  <a href="/comp/uc">UC</a>
-  <a href="/comp/pfc">PFC</a>
-  <a href="/comp/rhs350">RHS350</a>
-  <a href="/comp/rhs450">RHS450</a>
-  <a href="/comp/shs350">SHS350</a>
-  <a href="/comp/shs450">SHS450</a>
-  <a href="/comp/shs250">CHS250</a>
-  <a href="/comp/shs350">CHS350</a>
+    <a href="/comp/ub">UB</a>
+    <a href="/comp/uc">UC</a>
+    <a href="/comp/pfc">PFC</a>
+    <a href="/comp/rhs350">RHS350</a>
+    <a href="/comp/rhs450">RHS450</a>
+    <a href="/comp/shs350">SHS350</a>
+    <a href="/comp/shs450">SHS450</a>
+    <a href="/comp/shs250">CHS250</a>
+    <a href="/comp/shs350">CHS350</a>
   </div>
 
   <a href="/properties/bolts">Bolts</a>
@@ -67,10 +67,10 @@ document.write(`
   <a href="/interpolation">Interpolation</a>
   <!--<li class="finalLogo" style="float:right; background-color: #8a8a8a;"><a href="/index"><img src="../GTLOGO.png" align="center" width=200px></a>-->
   <a href="https://glynntucker.sharepoint.com" target="_blanks">Sharepoint Home</a>
-  </div>
+</div>
 
 
-  <style>
+<style>
   .headerbar {
     background-color: #084887B3;
     backdrop-filter: blur(10px);
@@ -148,23 +148,22 @@ document.write(`
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
-  </style>
-  <script>
+</style>
+<script>
   /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
   var dropdown = document.getElementsByClassName("dropdown-btn");
   var i;
 
   for (i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-    dropdownContent.style.display = "none";
-    } else {
-    dropdownContent.style.display = "block";
-    }
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
     });
   }
-  </script>
-
+</script>
   `);
