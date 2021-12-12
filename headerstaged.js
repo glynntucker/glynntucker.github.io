@@ -82,6 +82,7 @@ document.write(`
   body {
     font-family: "Lato", sans-serif;
     margin: 0px;
+    margin-left: 200px; /* Same as the width of the sidenav */
   }
 
   /* Fixed sidenav, full height */
