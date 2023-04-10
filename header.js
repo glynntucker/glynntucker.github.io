@@ -51,8 +51,8 @@ document.write(`
   <a href="/comp/rhs450">RHS450</a>
   <a href="/comp/shs350">SHS350</a>
   <a href="/comp/shs450">SHS450</a>
-  <a href="/comp/shs250">CHS250</a>
-  <a href="/comp/shs350">CHS350</a>
+  <a href="/comp/chs250">CHS250</a>
+  <a href="/comp/chs350">CHS350</a>
 </div>
 
 <a href="/properties/bolts">Bolts</a>
