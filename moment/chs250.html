@@ -1,29 +1,22 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-  <style> body {background-color: #b0b0b0;}</style>
-
+  <title>UB Member Capacity</title>
+  <script src="../header.js"></script>
+  <script src="../tables.js"></script>
 </head>
-<script src="../header.js"></script>
-
-<title>CHS250 Member Capacity</title>
-<body style="font-family:arial;" align="center">
-  <h3 align="Center">CHS250 Capacity</h3>
-  <p>Displayed Graph</p>
-  <div align="center" class="CHS250Graph" style="display:block;"><div id="CHS2501Graph"><p></p></div><div id="CHS2502Graph"><p></p></div><div id="CHS2503Graph"></div></div>
-</body>
-</html>
-
-<table class="theTable"  id="myTable" align="center">
+<div class="headerbar">
+  <h1>CHS Grade 250 Member Moment Capacity</h1>
+</div>
+<body class="middle">
+  <p> </p>
+  <div>
+    <table class="theTable"  id="myTable" align="center">
   <tr onclick="changeColour(this)">
     <th colspan="3">Designation</th>
     <th>Mass</th>
     <th>ΦMs</th>
     <th>ΦVv</th>
-    <th colspan="25">Design Member Moment Capacities, ΦMbx (kNm) at Effective Length lex in (mm)</th>
+    <th colspan="25">Design Member Moment Capacities, ΦMbx (kNm) at Effective Length lex in (mm)</th>
   </tr>
   <tr onclick="changeColour(this)">
     <th>d</th>

@@ -1,20 +1,16 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-  <style> body {background-color: #b0b0b0;}</style>
-
+  <title>UB Member Capacity</title>
+  <script src="../header.js"></script>
+  <script src="../tables.js"></script>
 </head>
-<script src="../header.js"></script>
-
-<title>RHS350 Member Capacity</title>
-<body style="font-family:arial;" align="center">
-  <h3 align="Center">RHS350 Capacity</h3>
-  <p>Displayed Graph</p>
-  <div align="center" class="RHS350Graph" style="display:block;"><div id="RHS3501Graph"><p></p></div><div id="RHS3502Graph"><p></p></div><div id="RHS3503Graph"></div></div>
-  <table class="theTable"  id="myTable" align="center">
+<div class="headerbar">
+  <h1>RHS Grade 350 Member Moment Capacity</h1>
+</div>
+<body class="middle">
+  <p> </p>
+  <div>
+    <table class="theTable"  id="myTable" align="center">
     <colgroup>
       <col span="4">
       <col span="4">
@@ -26,7 +22,7 @@
       <th>ΦMs</th>
       <th>ΦVv</th>
       <th>FLR</th>
-      <th colspan="25">Design Member Moment Capacities, ΦMbx (kNm) at Effective Length lex in (mm)</th>
+      <th colspan="25">Design Member Moment Capacities, ΦMbx (kNm) at Effective Length lex in (mm)</th>
     </tr>
     <tr onclick="changeColour(this)">
       <th>d</th>

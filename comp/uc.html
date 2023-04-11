@@ -1,23 +1,16 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-  <style> body {background-color: #b0b0b0;}</style>
-
+  <title>UB Member Capacity</title>
+  <script src="../header.js"></script>
+  <script src="../tables.js"></script>
 </head>
-<script src="../header.js"></script>
-
-<title>UB Member Compression Capacity</title>
-<body style="font-family:arial;" align="center">
-  <h3 align="Center">UC Compression Capacity</h3>
-  <p></p>
-  <div align="center" class="ubGraph" style="display:block;"><div id="ubGraph"></div></div>
-
-</body>
-</html>
-<table class="theTable"  id="myTable" align="center">
+<div class="headerbar">
+  <h1>UC Member Compression Capacity</h1>
+</div>
+<body class="middle">
+  <p> </p>
+  <div>
+    <table class="theTable"  id="myTable" align="center">
   <colgroup>
     <col span="1" width="110">
     <col span="4" width="55">
@@ -29,13 +22,13 @@
       <th>Flange Width</th>
       <th>Mass</th>
       <th>ØNs(kN)</th>
-      <th colspan="25">Design Member Capacities in Axial Compression ØNc (kN) at Effective Length le in (mm) about the the x-axis =</th>
+      <th colspan="25">Design Member Capacities in Axial Compression ØNc (kN) at Effective Length le in (mm) about the the x-axis =</th>
     </tr>
       <tr>
         <th>d mm</th>
         <th>bf mm</th>
         <th>kg/m</th>
-        <th>(le = 0)</th>
+        <th>(le = 0)</th>
         <th>0</th>
         <th>500</th>
         <th>1000</th>

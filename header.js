@@ -76,9 +76,6 @@ document.write(`
   text-align: left;
   padding: 10px 0px 10px 160px;
 }
-.theTable{
-  padding-top: 30px;
-}
 
 body {
   font-family: "Lato", sans-serif;
