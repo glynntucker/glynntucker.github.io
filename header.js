@@ -74,14 +74,17 @@ document.write(`
   background-color: #084887B3;
   backdrop-filter: blur(10px);
   text-align: left;
-  padding: 10px 0px 10px 240px;
+  padding: 10px 0px 10px 160px;
 }
-
+.theTable{
+  padding-top: 30px;
+}
 
 body {
   font-family: "Lato", sans-serif;
   margin: 0px;
   background-color: #b0b0b0;
+  padding-left: 160px;
 }
 
 /* Fixed sidenav, full height */

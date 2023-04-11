@@ -13,6 +13,7 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   border: 1px solid #000000;
+  padding-top: 100px;
 }
 
 #myTable th, td {
