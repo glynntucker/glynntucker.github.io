@@ -1,6 +1,6 @@
 document.write(`
 
-  
+
 <div class="sidenav">
 
 <a href="/index">Home</a>
@@ -57,7 +57,7 @@ document.write(`
 
 <a href="/properties/bolts">Bolts</a>
 <a href="/properties/welds">Welds</a>
-<a href="/plate">Plates</a>
+<a href="/properties/plate">Plates</a>
 
 <a href="/conc/concrete" class="dropbtn">Concrete</a>
 
