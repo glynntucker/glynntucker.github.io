@@ -1,239 +1,121 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<!-- Plotly.js -->
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-	<style>body {background-color: #b0b0b0;}</style>
-
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>body {background-color: #b0b0b0;}</style>
+  <title>UC Properties</title>
 </head>
+
 <script src="../header.js"></script>
 
-<title>UC Properties</title>
 <body style="font-family:arial;" align="center">
-	<h3 align="Center">UC Properties</h3>
-	<p>Search, sort or hover over a member to see its properties.</p>
-	<div class="inputBox" align="middle">
-		<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
-	</div>
+  <h3 align="Center">UC Properties</h3>
+  <p>Search, sort or hover over a member to see its properties.</p>
+  <div class="inputBox" align="middle">
+    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+  </div>
 
-	<button class="button" onclick="sortSizeDown(9)">Decreasing Size/Mass</button>
-	<button class="button" onclick="sortSizeUp(9)">Increasing Size/Mass</button>
-	<br>
-	<br>
+  <button class="button" onclick="sortSizeDown(9)">Decreasing Size/Mass</button>
+  <button class="button" onclick="sortSizeUp(9)">Increasing Size/Mass</button>
+  <br>
+  <br>
 
-	<table id="myTable" align="center">
-		<colgroup>
-			<col span="1" width="85">
-			<col span="1" width="45">
-			<col span="1" width="50">
-			<col span="1" width="57">
-			<col span="1" width="84">
-			<col span="1" width="84">
-			<col span="1" width="72">
-			<col span="1" width="72">
-			<col span="1" width="55">
-			<col span="1" width="10">
-		</colgroup>
+  <table id="myTable" align="center">
+    <colgroup>
+      <col span="1" width="85">
+      <col span="1" width="45">
+      <col span="1" width="50">
+      <col span="1" width="57">
+      <col span="1" width="84">
+      <col span="1" width="84">
+      <col span="1" width="72">
+      <col span="1" width="72">
+      <col span="1" width="55">
+      <col span="1" width="10">
+    </colgroup>
 
-		<!-- ENTER TABLE DATA BELOW -->
-		<tr>
-			<th rowspan="3">Member</th>
-			<th rowspan="2">Mass</th>
-			<th colspan="6">Dimensions</th>
-			<th>Gross Area</th>
-			<th rowspan="3" class='rotateOrder'><div>Order</div></th>
-		</tr>
-		<tr>
-			<th>Depth</th>
-			<th>Flange Width</th>
-			<th>Flange Thickness</th>
-			<th>Web Thickness</th>
-			<th>Root Radius</th>
-			<th>Depth Between Flanges</th>
-			<th>A<sub>g</sub></th>
-		</tr>
-		<tr>
-			<th>kg/m</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm<sup>2</sup></th>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UC158</td>
-			<td>158</td>
-			<td>327</td>
-			<td>311</td>
-			<td>25</td>
-			<td>15.7</td>
-			<td>16.5</td>
-			<td>277</td>
-			<td>20100</td>
-			<td>1</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UC137</td>
-			<td>137</td>
-			<td>321</td>
-			<td>309</td>
-			<td>21.7</td>
-			<td>13.8</td>
-			<td>16.5</td>
-			<td>277</td>
-			<td>17500</td>
-			<td>2</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UC118</td>
-			<td>118</td>
-			<td>315</td>
-			<td>307</td>
-			<td>18.7</td>
-			<td>11.9</td>
-			<td>16.5</td>
-			<td>277</td>
-			<td>15000</td>
-			<td>3</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UC96.8</td>
-			<td>96.8</td>
-			<td>308</td>
-			<td>305</td>
-			<td>15.4</td>
-			<td>9.9</td>
-			<td>16.5</td>
-			<td>277</td>
-			<td>12400</td>
-			<td>4</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>250UC89.5</td>
-			<td>89.5</td>
-			<td>260</td>
-			<td>256</td>
-			<td>17.3</td>
-			<td>10.5</td>
-			<td>14</td>
-			<td>225</td>
-			<td>11400</td>
-			<td>5</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>250UC72.9</td>
-			<td>72.9</td>
-			<td>254</td>
-			<td>254</td>
-			<td>14.2</td>
-			<td>8.6</td>
-			<td>14</td>
-			<td>225</td>
-			<td>9320</td>
-			<td>6</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UC59.5</td>
-			<td>59.3</td>
-			<td>210</td>
-			<td>205</td>
-			<td>14.2</td>
-			<td>9.3</td>
-			<td>11.4</td>
-			<td>181</td>
-			<td>7620</td>
-			<td>7</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UC52.2</td>
-			<td>52.2</td>
-			<td>206</td>
-			<td>204</td>
-			<td>12.5</td>
-			<td>8</td>
-			<td>11.4</td>
-			<td>181</td>
-			<td>6660</td>
-			<td>8</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UC46.2</td>
-			<td>46.2</td>
-			<td>203</td>
-			<td>203</td>
-			<td>11</td>
-			<td>7.3</td>
-			<td>11.4</td>
-			<td>181</td>
-			<td>5900</td>
-			<td>9</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>150UC37.2</td>
-			<td>37.2</td>
-			<td>162</td>
-			<td>154</td>
-			<td>11.5</td>
-			<td>8.1</td>
-			<td>8.9</td>
-			<td>139</td>
-			<td>4730</td>
-			<td>10</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>150UC30.0</td>
-			<td>30</td>
-			<td>158</td>
-			<td>153</td>
-			<td>9.4</td>
-			<td>6.6</td>
-			<td>8.9</td>
-			<td>139</td>
-			<td>3860</td>
-			<td>11</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>150UC23.4</td>
-			<td>23.4</td>
-			<td>152</td>
-			<td>152</td>
-			<td>6.8</td>
-			<td>6.1</td>
-			<td>8.9</td>
-			<td>139</td>
-			<td>2980</td>
-			<td>12</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>100UC14.8</td>
-			<td>14.8</td>
-			<td>97</td>
-			<td>99</td>
-			<td>7</td>
-			<td>5</td>
-			<td>10</td>
-			<td>83</td>
-			<td>1890</td>
-			<td>13</td>
-		</tr>
-	</table>
-</div>
-</div>
+    <tr>
+      <th rowspan="3">Member</th>
+      <th rowspan="2">Mass</th>
+      <th colspan="6">Dimensions</th>
+      <th>Gross Area</th>
+      <th rowspan="3" class='rotateOrder'><div>Order</div></th>
+    </tr>
+    <tr>
+      <th>Depth</th>
+      <th>Flange Width</th>
+      <th>Flange Thickness</th>
+      <th>Web Thickness</th>
+      <th>Root Radius</th>
+      <th>Depth Between Flanges</th>
+      <th>A<sub>g</sub></th>
+    </tr>
+    <tr>
+      <th>kg/m</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm<sup>2</sup></th>
+    </tr>
+    <tbody id="ucTableBody">
+      <tr><td colspan="10">Loading UC data...</td></tr>
+    </tbody>
+  </table>
 </body>
-
-
-<!--<footer class="footer">
-<br></br>
-</footer>-->
-<br></br>
-<br></br>
-</body>
-
-
-
 </html>
 <script src="../tables.js"></script>
+<script>
+  function parseSimpleCsv(text) {
+    var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
+    if (lines.length < 2) return [];
+    var headers = lines[0].split(",");
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length !== headers.length) continue;
+      var row = {};
+      for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function addCell(tr, value) {
+    var td = document.createElement("td");
+    td.innerText = value;
+    tr.appendChild(td);
+  }
+
+  function renderUcRows(rows) {
+    var tbody = document.getElementById("ucTableBody");
+    tbody.innerHTML = "";
+    var keys = [
+      "Member", "Mass", "Depth", "FlangeWidth", "FlangeThickness",
+      "WebThickness", "RootRadius", "DepthBetweenFlanges", "GrossArea", "Order"
+    ];
+
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="10">No UC data found.</td></tr>';
+      return;
+    }
+
+    for (var i = 0; i < rows.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+      for (var j = 0; j < keys.length; j++) addCell(tr, rows[i][keys[j]] || "");
+      tbody.appendChild(tr);
+    }
+  }
+
+  (function loadUcCsv() {
+    fetch("./uc.csv", { cache: "no-store" })
+      .then(function(res) { if (!res.ok) throw new Error("Failed to load uc.csv"); return res.text(); })
+      .then(function(text) { renderUcRows(parseSimpleCsv(text)); })
+      .catch(function() {
+        document.getElementById("ucTableBody").innerHTML = '<tr><td colspan="10">Could not load UC CSV data.</td></tr>';
+      });
+  })();
+</script>

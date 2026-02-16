@@ -1,333 +1,112 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>body {background-color: #b0b0b0;}</style>
+  <title>CHS Properties</title>
 </head>
+
 <script src="../header.js"></script>
-<title>CHS Properties</title>
+
 <body style="font-family:arial;" align="center">
-			<h3 align="Center">CHS Properties</h3>
-			<p>Search, sort or hover over a member to see its properties.</p>
-			<div class="inputBox" align="middle">
-				<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
-			</div>
+  <h3 align="Center">CHS Properties</h3>
+  <p>Search, sort or hover over a member to see its properties.</p>
+  <div class="inputBox" align="middle">
+    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+  </div>
 
-			<button class="button" onclick="sortSizeDown(7)">Decreasing Size</button>
-			<button class="button" onclick="sortSizeUp(7)">Increasing Size</button>
-			<button class="button" onclick="sortMassDown(5)">Decreasing Mass</button>
-			<button class="button" onclick="sortMassUp(5)">Increasing Mass</button>
-			<br>
-			<br>
+  <button class="button" onclick="sortSizeDown(7)">Decreasing Size</button>
+  <button class="button" onclick="sortSizeUp(7)">Increasing Size</button>
+  <button class="button" onclick="sortMassDown(5)">Decreasing Mass</button>
+  <button class="button" onclick="sortMassUp(5)">Increasing Mass</button>
+  <br>
+  <br>
 
-				<table id="myTable" align="center">
-					<colgroup>
-						<col span="1" width="110">
-						<col span="1" width="45">
-						<col span="1" width="12">
-						<col span="1" width="34">
-						<col span="1" width="40">
-						<col span="1" width="45">
-						<col span="1" width="92">
-						<col span="1" width="20">
-					</colgroup>
+  <table id="myTable" align="center">
+    <colgroup>
+      <col span="1" width="110">
+      <col span="1" width="45">
+      <col span="1" width="12">
+      <col span="1" width="34">
+      <col span="1" width="40">
+      <col span="1" width="45">
+      <col span="1" width="92">
+      <col span="1" width="20">
+    </colgroup>
 
-					<!-- ENTER TABLE DATA BELOW -->
-					<tr>
-						<th rowspan="3">Member</th>
-						<th colspan="4">Dimensions</th>
-						<th rowspan="2">Mass</th>
-						<th>Gross Area</th>
-						<th rowspan="3" class='rotateOrder'><div>Order</div></th>
-					</tr>
-					<tr>
-						<th>d</td>
-						<th rowspan="2"></td>
-						<th>b</td>
-						<th rowspan="2"></td>
-						<th>A<sub>g</sub></td>
-					</tr>
-					<tr>
-						<th>mm</td>
-						<th>mm</td>
-						<th>kg/m</td>
-						<th>kg/m</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>165.1x5.4CHS</td>
-						<td>165.1</td>
-						<td>x</td>
-						<td>5.4</td>
-						<td>CHS</td>
-						<td>21.3</td>
-						<td>2710</td>
-						<td>1</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>165.1x5.0CHS</td>
-						<td>165.1</td>
-						<td>x</td>
-						<td>5</td>
-						<td>CHS</td>
-						<td>19.7</td>
-						<td>2510</td>
-						<td>2</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>139.7x5.4CHS</td>
-						<td>139.7</td>
-						<td>x</td>
-						<td>5.4</td>
-						<td>CHS</td>
-						<td>17.9</td>
-						<td>2280</td>
-						<td>3</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>139.7x5.0CHS</td>
-						<td>139.7</td>
-						<td>x</td>
-						<td>5</td>
-						<td>CHS</td>
-						<td>16.6</td>
-						<td>2120</td>
-						<td>4</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>114.3x5.4CHS</td>
-						<td>114.3</td>
-						<td>x</td>
-						<td>5.4</td>
-						<td>CHS</td>
-						<td>14.5</td>
-						<td>1850</td>
-						<td>5</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>114.3x4.5CHS</td>
-						<td>114.3</td>
-						<td>x</td>
-						<td>4.5</td>
-						<td>CHS</td>
-						<td>12.2</td>
-						<td>1550</td>
-						<td>6</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>101.6x5.0CHS</td>
-						<td>101.6</td>
-						<td>x</td>
-						<td>5</td>
-						<td>CHS</td>
-						<td>11.9</td>
-						<td>1520</td>
-						<td>7</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>101.6x4.0CHS</td>
-						<td>101.6</td>
-						<td>x</td>
-						<td>4</td>
-						<td>CHS</td>
-						<td>9.63</td>
-						<td>1230</td>
-						<td>8</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>88.9x5.9CHS</td>
-						<td>88.9</td>
-						<td>x</td>
-						<td>5.9</td>
-						<td>CHS</td>
-						<td>12.1</td>
-						<td>1540</td>
-						<td>9</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>88.9x5.0CHS</td>
-						<td>88.9</td>
-						<td>x</td>
-						<td>5</td>
-						<td>CHS</td>
-						<td>10.3</td>
-						<td>1320</td>
-						<td>10</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>88.9x4.0CHS</td>
-						<td>88.9</td>
-						<td>x</td>
-						<td>4</td>
-						<td>CHS</td>
-						<td>8.38</td>
-						<td>1070</td>
-						<td>11</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>76.1x5.9CHS</td>
-						<td>76.1</td>
-						<td>x</td>
-						<td>5.9</td>
-						<td>CHS</td>
-						<td>10.2</td>
-						<td>1300</td>
-						<td>12</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>76.1x4.5CHS</td>
-						<td>76.1</td>
-						<td>x</td>
-						<td>4.5</td>
-						<td>CHS</td>
-						<td>7.95</td>
-						<td>1010</td>
-						<td>13</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>76.1x3.6CHS</td>
-						<td>76.1</td>
-						<td>x</td>
-						<td>3.6</td>
-						<td>CHS</td>
-						<td>6.44</td>
-						<td>820</td>
-						<td>14</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>60.3x5.4CHS</td>
-						<td>60.3</td>
-						<td>x</td>
-						<td>5.4</td>
-						<td>CHS</td>
-						<td>7.31</td>
-						<td>931</td>
-						<td>15</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>60.3x4.5CHS</td>
-						<td>60.3</td>
-						<td>x</td>
-						<td>4.5</td>
-						<td>CHS</td>
-						<td>6.19</td>
-						<td>789</td>
-						<td>16</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>60.3x3.6CHS</td>
-						<td>60.3</td>
-						<td>x</td>
-						<td>3.6</td>
-						<td>CHS</td>
-						<td>5.03</td>
-						<td>641</td>
-						<td>17</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>48.3x4.0CHS</td>
-						<td>48.3</td>
-						<td>x</td>
-						<td>4</td>
-						<td>CHS</td>
-						<td>4.37</td>
-						<td>557</td>
-						<td>18</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>48.3x3.2CHS</td>
-						<td>48.3</td>
-						<td>x</td>
-						<td>3.2</td>
-						<td>CHS</td>
-						<td>3.56</td>
-						<td>453</td>
-						<td>19</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>42.4x4.0CHS</td>
-						<td>42.4</td>
-						<td>x</td>
-						<td>4</td>
-						<td>CHS</td>
-						<td>3.79</td>
-						<td>483</td>
-						<td>20</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>42.4x3.2CHS</td>
-						<td>42.4</td>
-						<td>x</td>
-						<td>3.2</td>
-						<td>CHS</td>
-						<td>3.09</td>
-						<td>394</td>
-						<td>21</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>33.7x4.0CHS</td>
-						<td>33.7</td>
-						<td>x</td>
-						<td>4</td>
-						<td>CHS</td>
-						<td>2.93</td>
-						<td>373</td>
-						<td>22</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>33.7x3.2CHS</td>
-						<td>33.7</td>
-						<td>x</td>
-						<td>3.2</td>
-						<td>CHS</td>
-						<td>2.41</td>
-						<td>307</td>
-						<td>23</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>26.9x4.0CHS</td>
-						<td>26.9</td>
-						<td>x</td>
-						<td>4</td>
-						<td>CHS</td>
-						<td>2.26</td>
-						<td>288</td>
-						<td>24</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>26.9x3.2CHS</td>
-						<td>26.9</td>
-						<td>x</td>
-						<td>3.2</td>
-						<td>CHS</td>
-						<td>1.87</td>
-						<td>238</td>
-						<td>25</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>26.9x2.6CHS</td>
-						<td>26.9</td>
-						<td>x</td>
-						<td>2.6</td>
-						<td>CHS</td>
-						<td>1.56</td>
-						<td>198</td>
-						<td>26</td>
-					</tr>
-					<!-- ENTER TABLE DATA ABOVE -->
-				</table>
-		</body>
-
-
-		<!--<footer class="footer">
-			<br></br>
-				<br></br>
-		</footer>-->
-		<br></br>
-		<br></br>
+    <tr>
+      <th rowspan="3">Member</th>
+      <th colspan="4">Dimensions</th>
+      <th rowspan="2">Mass</th>
+      <th>Gross Area</th>
+      <th rowspan="3" class='rotateOrder'><div>Order</div></th>
+    </tr>
+    <tr>
+      <th>d</th>
+      <th rowspan="2"></th>
+      <th>b</th>
+      <th rowspan="2"></th>
+      <th>A<sub>g</sub></th>
+    </tr>
+    <tr>
+      <th>mm</th>
+      <th>mm</th>
+      <th>kg/m</th>
+      <th>kg/m</th>
+    </tr>
+    <tbody id="chsTableBody">
+      <tr><td colspan="8">Loading CHS data...</td></tr>
+    </tbody>
+  </table>
 </body>
-
-
-
 </html>
 <script src="../tables.js"></script>
+<script>
+  function parseSimpleCsv(text) {
+    var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
+    if (lines.length < 2) return [];
+    var headers = lines[0].split(",");
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length !== headers.length) continue;
+      var row = {};
+      for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function addCell(tr, value) {
+    var td = document.createElement("td");
+    td.innerText = value;
+    tr.appendChild(td);
+  }
+
+  function renderChsRows(rows) {
+    var tbody = document.getElementById("chsTableBody");
+    tbody.innerHTML = "";
+    var keys = ["Member", "Depth", "TimesSymbol", "Thickness", "Type", "Mass", "GrossArea", "Order"];
+
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="8">No CHS data found.</td></tr>';
+      return;
+    }
+
+    for (var i = 0; i < rows.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+      for (var j = 0; j < keys.length; j++) addCell(tr, rows[i][keys[j]] || "");
+      tbody.appendChild(tr);
+    }
+  }
+
+  (function loadChsCsv() {
+    fetch("./chs.csv", { cache: "no-store" })
+      .then(function(res) { if (!res.ok) throw new Error("Failed to load chs.csv"); return res.text(); })
+      .then(function(text) { renderChsRows(parseSimpleCsv(text)); })
+      .catch(function() {
+        document.getElementById("chsTableBody").innerHTML = '<tr><td colspan="8">Could not load CHS CSV data.</td></tr>';
+      });
+  })();
+</script>
