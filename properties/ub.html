@@ -1,422 +1,169 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<!-- Plotly.js -->
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-	<style>body {background-color: #b0b0b0;}</style>
-
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>body {background-color: #b0b0b0;}</style>
+  <title>UB Properties</title>
 </head>
+
 <script src="../header.js"></script>
 
-<title>UB Properties</title>
 <body style="font-family:arial;" align="center">
+  <h3 align="Center">UB Properties</h3>
+  <p>Search, sort or hover over a member to see its properties.</p>
+  <div class="inputBox" align="middle">
+    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+  </div>
 
-	<h3 align="Center">UB Properties</h3>
-	<p>Search, sort or hover over a member to see its properties.</p>
-	<div class="inputBox" align="middle">
-		<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
-	</div>
+  <button class="button" onclick="sortSizeDown(10)">Decreasing Size</button>
+  <button class="button" onclick="sortSizeUp(10)">Increasing Size</button>
+  <button class="button" onclick="sortMassDown(1)">Decreasing Mass</button>
+  <button class="button" onclick="sortMassUp(1)">Increasing Mass</button>
+  <br>
+  <br>
 
-	<button class="button" onclick="sortSizeDown(9)">Decreasing Size</button>
-	<button class="button" onclick="sortSizeUp(9)">Increasing Size</button>
-	<button class="button" onclick="sortMassDown(1)">Decreasing Mass</button>
-	<button class="button" onclick="sortMassUp(1)">Increasing Mass</button>
-	<br>
-	<br>
+  <table id="myTable" align="center">
+    <colgroup>
+      <col span="1" width="85">
+      <col span="1" width="45">
+      <col span="1" width="50">
+      <col span="1" width="57">
+      <col span="1" width="84">
+      <col span="1" width="84">
+      <col span="1" width="72">
+      <col span="1" width="72">
+      <col span="1" width="60">
+      <col span="1" width="55">
+      <col span="1" width="10">
+    </colgroup>
 
-	<table id="myTable" align="center">
-		<colgroup>
-			<col span="1" width="85">
-			<col span="1" width="45">
-			<col span="1" width="50">
-			<col span="1" width="57">
-			<col span="1" width="84">
-			<col span="1" width="84">
-			<col span="1" width="72">
-			<col span="1" width="72">
-			<col span="1" width="55">
-			<col span="1" width="10">
-		</colgroup>
+    <tr>
+      <th rowspan="3">Member</th>
+      <th rowspan="2">Mass</th>
+      <th colspan="6">Dimensions</th>
+      <th>d/b Ratio</th>
+      <th>Gross Area</th>
+      <th rowspan="3" class='rotateOrder'><div>Order</div></th>
+    </tr>
+    <tr>
+      <th>Depth</th>
+      <th>Flange Width</th>
+      <th>Flange Thickness</th>
+      <th>Web Thickness</th>
+      <th>Root Radius</th>
+      <th>Depth Between Flanges</th>
+      <th>d/b</th>
+      <th>A<sub>g</sub></th>
+    </tr>
+    <tr>
+      <th>kg/m</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>mm</th>
+      <th>-</th>
+      <th>mm<sup>2</sup></th>
+    </tr>
+    <tbody id="ubTableBody">
+      <tr>
+        <td colspan="11">Loading UB data...</td>
+      </tr>
+    </tbody>
+  </table>
 
-		<!-- ENTER TABLE DATA BELOW -->
-		<tr>
-			<th rowspan="3">Member</th>
-			<th rowspan="2">Mass</th>
-			<th colspan="6">Dimensions</th>
-			<th>Gross Area</th>
-			<th rowspan="3" class='rotateOrder'><div>Order</div></th>
-		</tr>
-		<tr>
-			<th>Depth</th>
-			<th>Flange Width</th>
-			<th>Flange Thickness</th>
-			<th>Web Thickness</th>
-			<th>Root Radius</th>
-			<th>Depth Between Flanges</th>
-			<th>A<sub>g</sub></th>
-		</tr>
-		<tr>
-			<th>kg/m</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm</th>
-			<th>mm<sup>2</sup></th>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>610UB125</td>
-			<td>125</td>
-			<td>612</td>
-			<td>229</td>
-			<td>19.6</td>
-			<td>11.9</td>
-			<td>14</td>
-			<td>572</td>
-			<td>16000</td>
-			<td>1</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>610UB113</td>
-			<td>113</td>
-			<td>607</td>
-			<td>228</td>
-			<td>17.3</td>
-			<td>11.2</td>
-			<td>14</td>
-			<td>572</td>
-			<td>14500</td>
-			<td>2</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>610UB101</td>
-			<td>101</td>
-			<td>602</td>
-			<td>228</td>
-			<td>14.8</td>
-			<td>10.6</td>
-			<td>14</td>
-			<td>572</td>
-			<td>13000</td>
-			<td>3</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>530UB92.4</td>
-			<td>92.4</td>
-			<td>533</td>
-			<td>209</td>
-			<td>15.6</td>
-			<td>10.2</td>
-			<td>14</td>
-			<td>502</td>
-			<td>11800</td>
-			<td>4</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>530UB82.0</td>
-			<td>82</td>
-			<td>528</td>
-			<td>209</td>
-			<td>13.2</td>
-			<td>9.6</td>
-			<td>14</td>
-			<td>502</td>
-			<td>10500</td>
-			<td>5</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>460UB82.1</td>
-			<td>82.1</td>
-			<td>460</td>
-			<td>191</td>
-			<td>16</td>
-			<td>9.9</td>
-			<td>11.4</td>
-			<td>428</td>
-			<td>10500</td>
-			<td>6</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>460UB74.6</td>
-			<td>74.6</td>
-			<td>457</td>
-			<td>190</td>
-			<td>14.5</td>
-			<td>9.1</td>
-			<td>11.4</td>
-			<td>428</td>
-			<td>9520</td>
-			<td>7</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>460UB67.1</td>
-			<td>67.1</td>
-			<td>454</td>
-			<td>190</td>
-			<td>12.7</td>
-			<td>8.5</td>
-			<td>11.4</td>
-			<td>428</td>
-			<td>8580</td>
-			<td>8</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>410UB59.7</td>
-			<td>59.7</td>
-			<td>406</td>
-			<td>178</td>
-			<td>12.8</td>
-			<td>7.8</td>
-			<td>11.4</td>
-			<td>381</td>
-			<td>7640</td>
-			<td>9</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>410UB53.7</td>
-			<td>53.7</td>
-			<td>403</td>
-			<td>178</td>
-			<td>10.9</td>
-			<td>7.6</td>
-			<td>11.4</td>
-			<td>381</td>
-			<td>6890</td>
-			<td>10</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>360UB56.7</td>
-			<td>56.7</td>
-			<td>359</td>
-			<td>172</td>
-			<td>13</td>
-			<td>8</td>
-			<td>11.4</td>
-			<td>333</td>
-			<td>7240</td>
-			<td>11</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>360UB50.7</td>
-			<td>50.7</td>
-			<td>356</td>
-			<td>171</td>
-			<td>11.5</td>
-			<td>7.3</td>
-			<td>11.4</td>
-			<td>333</td>
-			<td>6470</td>
-			<td>12</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>360UB44.7</td>
-			<td>44.7</td>
-			<td>352</td>
-			<td>171</td>
-			<td>9.7</td>
-			<td>6.9</td>
-			<td>11.4</td>
-			<td>333</td>
-			<td>5720</td>
-			<td>13</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UB46.2</td>
-			<td>46.2</td>
-			<td>307</td>
-			<td>166</td>
-			<td>11.8</td>
-			<td>6.7</td>
-			<td>11.4</td>
-			<td>284</td>
-			<td>5930</td>
-			<td>14</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UB40.4</td>
-			<td>40.4</td>
-			<td>304</td>
-			<td>165</td>
-			<td>10.2</td>
-			<td>6.1</td>
-			<td>11.4</td>
-			<td>284</td>
-			<td>5210</td>
-			<td>15</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>310UB32.0</td>
-			<td>32</td>
-			<td>298</td>
-			<td>149</td>
-			<td>8</td>
-			<td>5.5</td>
-			<td>13</td>
-			<td>282</td>
-			<td>4080</td>
-			<td>16</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>250UB37.3</td>
-			<td>37.3</td>
-			<td>256</td>
-			<td>146</td>
-			<td>10.9</td>
-			<td>6.4</td>
-			<td>8.9</td>
-			<td>234</td>
-			<td>4750</td>
-			<td>17</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>250UB31.4</td>
-			<td>31.4</td>
-			<td>252</td>
-			<td>146</td>
-			<td>8.6</td>
-			<td>6.1</td>
-			<td>8.9</td>
-			<td>234</td>
-			<td>4010</td>
-			<td>18</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>250UB25.7</td>
-			<td>25.7</td>
-			<td>248</td>
-			<td>124</td>
-			<td>8</td>
-			<td>5</td>
-			<td>12</td>
-			<td>232</td>
-			<td>3270</td>
-			<td>19</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UB29.8</td>
-			<td>29.8</td>
-			<td>207</td>
-			<td>134</td>
-			<td>9.6</td>
-			<td>6.3</td>
-			<td>8.9</td>
-			<td>188</td>
-			<td>3820</td>
-			<td>20</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UB25.4</td>
-			<td>25.4</td>
-			<td>203</td>
-			<td>133</td>
-			<td>7.8</td>
-			<td>5.8</td>
-			<td>8.9</td>
-			<td>188</td>
-			<td>3230</td>
-			<td>21</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UB22.3</td>
-			<td>22.3</td>
-			<td>202</td>
-			<td>133</td>
-			<td>7</td>
-			<td>5</td>
-			<td>8.9</td>
-			<td>188</td>
-			<td>2870</td>
-			<td>22</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>200UB18.2</td>
-			<td>18.2</td>
-			<td>198</td>
-			<td>99</td>
-			<td>7</td>
-			<td>4.5</td>
-			<td>11</td>
-			<td>184</td>
-			<td>2320</td>
-			<td>23</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>180UB22.2</td>
-			<td>22.2</td>
-			<td>179</td>
-			<td>90</td>
-			<td>10</td>
-			<td>6</td>
-			<td>8.9</td>
-			<td>159</td>
-			<td>2820</td>
-			<td>24</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>180UB18.1</td>
-			<td>18.1</td>
-			<td>175</td>
-			<td>90</td>
-			<td>8</td>
-			<td>5</td>
-			<td>8.9</td>
-			<td>159</td>
-			<td>2300</td>
-			<td>25</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>180UB16.1</td>
-			<td>16.1</td>
-			<td>173</td>
-			<td>90</td>
-			<td>7</td>
-			<td>4.5</td>
-			<td>8.9</td>
-			<td>159</td>
-			<td>2040</td>
-			<td>26</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>150UB18.0</td>
-			<td>18</td>
-			<td>155</td>
-			<td>75</td>
-			<td>9.5</td>
-			<td>6</td>
-			<td>8</td>
-			<td>136</td>
-			<td>2300</td>
-			<td>27</td>
-		</tr>
-		<tr onclick="changeColour(this)">
-			<td>150UB14.0</td>
-			<td>14</td>
-			<td>150</td>
-			<td>75</td>
-			<td>7</td>
-			<td>5</td>
-			<td>8</td>
-			<td>136</td>
-			<td>1780</td>
-			<td>28</td>
-		</tr>
-	</table>
-</div>
-</div>
+  <br>
+  <br>
 </body>
-
-
-<!--<footer class="footer">
-<br></br>
-</footer>-->
-<br></br>
-<br></br>
-</body>
-
-
-
 </html>
 <script src="../tables.js"></script>
+<script>
+  function parseSimpleCsv(text) {
+    var lines = text.split(/\r?\n/).filter(function(line) {
+      return line.trim() !== "";
+    });
+    if (lines.length < 2) return [];
+
+    var headers = lines[0].split(",").map(function(h) {
+      return h.trim();
+    });
+
+    var data = [];
+    for (var i = 1; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length !== headers.length) continue;
+
+      var row = {};
+      for (var j = 0; j < headers.length; j++) {
+        row[headers[j]] = values[j].trim();
+      }
+      data.push(row);
+    }
+
+    return data;
+  }
+
+  function formatRatio(depth, flangeWidth) {
+    var d = Number(depth);
+    var b = Number(flangeWidth);
+    if (!b) return "";
+    return (d / b).toFixed(2);
+  }
+
+  function addCell(row, value) {
+    var cell = document.createElement("td");
+    cell.innerText = value;
+    row.appendChild(cell);
+  }
+
+  function renderUbRows(rows) {
+    var body = document.getElementById("ubTableBody");
+    body.innerHTML = "";
+
+    if (!rows.length) {
+      var emptyRow = document.createElement("tr");
+      addCell(emptyRow, "No UB data found.");
+      emptyRow.firstChild.colSpan = 11;
+      body.appendChild(emptyRow);
+      return;
+    }
+
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+
+      addCell(tr, r.Member);
+      addCell(tr, r.Mass);
+      addCell(tr, r.Depth);
+      addCell(tr, r.FlangeWidth);
+      addCell(tr, r.FlangeThickness);
+      addCell(tr, r.WebThickness);
+      addCell(tr, r.RootRadius);
+      addCell(tr, r.DepthBetweenFlanges);
+      addCell(tr, formatRatio(r.Depth, r.FlangeWidth));
+      addCell(tr, r.GrossArea);
+      addCell(tr, r.Order);
+
+      body.appendChild(tr);
+    }
+  }
+
+  (function loadUbCsv() {
+    fetch("./ub.csv", { cache: "no-store" })
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error("Failed to load ub.csv");
+        }
+        return response.text();
+      })
+      .then(function(text) {
+        renderUbRows(parseSimpleCsv(text));
+      })
+      .catch(function() {
+        var body = document.getElementById("ubTableBody");
+        body.innerHTML = '<tr><td colspan="11">Could not load UB CSV data.</td></tr>';
+      });
+  })();
+</script>
