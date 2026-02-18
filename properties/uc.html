@@ -15,8 +15,8 @@
       <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
     </div>
 
-    <button class="button" onclick="sortSizeDown(9)">Decreasing Size/Mass</button>
-    <button class="button" onclick="sortSizeUp(9)">Increasing Size/Mass</button>
+    <button class="button" onclick="sortSizeDown(10)">Decreasing Size/Mass</button>
+    <button class="button" onclick="sortSizeUp(10)">Increasing Size/Mass</button>
     <br>
     <br>
 
@@ -30,6 +30,7 @@
         <col span="1" width="84">
         <col span="1" width="72">
         <col span="1" width="72">
+        <col span="1" width="60">
         <col span="1" width="55">
         <col span="1" width="10">
       </colgroup>
@@ -38,6 +39,7 @@
         <th rowspan="3">Member</th>
         <th rowspan="2">Mass</th>
         <th colspan="6">Dimensions</th>
+        <th>Inertia</th>
         <th>Gross Area</th>
         <th rowspan="3" class='rotateOrder'><div>Order</div></th>
       </tr>
@@ -48,6 +50,7 @@
         <th>Web Thickness</th>
         <th>Root Radius</th>
         <th>Depth Between Flanges</th>
+        <th>Ixx</th>
         <th>A<sub>g</sub></th>
       </tr>
       <tr>
@@ -58,10 +61,11 @@
         <th>mm</th>
         <th>mm</th>
         <th>mm</th>
+        <th>e6 mm<sup>4</sup></th>
         <th>mm<sup>2</sup></th>
       </tr>
       <tbody id="ucTableBody">
-        <tr><td colspan="10">Loading UC data...</td></tr>
+        <tr><td colspan="11">Loading UC data...</td></tr>
       </tbody>
     </table>
   </body>
@@ -94,11 +98,11 @@
   tbody.innerHTML = "";
   var keys = [
   "Member", "Mass", "Depth", "FlangeWidth", "FlangeThickness",
-  "WebThickness", "RootRadius", "DepthBetweenFlanges", "GrossArea", "Order"
+  "WebThickness", "RootRadius", "DepthBetweenFlanges", "Ixx", "GrossArea", "Order"
   ];
 
   if (!rows.length) {
-  tbody.innerHTML = '<tr><td colspan="10">No UC data found.</td></tr>';
+  tbody.innerHTML = '<tr><td colspan="11">No UC data found.</td></tr>';
   return;
   }
 
@@ -115,7 +119,9 @@
   .then(function(res) { if (!res.ok) throw new Error("Failed to load uc.csv"); return res.text(); })
   .then(function(text) { renderUcRows(parseSimpleCsv(text)); })
   .catch(function() {
-  document.getElementById("ucTableBody").innerHTML = '<tr><td colspan="10">Could not load UC CSV data.</td></tr>';
+  document.getElementById("ucTableBody").innerHTML = '<tr><td colspan="11">Could not load UC CSV data.</td></tr>';
   });
   })();
 </script>
+
+
