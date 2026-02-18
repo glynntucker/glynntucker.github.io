@@ -41,7 +41,7 @@
         <th rowspan="3">Member</th>
         <th rowspan="2">Mass</th>
         <th colspan="6">Dimensions</th>
-        <th>d/b Ratio</th>
+        <th>Ixx</th>
         <th>Gross Area</th>
         <th rowspan="3" class='rotateOrder'><div>Order</div></th>
       </tr>
@@ -52,7 +52,7 @@
         <th>Web Thickness</th>
         <th>Root Radius</th>
         <th>Depth Between Flanges</th>
-        <th>d/b</th>
+        <th>Ixx</th>
         <th>A<sub>g</sub></th>
       </tr>
       <tr>
@@ -63,7 +63,7 @@
         <th>mm</th>
         <th>mm</th>
         <th>mm</th>
-        <th>-</th>
+        <th>mm<sup>4</sup></th>
         <th>mm<sup>2</sup></th>
       </tr>
       <tbody id="ubTableBody">
@@ -142,7 +142,7 @@
   addCell(tr, r.WebThickness);
   addCell(tr, r.RootRadius);
   addCell(tr, r.DepthBetweenFlanges);
-  addCell(tr, "");
+  addCell(tr, r.Ixx || "");
   addCell(tr, r.GrossArea);
   addCell(tr, r.Order);
 
@@ -167,4 +167,5 @@
   });
   })();
 </script>
+
 
