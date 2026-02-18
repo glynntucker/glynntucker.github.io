@@ -1,162 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <script src="../header.js"></script>
-
-  <title>Plate</title>
+  <head>
+    <script src="../header.js"></script>
+    <title>Plate</title>
+  </head>
   <body style="font-family:arial;" align="center">
-
     <h3 align="Center">Plate</h3>
     <p>Search, sort or hover over a member to see its properties.</p>
     <p>Grade 250 Fu = 410 MPa, Fy = 260 MPa (8 to 12 mm plate. Fy = 280 up to 8 mm).</p>
+
     <div class="row">
       <div class="column">
         <h4 align="Center">250 Grade Plate</h4>
-        <table id="myTable" align="center">
-          <tr onclick="changeColour(this)">
-            <th>Plate Thickness</th>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <th>mm</th>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>3</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>4</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>5</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>6</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>8</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>10</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>12</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>16</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>20</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>25</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>28</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>32</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>36</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>40</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>50</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>60</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>70</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>80</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>100</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>120</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>140</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>150</td>
-          </tr>
+        <table id="plate250" align="center">
+          <tr><th>Plate Thickness</th></tr>
+          <tr><th>mm</th></tr>
+          <tbody id="plate250Body"><tr><td>Loading...</td></tr></tbody>
         </table>
       </div>
       <div class="column">
         <h4 align="Center">350 Grade Plate</h4>
-        <table id="myTable" align="center">
-          <tr onclick="changeColour(this)">
-            <th>Plate Thickness</th>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <th>mm</th>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>6</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>8</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>10</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>16</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>20</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>25</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>32</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>40</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>50</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>60</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>70</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>80</td>
-          </tr>
+        <table id="plate350" align="center">
+          <tr><th>Plate Thickness</th></tr>
+          <tr><th>mm</th></tr>
+          <tbody id="plate350Body"><tr><td>Loading...</td></tr></tbody>
         </table>
       </div>
       <div class="column">
         <h4 align="Center">Floor Plate</h4>
-        <table id="myTable" align="center">
-          <tr onclick="changeColour(this)">
-            <th>Plate Thickness</th>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <th>mm</th>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>2.1</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>3</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>5</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>6</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>8</td>
-          </tr>
+        <table id="plateFloor" align="center">
+          <tr><th>Plate Thickness</th></tr>
+          <tr><th>mm</th></tr>
+          <tbody id="plateFloorBody"><tr><td>Loading...</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -164,15 +39,65 @@
 </html>
 <style>
   .column {
-  float: left;
-  width: 33.33%;
+    float: left;
+    width: 33.33%;
   }
-
-  /* Clear floats after the columns */
   .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
   }
 </style>
 <script src="../tables.js"></script>
+<script>
+  function parseSimpleCsv(text) {
+    var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
+    if (lines.length < 2) return [];
+    var headers = lines[0].split(",");
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length !== headers.length) continue;
+      var row = {};
+      for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function renderPlateRows(rows, category, bodyId) {
+    var tbody = document.getElementById(bodyId);
+    tbody.innerHTML = "";
+    var filtered = rows.filter(function(r) { return r.Category === category; });
+
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td>No data found.</td></tr>';
+      return;
+    }
+
+    for (var i = 0; i < filtered.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+      var td = document.createElement("td");
+      td.innerText = filtered[i].Thickness || "";
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    }
+  }
+
+  (function loadPlateCsv() {
+    fetch("./plate.csv", { cache: "no-store" })
+      .then(function(res) { if (!res.ok) throw new Error("Failed to load plate.csv"); return res.text(); })
+      .then(function(text) {
+        var rows = parseSimpleCsv(text);
+        renderPlateRows(rows, "250 Grade Plate", "plate250Body");
+        renderPlateRows(rows, "350 Grade Plate", "plate350Body");
+        renderPlateRows(rows, "Floor Plate", "plateFloorBody");
+      })
+      .catch(function() {
+        document.getElementById("plate250Body").innerHTML = '<tr><td>Could not load CSV data.</td></tr>';
+        document.getElementById("plate350Body").innerHTML = '<tr><td>Could not load CSV data.</td></tr>';
+        document.getElementById("plateFloorBody").innerHTML = '<tr><td>Could not load CSV data.</td></tr>';
+      });
+  })();
+</script>

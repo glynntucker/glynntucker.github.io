@@ -1,225 +1,183 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
     <style>body {background-color: #b0b0b0;}</style>
-
+    <title>Bolt Properties</title>
   </head>
   <script src="../header.js"></script>
-
-  <title>Bolt Properties</title>
   <body style="font-family:arial;" align="center">
     <h3 align="Center">Bolt Properties</h3>
     <p>Search bolt grade and capacities.</p>
-    <div>
-      <div class="row">
-        <div class="columnouter"><h2></h2></div>
-        <div class="column">
-          <h4 align="center">4.6/S</h4>
-          <table id="myTable" align="center">
-            <colgroup>
-              <col span="1" width="100">
-              <col span="1" width="65">
-              <col span="2" width="62">
-            </colgroup>
 
-            <!-- ENTER TABLE DATA BELOW -->
-            <tr>
-              <th rowspan="4">Designation</th>
-              <th rowspan="2">Axial Tension</th>
-              <th colspan="2">Shear Values</th>
-            </tr>
-            <tr>
-              <th>Threads inc</th>
-              <th>Theads exc</th>
-            </tr>
-            <tr>
-              <th>&Phi;N<sub>tf</sub></th>
-              <th>&Phi;V<sub>fn</sub></th>
-              <th>&Phi;V<sub>fn</sub></th>
-            </tr>
-            <tr>
-              <th>kN</th>
-              <th>kN</th>
-              <th>kN</th>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M12</td>
-              <td>27</td>
-              <td>15.1</td>
-              <td>22.4</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M16</td>
-              <td>50.2</td>
-              <td>28.6</td>
-              <td>39.9</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M20</td>
-              <td>78.4</td>
-              <td>44.6</td>
-              <td>62.3</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M24</td>
-              <td>113</td>
-              <td>64.3</td>
-              <td>89.7</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M30</td>
-              <td>180</td>
-              <td>103</td>
-              <td>140</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M36</td>
-              <td>261</td>
-              <td>151</td>
-              <td>202</td>
-            </tr>
-
-            <!-- ENTER TABLE DATA ABOVE -->
-          </table><br></br>
-        </div>
-        <div class="column">
-          <h4 align="center">8.8/S, 8.8/TB, 8.8/TF</h4>
-          <table id="myTable" align="center">
-            <colgroup>
-              <col span="1" width="100">
-              <col span="1" width="65">
-              <col span="2" width="62">
-            </colgroup>
-
-            <!-- ENTER TABLE DATA BELOW -->
-            <tr onclick="changeColour(this)">
-              <th rowspan="4">Designation</th>
-              <th rowspan="2">Axial Tension</th>
-              <th colspan="2">Shear Values</th>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <th>Threads inc</th>
-              <th>Theads exc</th>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <th>&Phi;N<sub>tf</sub></th>
-              <th>&Phi;V<sub>fn</sub></th>
-              <th>&Phi;V<sub>fn</sub></th>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <th>kN</th>
-              <th>kN</th>
-              <th>kN</th>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M16</td>
-              <td>104</td>
-              <td>59.3</td>
-              <td>82.7</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M20</td>
-              <td>163</td>
-              <td>92.6</td>
-              <td>129</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M24</td>
-              <td>234</td>
-              <td>133</td>
-              <td>186</td>
-            </tr>
-            <tr onclick="changeColour(this)">
-              <td>M30</td>
-              <td>373</td>
-              <td>214</td>
-              <td>291</td>
-            </tr>
-          </table><br></br>
-
-
-        </div>
-      </div>
+    <div class="row">
       <div class="columnouter"><h2></h2></div>
-      <h4 align="center">Minimum Edge Distance</h4>
-      <table id="myTable" align="center">
-        <colgroup>
-          <col span="1" width="100">
-          <col span="1" width="100">
-          <col span="1" width="100">
-          <col span="1" width="100">
-        </colgroup>
+      <div class="column">
+        <h4 align="center">4.6/S</h4>
+        <table id="bolts46" align="center">
+          <colgroup>
+            <col span="1" width="100">
+            <col span="1" width="65">
+            <col span="2" width="62">
+          </colgroup>
+          <tr>
+            <th rowspan="4">Designation</th>
+            <th rowspan="2">Axial Tension</th>
+            <th colspan="2">Shear Values</th>
+          </tr>
+          <tr>
+            <th>Threads inc</th>
+            <th>Threads exc</th>
+          </tr>
+          <tr>
+            <th>&Phi;N<sub>tf</sub></th>
+            <th>&Phi;V<sub>fn</sub></th>
+            <th>&Phi;V<sub>fn</sub></th>
+          </tr>
+          <tr>
+            <th>kN</th>
+            <th>kN</th>
+            <th>kN</th>
+          </tr>
+          <tbody id="bolts46Body"><tr><td colspan="4">Loading data...</td></tr></tbody>
+        </table>
+      </div>
 
-        <!-- ENTER TABLE DATA BELOW -->
-        <tr onclick="changeColour(this)">
-          <th>Nominal Diameter of Fastener</th>
-          <th>Sheared or Hand Flame Cut Edge</th>
-          <th>Rolled Plate: Machine Flame Cut, Sawn or Planed Edge</th>
-          <th>Rolled Edge of a Rolled Flat Bar or Section</th>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <th>mm</th>
-          <th>mm</th>
-          <th>mm</th>
-          <th>mm</th>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <td>12</td>
-          <td>21</td>
-          <td>18</td>
-          <td>15</td>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <td>16</td>
-          <td>28</td>
-          <td>24</td>
-          <td>20</td>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <td>20</td>
-          <td>35</td>
-          <td>30</td>
-          <td>25</td>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <td>24</td>
-          <td>42</td>
-          <td>36</td>
-          <td>30</td>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <td>30</td>
-          <td>53</td>
-          <td>45</td>
-          <td>38</td>
-        </tr>
-        <tr onclick="changeColour(this)">
-          <td>36</td>
-          <td>63</td>
-          <td>54</td>
-          <td>45</td>
-        </tr>
+      <div class="column">
+        <h4 align="center">8.8/S, 8.8/TB, 8.8/TF</h4>
+        <table id="bolts88" align="center">
+          <colgroup>
+            <col span="1" width="100">
+            <col span="1" width="65">
+            <col span="2" width="62">
+          </colgroup>
+          <tr>
+            <th rowspan="4">Designation</th>
+            <th rowspan="2">Axial Tension</th>
+            <th colspan="2">Shear Values</th>
+          </tr>
+          <tr>
+            <th>Threads inc</th>
+            <th>Threads exc</th>
+          </tr>
+          <tr>
+            <th>&Phi;N<sub>tf</sub></th>
+            <th>&Phi;V<sub>fn</sub></th>
+            <th>&Phi;V<sub>fn</sub></th>
+          </tr>
+          <tr>
+            <th>kN</th>
+            <th>kN</th>
+            <th>kN</th>
+          </tr>
+          <tbody id="bolts88Body"><tr><td colspan="4">Loading data...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
 
-        <!-- ENTER TABLE DATA ABOVE -->
-      </table>
+    <h4 align="center">Minimum Edge Distance</h4>
+    <table id="boltsEdge" align="center">
+      <colgroup>
+        <col span="1" width="100">
+        <col span="1" width="100">
+        <col span="1" width="100">
+        <col span="1" width="100">
+      </colgroup>
+      <tr>
+        <th>Nominal Diameter of Fastener</th>
+        <th>Sheared or Hand Flame Cut Edge</th>
+        <th>Rolled Plate: Machine Flame Cut, Sawn or Planed Edge</th>
+        <th>Rolled Edge of a Rolled Flat Bar or Section</th>
+      </tr>
+      <tr>
+        <th>mm</th>
+        <th>mm</th>
+        <th>mm</th>
+        <th>mm</th>
+      </tr>
+      <tbody id="boltsEdgeBody"><tr><td colspan="4">Loading data...</td></tr></tbody>
+    </table>
 
-    </body>
-  </div>
-  <br></br>
-  <br></br>
-</body>
-
-
-<!--<footer class="footer">
-<br></br>
-<br></br>
-</footer>-->
-
-
-
+    <br>
+    <br>
+  </body>
 </html>
 <script src="../tables.js"></script>
+<script>
+  function parseSimpleCsv(text) {
+    var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
+    if (lines.length < 2) return [];
+    var headers = lines[0].split(",");
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length !== headers.length) continue;
+      var row = {};
+      for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function addCell(tr, value) {
+    var td = document.createElement("td");
+    td.innerText = value;
+    tr.appendChild(td);
+  }
+
+  function renderBoltStrength(rows, grade, bodyId) {
+    var tbody = document.getElementById(bodyId);
+    tbody.innerHTML = "";
+    var filtered = rows.filter(function(r) { return r.Grade === grade; });
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td colspan="4">No data found.</td></tr>';
+      return;
+    }
+    for (var i = 0; i < filtered.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+      addCell(tr, filtered[i].Designation);
+      addCell(tr, filtered[i].AxialTension);
+      addCell(tr, filtered[i].ShearThreadsInc);
+      addCell(tr, filtered[i].ShearThreadsExc);
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderBoltEdge(rows) {
+    var tbody = document.getElementById("boltsEdgeBody");
+    tbody.innerHTML = "";
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="4">No data found.</td></tr>';
+      return;
+    }
+    for (var i = 0; i < rows.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+      addCell(tr, rows[i].Diameter);
+      addCell(tr, rows[i].ShearedOrHandFlameCutEdge);
+      addCell(tr, rows[i].RolledPlateMachineFlameCutSawnOrPlanedEdge);
+      addCell(tr, rows[i].RolledEdgeRolledFlatBarOrSection);
+      tbody.appendChild(tr);
+    }
+  }
+
+  (function loadBoltData() {
+    Promise.all([
+      fetch("./bolts_strength.csv", { cache: "no-store" }).then(function(res){ if(!res.ok) throw new Error(); return res.text(); }),
+      fetch("./bolts_edge.csv", { cache: "no-store" }).then(function(res){ if(!res.ok) throw new Error(); return res.text(); })
+    ])
+    .then(function(results) {
+      var strengthRows = parseSimpleCsv(results[0]);
+      var edgeRows = parseSimpleCsv(results[1]);
+      renderBoltStrength(strengthRows, "4.6/S", "bolts46Body");
+      renderBoltStrength(strengthRows, "8.8_Group", "bolts88Body");
+      renderBoltEdge(edgeRows);
+    })
+    .catch(function() {
+      document.getElementById("bolts46Body").innerHTML = '<tr><td colspan="4">Could not load CSV data.</td></tr>';
+      document.getElementById("bolts88Body").innerHTML = '<tr><td colspan="4">Could not load CSV data.</td></tr>';
+      document.getElementById("boltsEdgeBody").innerHTML = '<tr><td colspan="4">Could not load CSV data.</td></tr>';
+    });
+  })();
+</script>

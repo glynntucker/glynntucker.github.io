@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
     <style>body {background-color: #b0b0b0;}</style>
-
+    <title>Weld Properties</title>
   </head>
   <script src="../header.js"></script>
-
-  <title>Weld Properties</title>
   <body style="font-family:arial;" align="center">
     <h3 align="Center">Weld Properties</h3>
     <p>Search weld capacities.</p>
-    <div>
-      <div class="columnouter"><h2></h2></div>
+
+    <div class="row">
       <div class="column">
         <h4 align="center">Category SP, &Phi;=0.8</h4>
-        <table id="myTable" align="center">
+        <table id="weldSp" align="center">
           <colgroup>
             <col span="1" width="60">
             <col span="1" width="76">
             <col span="1" width="103">
             <col span="1" width="103">
           </colgroup>
-
-          <!-- ENTER TABLE DATA BELOW -->
           <tr>
             <th colspan="2">Weld Size (mm)</th>
             <th colspan="2">Design Capacity (kN/mm)</th>
@@ -37,63 +30,19 @@
             <th>E41XX/W40X</th>
             <th>E48XX/W50X</th>
           </tr>
-          <tr onclick="changeColour(this)">
-            <td>3</td>
-            <td>2.12</td>
-            <td>0.417</td>
-            <td>0.489</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>4</td>
-            <td>2.83</td>
-            <td>0.557</td>
-            <td>0.652</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>5</td>
-            <td>3.54</td>
-            <td>0.696</td>
-            <td>0.815</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>6</td>
-            <td>4.24</td>
-            <td>0.835</td>
-            <td>0.978</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>8</td>
-            <td>5.66</td>
-            <td>1.11</td>
-            <td>1.3</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>10</td>
-            <td>7.07</td>
-            <td>1.39</td>
-            <td>1.63</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>12</td>
-            <td>8.49</td>
-            <td>1.67</td>
-            <td>1.96</td>
-          </tr>
-
-          <!-- ENTER TABLE DATA ABOVE -->
-        </table><br></br>
+          <tbody id="weldSpBody"><tr><td colspan="4">Loading data...</td></tr></tbody>
+        </table>
       </div>
+
       <div class="column">
         <h4 align="center">Category GP, &Phi;=0.6</h4>
-        <table id="myTable" align="center">
+        <table id="weldGp" align="center">
           <colgroup>
             <col span="1" width="60">
             <col span="1" width="76">
             <col span="1" width="103">
             <col span="1" width="103">
           </colgroup>
-
-          <!-- ENTER TABLE DATA BELOW -->
           <tr>
             <th colspan="2">Weld Size (mm)</th>
             <th colspan="2">Design Capacity (kN/mm)</th>
@@ -104,59 +53,70 @@
             <th>E41XX/W40X</th>
             <th>E48XX/W50X</th>
           </tr>
-          <tr onclick="changeColour(this)">
-            <td>3</td>
-            <td>2.12</td>
-            <td>0.313</td>
-            <td>0.367</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>4</td>
-            <td>2.83</td>
-            <td>0.417</td>
-            <td>0.489</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>5</td>
-            <td>3.54</td>
-            <td>0.522</td>
-            <td>0.611</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>6</td>
-            <td>4.24</td>
-            <td>0.626</td>
-            <td>0.733</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>8</td>
-            <td>5.66</td>
-            <td>0.835</td>
-            <td>0.978</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>10</td>
-            <td>7.07</td>
-            <td>1.04</td>
-            <td>1.22</td>
-          </tr>
-          <tr onclick="changeColour(this)">
-            <td>12</td>
-            <td>8.49</td>
-            <td>1.25</td>
-            <td>1.47</td>
-          </tr>
-
-          <!-- ENTER TABLE DATA ABOVE -->
+          <tbody id="weldGpBody"><tr><td colspan="4">Loading data...</td></tr></tbody>
         </table>
-        <div class="columnouter"><h2></h2></div>
       </div>
-      <div class="columnouter"><h2></h2></div>
-    </body>
-  </div>
-  <br></br>
-  <br></br>
-</body>
+    </div>
 
+    <br>
+    <br>
+  </body>
 </html>
 <script src="../tables.js"></script>
+<script>
+  function parseSimpleCsv(text) {
+    var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
+    if (lines.length < 2) return [];
+    var headers = lines[0].split(",");
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length !== headers.length) continue;
+      var row = {};
+      for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function addCell(tr, value) {
+    var td = document.createElement("td");
+    td.innerText = value;
+    tr.appendChild(td);
+  }
+
+  function renderWeldRows(rows, category, bodyId) {
+    var tbody = document.getElementById(bodyId);
+    tbody.innerHTML = "";
+    var filtered = rows.filter(function(r) { return r.Category === category; });
+
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td colspan="4">No data found.</td></tr>';
+      return;
+    }
+
+    for (var i = 0; i < filtered.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("onclick", "changeColour(this)");
+      addCell(tr, filtered[i].Leg);
+      addCell(tr, filtered[i].Throat);
+      addCell(tr, filtered[i].E41XX_W40X);
+      addCell(tr, filtered[i].E48XX_W50X);
+      tbody.appendChild(tr);
+    }
+  }
+
+  (function loadWeldCsv() {
+    fetch("./welds.csv", { cache: "no-store" })
+      .then(function(res) { if (!res.ok) throw new Error("Failed to load welds.csv"); return res.text(); })
+      .then(function(text) {
+        var rows = parseSimpleCsv(text);
+        renderWeldRows(rows, "SP", "weldSpBody");
+        renderWeldRows(rows, "GP", "weldGpBody");
+      })
+      .catch(function() {
+        document.getElementById("weldSpBody").innerHTML = '<tr><td colspan="4">Could not load CSV data.</td></tr>';
+        document.getElementById("weldGpBody").innerHTML = '<tr><td colspan="4">Could not load CSV data.</td></tr>';
+      });
+  })();
+</script>
