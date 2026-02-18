@@ -1,112 +1,112 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <style>body {background-color: #b0b0b0;}</style>
-  <title>CHS Properties</title>
-</head>
+  <head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>body {background-color: #b0b0b0;}</style>
+    <title>CHS Properties</title>
+  </head>
 
-<script src="../header.js"></script>
+  <script src="../header.js"></script>
 
-<body style="font-family:arial;" align="center">
-  <h3 align="Center">CHS Properties</h3>
-  <p>Search, sort or hover over a member to see its properties.</p>
-  <div class="inputBox" align="middle">
-    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
-  </div>
+  <body style="font-family:arial;" align="center">
+    <h3 align="Center">CHS Properties</h3>
+    <p>Search, sort or hover over a member to see its properties.</p>
+    <div class="inputBox" align="middle">
+      <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+    </div>
 
-  <button class="button" onclick="sortSizeDown(7)">Decreasing Size</button>
-  <button class="button" onclick="sortSizeUp(7)">Increasing Size</button>
-  <button class="button" onclick="sortMassDown(5)">Decreasing Mass</button>
-  <button class="button" onclick="sortMassUp(5)">Increasing Mass</button>
-  <br>
-  <br>
+    <button class="button" onclick="sortSizeDown(7)">Decreasing Size</button>
+    <button class="button" onclick="sortSizeUp(7)">Increasing Size</button>
+    <button class="button" onclick="sortMassDown(5)">Decreasing Mass</button>
+    <button class="button" onclick="sortMassUp(5)">Increasing Mass</button>
+    <br>
+    <br>
 
-  <table id="myTable" align="center">
-    <colgroup>
-      <col span="1" width="110">
-      <col span="1" width="45">
-      <col span="1" width="12">
-      <col span="1" width="34">
-      <col span="1" width="40">
-      <col span="1" width="45">
-      <col span="1" width="92">
-      <col span="1" width="20">
-    </colgroup>
+    <table id="myTable" align="center">
+      <colgroup>
+        <col span="1" width="110">
+        <col span="1" width="45">
+        <col span="1" width="12">
+        <col span="1" width="34">
+        <col span="1" width="40">
+        <col span="1" width="45">
+        <col span="1" width="92">
+        <col span="1" width="20">
+      </colgroup>
 
-    <tr>
-      <th rowspan="3">Member</th>
-      <th colspan="4">Dimensions</th>
-      <th rowspan="2">Mass</th>
-      <th>Gross Area</th>
-      <th rowspan="3" class='rotateOrder'><div>Order</div></th>
-    </tr>
-    <tr>
-      <th>d</th>
-      <th rowspan="2"></th>
-      <th>b</th>
-      <th rowspan="2"></th>
-      <th>A<sub>g</sub></th>
-    </tr>
-    <tr>
-      <th>mm</th>
-      <th>mm</th>
-      <th>kg/m</th>
-      <th>kg/m</th>
-    </tr>
-    <tbody id="chsTableBody">
-      <tr><td colspan="8">Loading CHS data...</td></tr>
-    </tbody>
-  </table>
-</body>
+      <tr>
+        <th rowspan="3">Member</th>
+        <th colspan="4">Dimensions</th>
+        <th rowspan="2">Mass</th>
+        <th>Gross Area</th>
+        <th rowspan="3" class='rotateOrder'><div>Order</div></th>
+      </tr>
+      <tr>
+        <th>d</th>
+        <th rowspan="2"></th>
+        <th>b</th>
+        <th rowspan="2"></th>
+        <th>A<sub>g</sub></th>
+      </tr>
+      <tr>
+        <th>mm</th>
+        <th>mm</th>
+        <th>kg/m</th>
+        <th>kg/m</th>
+      </tr>
+      <tbody id="chsTableBody">
+        <tr><td colspan="8">Loading CHS data...</td></tr>
+      </tbody>
+    </table>
+  </body>
 </html>
 <script src="../tables.js"></script>
 <script>
   function parseSimpleCsv(text) {
-    var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
-    if (lines.length < 2) return [];
-    var headers = lines[0].split(",");
-    var rows = [];
-    for (var i = 1; i < lines.length; i++) {
-      var values = lines[i].split(",");
-      if (values.length !== headers.length) continue;
-      var row = {};
-      for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
-      rows.push(row);
-    }
-    return rows;
+  var lines = text.split(/\r?\n/).filter(function(line) { return line.trim() !== ""; });
+  if (lines.length < 2) return [];
+  var headers = lines[0].split(",");
+  var rows = [];
+  for (var i = 1; i < lines.length; i++) {
+  var values = lines[i].split(",");
+  if (values.length !== headers.length) continue;
+  var row = {};
+  for (var j = 0; j < headers.length; j++) row[headers[j].trim()] = values[j].trim();
+  rows.push(row);
+  }
+  return rows;
   }
 
   function addCell(tr, value) {
-    var td = document.createElement("td");
-    td.innerText = value;
-    tr.appendChild(td);
+  var td = document.createElement("td");
+  td.innerText = value;
+  tr.appendChild(td);
   }
 
   function renderChsRows(rows) {
-    var tbody = document.getElementById("chsTableBody");
-    tbody.innerHTML = "";
-    var keys = ["Member", "Depth", "TimesSymbol", "Thickness", "Type", "Mass", "GrossArea", "Order"];
+  var tbody = document.getElementById("chsTableBody");
+  tbody.innerHTML = "";
+  var keys = ["Member", "Depth", "TimesSymbol", "Thickness", "Type", "Mass", "GrossArea", "Order"];
 
-    if (!rows.length) {
-      tbody.innerHTML = '<tr><td colspan="8">No CHS data found.</td></tr>';
-      return;
-    }
+  if (!rows.length) {
+  tbody.innerHTML = '<tr><td colspan="8">No CHS data found.</td></tr>';
+  return;
+  }
 
-    for (var i = 0; i < rows.length; i++) {
-      var tr = document.createElement("tr");
-      tr.setAttribute("onclick", "changeColour(this)");
-      for (var j = 0; j < keys.length; j++) addCell(tr, rows[i][keys[j]] || "");
-      tbody.appendChild(tr);
-    }
+  for (var i = 0; i < rows.length; i++) {
+  var tr = document.createElement("tr");
+  tr.setAttribute("onclick", "changeColour(this)");
+  for (var j = 0; j < keys.length; j++) addCell(tr, rows[i][keys[j]] || "");
+  tbody.appendChild(tr);
+  }
   }
 
   (function loadChsCsv() {
-    fetch("./chs.csv", { cache: "no-store" })
-      .then(function(res) { if (!res.ok) throw new Error("Failed to load chs.csv"); return res.text(); })
-      .then(function(text) { renderChsRows(parseSimpleCsv(text)); })
-      .catch(function() {
-        document.getElementById("chsTableBody").innerHTML = '<tr><td colspan="8">Could not load CHS CSV data.</td></tr>';
-      });
+  fetch("./chs.csv", { cache: "no-store" })
+  .then(function(res) { if (!res.ok) throw new Error("Failed to load chs.csv"); return res.text(); })
+  .then(function(text) { renderChsRows(parseSimpleCsv(text)); })
+  .catch(function() {
+  document.getElementById("chsTableBody").innerHTML = '<tr><td colspan="8">Could not load CHS CSV data.</td></tr>';
+  });
   })();
 </script>

@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<style> body {background-color: #b0b0b0;}</style>
+    <style> body {background-color: #b0b0b0;}</style>
 
-</head>
-<script src="header.js"></script>
+  </head>
+  <script src="header.js"></script>
 
-<title>Two Way Interpolation</title>
-<body style="font-family:arial;" align="center">
-  <div class="twoWay">
-    <h3 align="Center">Two Way Interpolation</h3>
-    <button onclick="interpolate()">Click me to Interpolate!</button></p>
-    <div class="inputBox" align="middle">
-      <p>x0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <title>Two Way Interpolation</title>
+  <body style="font-family:arial;" align="center">
+    <div class="twoWay">
+      <h3 align="Center">Two Way Interpolation</h3>
+      <button onclick="interpolate()">Click me to Interpolate!</button></p>
+      <div class="inputBox" align="middle">
+        <p>x0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x3</p>
-      <p>y0 <input disabled type="text" id="00" placeholder="" title="">
-      <input type="text" id="10" placeholder="Enter Known Value" title="Enter Known Value">
-      <input type="text" id="20" placeholder="Enter Custom Value" title="Enter Custom Value">
-      <input type="text" id="30" placeholder="Enter Known Value" title="Enter Known Value"></p>
+        <p>y0 <input disabled type="text" id="00" placeholder="" title="">
+        <input type="text" id="10" placeholder="Enter Known Value" title="Enter Known Value">
+        <input type="text" id="20" placeholder="Enter Custom Value" title="Enter Custom Value">
+        <input type="text" id="30" placeholder="Enter Known Value" title="Enter Known Value"></p>
+      </div>
+      <div class="inputBox" align="middle">
+        <p>y1 <input type="text" id="01" placeholder="Enter Known Value" title="Enter Known Value">
+        <input type="text" id="11" placeholder="Enter Known Value" title="Enter Known Value">
+        <input disabled type="text" id="21" placeholder="" title="">
+        <input type="text" id="31" placeholder="Enter Known Value" title="Enter Known Value"></p>
+      </div>
+      <div class="inputBox" align="middle">
+        <p>y2 <input type="text" id="02" placeholder="Enter Custom Value" title="Enter Custom Value">
+        <input disabled type="text" id="12" placeholder="" title="">
+        <input disabled type="text" id="22" placeholder="" title="" style="text-align:center">
+        <input disabled type="text" id="32" placeholder="" title=""></p>
+      </div>
+      <div class="inputBox" align="middle">
+        <p>y3 <input type="text" id="03" placeholder="Enter Known Value" title="Enter Known Value">
+        <input type="text" id="13" placeholder="Enter Known Value" title="Enter Known Value">
+        <input disabled type="text" id="23" placeholder="" title="">
+        <input type="text" id="33" placeholder="Enter Known Value" title="Enter Known Value"></p>
+      </div>
+      <p id="interpolatedValue"></p>
     </div>
-    <div class="inputBox" align="middle">
-      <p>y1 <input type="text" id="01" placeholder="Enter Known Value" title="Enter Known Value">
-      <input type="text" id="11" placeholder="Enter Known Value" title="Enter Known Value">
-      <input disabled type="text" id="21" placeholder="" title="">
-      <input type="text" id="31" placeholder="Enter Known Value" title="Enter Known Value"></p>
-    </div>
-    <div class="inputBox" align="middle">
-      <p>y2 <input type="text" id="02" placeholder="Enter Custom Value" title="Enter Custom Value">
-      <input disabled type="text" id="12" placeholder="" title="">
-      <input disabled type="text" id="22" placeholder="" title="" style="text-align:center">
-      <input disabled type="text" id="32" placeholder="" title=""></p>
-    </div>
-    <div class="inputBox" align="middle">
-      <p>y3 <input type="text" id="03" placeholder="Enter Known Value" title="Enter Known Value">
-      <input type="text" id="13" placeholder="Enter Known Value" title="Enter Known Value">
-      <input disabled type="text" id="23" placeholder="" title="">
-      <input type="text" id="33" placeholder="Enter Known Value" title="Enter Known Value"></p>
-    </div>
-    <p id="interpolatedValue"></p>
-  </div>
-</body>
+  </body>
 </html>
 
 <style>
 </style>
 
 <script>
-function interpolate() {
+  function interpolate() {
   var i00 = document.getElementById("00").value;
   var i10 = document.getElementById("10").value;
   var i20 = document.getElementById("20").value;
@@ -72,5 +72,5 @@ function interpolate() {
 
   document.getElementById("22").value = interpol;
   document.getElementById("interpolatedValue").innerHTML = "The value at an x co-ordinate of " + i20 + " and y co-ordinate of " + i02 + " is: " + interpol;
-}
+  }
 </script>

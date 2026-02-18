@@ -1,332 +1,332 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<style>body {background-image: #b0b0b0;}</style>
+    <style>body {background-image: #b0b0b0;}</style>
 
-</head>
-<script src="header.js"></script>
+  </head>
+  <script src="header.js"></script>
 
-<title>Shear Capacities</title>
-<body style="font-family:arial;" align="center">
-			<h3 align="Center">Shear Capacities</h3>
-			<div class="inputBox" align="middle">
-        <select id="myInput" onchange="searchFunction()">
-          <option value=""></option>
-          <option value="UB">UB</option>
-          <option value="UC">UC</option>
-          <option value="PFC">PFC</option>
-          <option value="WC">WC</option>
-          <option value="RHS 450">RHS 450 Grade</option>
-        </select>
-			</div>
-			<br>
-			<br>
+  <title>Shear Capacities</title>
+  <body style="font-family:arial;" align="center">
+    <h3 align="Center">Shear Capacities</h3>
+    <div class="inputBox" align="middle">
+      <select id="myInput" onchange="searchFunction()">
+        <option value=""></option>
+        <option value="UB">UB</option>
+        <option value="UC">UC</option>
+        <option value="PFC">PFC</option>
+        <option value="WC">WC</option>
+        <option value="RHS 450">RHS 450 Grade</option>
+      </select>
+    </div>
+    <br>
+    <br>
 
-				<table id="myTable" align="center">
-					<colgroup>
-						<col span="1" width="85">
-						<col span="1" width="80">
-					</colgroup>
+    <table id="myTable" align="center">
+      <colgroup>
+        <col span="1" width="85">
+        <col span="1" width="80">
+      </colgroup>
 
-					<!-- ENTER TABLE DATA BELOW -->
-					<tr onclick="changeColour(this)">
-						<th rowspan="2">Member</th>
-						<th>Shear Capacity</th>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<th>kN</td>
-					</tr>
-          <tr onclick="changeColour(this)">
-						<td>610UB125</td>
-						<td>1180</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>610UB113</td>
-						<td>1100</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>610UB101</td>
-						<td>1100</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>530UB92.4</td>
-						<td>939</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>530UB82.0</td>
-						<td>876</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>460UB82.1</td>
-						<td>788</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>460UB74.6</td>
-						<td>719</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>460UB67.1</td>
-						<td>667</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>410UB59.7</td>
-						<td>548</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>410UB53.7</td>
-						<td>529</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>360UB56.7</td>
-						<td>496</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>360UB50.7</td>
-						<td>449</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>360UB44.7</td>
-						<td>420</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UB46.2</td>
-						<td>356</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UB40.4</td>
-						<td>320</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UB32.0</td>
-						<td>283</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>250UB37.3</td>
-						<td>283</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>250UB31.4</td>
-						<td>265</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>250UB25.7</td>
-						<td>214</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UB29.8</td>
-						<td>225</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UB25.4</td>
-						<td>204</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UB22.3</td>
-						<td>174</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UB18.2</td>
-						<td>154</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>180UB22.2</td>
-						<td>186</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>180UB18.1</td>
-						<td>151</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>180UB16.1</td>
-						<td>135</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>150UB18.0</td>
-						<td>161</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>150UB14.0</td>
-						<td>130</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UC96.8</td>
-						<td>527</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UC158</td>
-						<td>832</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UC137</td>
-						<td>717</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>310UC118</td>
-						<td>606</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>250UC89.5</td>
-						<td>472</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>250UC72.9</td>
-						<td>377</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UC59.5</td>
-						<td>337</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UC52.2</td>
-						<td>285</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200UC46.2</td>
-						<td>257</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>150UC37.2</td>
-						<td>226</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>150UC30.0</td>
-						<td>180</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>150UC23.4</td>
-						<td>161</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>100UC14.8</td>
-						<td>83.8</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>380PFC</td>
-						<td>657</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>300PFC</td>
-						<td>415</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>250PFC</td>
-						<td>346</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>230PFC</td>
-						<td>258</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>200PFC</td>
-						<td>207</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>180PFC</td>
-						<td>187</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>150PFC</td>
-						<td>156</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>125PFC</td>
-						<td>102</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>100PFC</td>
-						<td>72.6</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>75PFC</td>
-						<td>49.2</td>
-					</tr>
-          <tr onclick="changeColour(this)">
-						<td>500WC440</td>
-						<td>3010</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>500WC414</td>
-						<td>2490</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>500WC383</td>
-						<td>2490</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>500WC340</td>
-						<td>2190</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>500WC290</td>
-						<td>1850</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>500WC267</td>
-						<td>1850</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>500WC228</td>
-						<td>1850</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC361</td>
-						<td>2690</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC328</td>
-						<td>1910</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC303</td>
-						<td>1910</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC270</td>
-						<td>1700</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC212</td>
-						<td>1440</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC181</td>
-						<td>1440</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>400WC144</td>
-						<td>1150</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>350WC280</td>
-						<td>1500</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>350WC258</td>
-						<td>1500</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>350WC230</td>
-						<td>1340</td>
-					</tr>
-					<tr onclick="changeColour(this)">
-						<td>350WC197</td>
-						<td>1130</td>
-					</tr>
-					<!-- ENTER TABLE DATA ABOVE -->
-				</table>
-		</body>
+      <!-- ENTER TABLE DATA BELOW -->
+      <tr onclick="changeColour(this)">
+        <th rowspan="2">Member</th>
+        <th>Shear Capacity</th>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <th>kN</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>610UB125</td>
+        <td>1180</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>610UB113</td>
+        <td>1100</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>610UB101</td>
+        <td>1100</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>530UB92.4</td>
+        <td>939</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>530UB82.0</td>
+        <td>876</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>460UB82.1</td>
+        <td>788</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>460UB74.6</td>
+        <td>719</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>460UB67.1</td>
+        <td>667</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>410UB59.7</td>
+        <td>548</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>410UB53.7</td>
+        <td>529</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>360UB56.7</td>
+        <td>496</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>360UB50.7</td>
+        <td>449</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>360UB44.7</td>
+        <td>420</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UB46.2</td>
+        <td>356</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UB40.4</td>
+        <td>320</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UB32.0</td>
+        <td>283</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>250UB37.3</td>
+        <td>283</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>250UB31.4</td>
+        <td>265</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>250UB25.7</td>
+        <td>214</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UB29.8</td>
+        <td>225</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UB25.4</td>
+        <td>204</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UB22.3</td>
+        <td>174</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UB18.2</td>
+        <td>154</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>180UB22.2</td>
+        <td>186</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>180UB18.1</td>
+        <td>151</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>180UB16.1</td>
+        <td>135</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>150UB18.0</td>
+        <td>161</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>150UB14.0</td>
+        <td>130</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UC96.8</td>
+        <td>527</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UC158</td>
+        <td>832</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UC137</td>
+        <td>717</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>310UC118</td>
+        <td>606</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>250UC89.5</td>
+        <td>472</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>250UC72.9</td>
+        <td>377</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UC59.5</td>
+        <td>337</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UC52.2</td>
+        <td>285</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200UC46.2</td>
+        <td>257</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>150UC37.2</td>
+        <td>226</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>150UC30.0</td>
+        <td>180</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>150UC23.4</td>
+        <td>161</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>100UC14.8</td>
+        <td>83.8</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>380PFC</td>
+        <td>657</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>300PFC</td>
+        <td>415</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>250PFC</td>
+        <td>346</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>230PFC</td>
+        <td>258</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>200PFC</td>
+        <td>207</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>180PFC</td>
+        <td>187</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>150PFC</td>
+        <td>156</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>125PFC</td>
+        <td>102</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>100PFC</td>
+        <td>72.6</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>75PFC</td>
+        <td>49.2</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC440</td>
+        <td>3010</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC414</td>
+        <td>2490</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC383</td>
+        <td>2490</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC340</td>
+        <td>2190</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC290</td>
+        <td>1850</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC267</td>
+        <td>1850</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>500WC228</td>
+        <td>1850</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC361</td>
+        <td>2690</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC328</td>
+        <td>1910</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC303</td>
+        <td>1910</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC270</td>
+        <td>1700</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC212</td>
+        <td>1440</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC181</td>
+        <td>1440</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>400WC144</td>
+        <td>1150</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>350WC280</td>
+        <td>1500</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>350WC258</td>
+        <td>1500</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>350WC230</td>
+        <td>1340</td>
+      </tr>
+      <tr onclick="changeColour(this)">
+        <td>350WC197</td>
+        <td>1130</td>
+      </tr>
+      <!-- ENTER TABLE DATA ABOVE -->
+    </table>
+  </body>
 
 
-		<!--<footer class="footer">
-			<br></br>
-				<br></br>
-		</footer>-->
-		<br></br>
-		<br></br>
+  <!--<footer class="footer">
+  <br></br>
+  <br></br>
+</footer>-->
+<br></br>
+<br></br>
 </body>
 
 
@@ -334,90 +334,90 @@
 </html>
 
 <style>
-	.rotateOrder div {
-		-webkit-transform: rotate(-90.0deg);
-		position: absolute;
-		vertical-align: middle;
-		padding-top: 5px;
-		width:10px;
-	}
+  .rotateOrder div {
+  -webkit-transform: rotate(-90.0deg);
+  position: absolute;
+  vertical-align: middle;
+  padding-top: 5px;
+  width:10px;
+  }
 
-	table {
-		overflow: hidden;
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-	}
+  table {
+  overflow: hidden;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  }
 
-	#myTable td, th {
-		border: 1px solid #000000;
-	}
+  #myTable td, th {
+  border: 1px solid #000000;
+  }
 
-	#myTable tr:nth-child(odd) {
-		background-color: #B8B5B5;
-	}
+  #myTable tr:nth-child(odd) {
+  background-color: #B8B5B5;
+  }
 
-	#myTable tr:nth-child(even) {
-		background-color: #a4a0a0;
-	}
+  #myTable tr:nth-child(even) {
+  background-color: #a4a0a0;
+  }
 
-	#myInput {
-	  font-size: 16px; /* Increase font-size */
-	  padding: 5px 5px 5px 5px; /* Add some padding */
-	  border: 1px solid #ddd; /* Add a grey border */
-	  margin-bottom: 12px; /* Add some space below the input */
-	}
+  #myInput {
+  font-size: 16px; /* Increase font-size */
+  padding: 5px 5px 5px 5px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  }
 
-	#myTable tr:hover {
-	  /* Add a grey background color to the table header and on hover */
-		background-color: #084886;
-		color: #DDDDDD;
-	}
+  #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #084886;
+  color: #DDDDDD;
+  }
 
-	#myTable th{
-		background-color: #dbdbdb;
-		color: #000000;
-		text-align: center;
-	}
+  #myTable th{
+  background-color: #dbdbdb;
+  color: #000000;
+  text-align: center;
+  }
 
-	.button {
-	  	background-color: #084887;
-	  	border: none;
-	  	color: #DDDDDD;
-	  	padding: 2px 2px;
-	  	text-align: center;
-	  	text-decoration: none;
-	  	display: inline-block;
-	  	font-size: 16px;
-			border-radius: 2px;
-		}
+  .button {
+  background-color: #084887;
+  border: none;
+  color: #DDDDDD;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 2px;
+  }
 
 </style>
 
 <script>
-function searchFunction() {
-		// Declare variables
-		var input, filter, table, tr, td, i, txtValue;
-		input = document.getElementById("myInput");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("myTable");
-		tr = table.getElementsByTagName("tr");
+  function searchFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
 
-		// Loop through all table rows, and hide those who don't match the search query
-		for (i = 0; i < tr.length; i++) {
-		  td = tr[i].getElementsByTagName("td")[0];
-		  if (td) {
-		    txtValue = td.textContent || td.innerText;
-		    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		      tr[i].style.display = "";
-		    } else {
-		      tr[i].style.display = "none";
-		    }
-		  }
-		}
-}
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[0];
+  if (td) {
+  txtValue = td.textContent || td.innerText;
+  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+  tr[i].style.display = "";
+  } else {
+  tr[i].style.display = "none";
+  }
+  }
+  }
+  }
 
-function changeColour(o){
-		o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
-}
+  function changeColour(o){
+  o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
+  }
 
 </script>

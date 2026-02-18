@@ -1,284 +1,284 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<style>body {background-color: #b0b0b0;}</style>
+    <style>body {background-color: #b0b0b0;}</style>
 
-</head>
-<script src="header.js"></script>
+  </head>
+  <script src="header.js"></script>
 
-<title>SHS Properties</title>
-<body style="font-family:arial;" align="center">
+  <title>SHS Properties</title>
+  <body style="font-family:arial;" align="center">
 
-<h3 align="Center">SHS Properties</h3>
-<p>Search, sort or hover over a member to see its properties.</p>
-<div class="inputBox" align="middle">
-<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
-</div>
+    <h3 align="Center">SHS Properties</h3>
+    <p>Search, sort or hover over a member to see its properties.</p>
+    <div class="inputBox" align="middle">
+      <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a member" title="Type in a member">
+    </div>
 
-<button class="button" onclick="sortSizeDown(12)">Decreasing Size</button>
-<button class="button" onclick="sortSizeUp(12)">Increasing Size</button>
-<button class="button" onclick="sortMassDown(7)">Decreasing Mass</button>
-<button class="button" onclick="sortMassUp(7)">Increasing Mass</button>
-<br>
-<br>
+    <button class="button" onclick="sortSizeDown(12)">Decreasing Size</button>
+    <button class="button" onclick="sortSizeUp(12)">Increasing Size</button>
+    <button class="button" onclick="sortMassDown(7)">Decreasing Mass</button>
+    <button class="button" onclick="sortMassUp(7)">Increasing Mass</button>
+    <br>
+    <br>
 
-		<table id="myTable" align="center">
-			<colgroup>
-				<col span="1" width="130">
-				<col span="1" width="35">
-			</colgroup>
+    <table id="myTable" align="center">
+      <colgroup>
+        <col span="1" width="130">
+        <col span="1" width="35">
+      </colgroup>
 
-			<!-- ENTER TABLE DATA BELOW -->
-			<tr>
-				<th rowspan="2">Member</th>
-				<th>Shear Capacity</th>
-			</tr>
-			<tr>
-				<th>kN/m</td>
-			</tr>
+      <!-- ENTER TABLE DATA BELOW -->
+      <tr>
+        <th rowspan="2">Member</th>
+        <th>Shear Capacity</th>
+      </tr>
+      <tr>
+        <th>kN/m</td>
+      </tr>
 
-			<!-- ENTER TABLE DATA ABOVE -->
-		</table>
-</body>
+      <!-- ENTER TABLE DATA ABOVE -->
+    </table>
+  </body>
 
 
 
-<br></br>
-<br></br>
+  <br></br>
+  <br></br>
 
 
 
 </html>
 
 <style>
-	.rotateOrder div {
-		-webkit-transform: rotate(-90.0deg);
-		position: absolute;
-		vertical-align: middle;
-		padding-top: 5px;
-		width:10px;
-	}
+  .rotateOrder div {
+  -webkit-transform: rotate(-90.0deg);
+  position: absolute;
+  vertical-align: middle;
+  padding-top: 5px;
+  width:10px;
+  }
 
-	table {
-		overflow: hidden;
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-	}
+  table {
+  overflow: hidden;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  }
 
-	#myTable td, th {
-		border: 1px solid #000000;
-	}
+  #myTable td, th {
+  border: 1px solid #000000;
+  }
 
-	#myTable tr:nth-child(odd) {
-		background-color: #B8B5B5;
-	}
+  #myTable tr:nth-child(odd) {
+  background-color: #B8B5B5;
+  }
 
-	#myTable tr:nth-child(even) {
-		background-color: #a4a0a0;
-	}
+  #myTable tr:nth-child(even) {
+  background-color: #a4a0a0;
+  }
 
-	#myInput {
-	  font-size: 16px; /* Increase font-size */
-	  padding: 5px 5px 5px 5px; /* Add some padding */
-	  border: 1px solid #ddd; /* Add a grey border */
-	  margin-bottom: 12px; /* Add some space below the input */
-	}
+  #myInput {
+  font-size: 16px; /* Increase font-size */
+  padding: 5px 5px 5px 5px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  }
 
-	#myTable tr:hover {
-	  /* Add a grey background color to the table header and on hover */
-		background-color: #084886;
-		color: #DDDDDD;
-	}
+  #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #084886;
+  color: #DDDDDD;
+  }
 
-	#myTable th{
-		background-color: #dbdbdb;
-		color: #000000;
-		text-align: center;
-	}
+  #myTable th{
+  background-color: #dbdbdb;
+  color: #000000;
+  text-align: center;
+  }
 
-	.button {
-	  	background-color: #084887;
-	  	border: none;
-	  	color: #DDDDDD;
-	  	padding: 2px 2px;
-	  	text-align: center;
-	  	text-decoration: none;
-	  	display: inline-block;
-	  	font-size: 16px;
-			border-radius: 2px;
-		}
+  .button {
+  background-color: #084887;
+  border: none;
+  color: #DDDDDD;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 2px;
+  }
 
 </style>
 
 <script>
-function searchFunction() {
-		// Declare variables
-		var input, filter, table, tr, td, i, txtValue;
-		input = document.getElementById("myInput");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("myTable");
-		tr = table.getElementsByTagName("tr");
+  function searchFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
 
-		// Loop through all table rows, and hide those who don't match the search query
-		for (i = 0; i < tr.length; i++) {
-		  td = tr[i].getElementsByTagName("td")[0];
-		  if (td) {
-		    txtValue = td.textContent || td.innerText;
-		    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		      tr[i].style.display = "";
-		    } else {
-		      tr[i].style.display = "none";
-		    }
-		  }
-		}
-}
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[0];
+  if (td) {
+  txtValue = td.textContent || td.innerText;
+  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+  tr[i].style.display = "";
+  } else {
+  tr[i].style.display = "none";
+  }
+  }
+  }
+  }
 
-function sortMassDown(n) {
+  function sortMassDown(n) {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("myTable");
   switching = true;
   /*Make a loop that will continue until
   no switching has been done:*/
   while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 3; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      //check if the two rows should switch place:
-      if (Number(x.innerHTML) < Number(y.innerHTML)) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
+  //start by saying: no switching is done:
+  switching = false;
+  rows = table.rows;
+  /*Loop through all table rows (except the
+  first, which contains table headers):*/
+  for (i = 3; i < (rows.length - 1); i++) {
+  //start by saying there should be no switching:
+  shouldSwitch = false;
+  /*Get the two elements you want to compare,
+  one from current row and one from the next:*/
+  x = rows[i].getElementsByTagName("TD")[n];
+  y = rows[i + 1].getElementsByTagName("TD")[n];
+  //check if the two rows should switch place:
+  if (Number(x.innerHTML) < Number(y.innerHTML)) {
+  //if so, mark as a switch and break the loop:
+  shouldSwitch = true;
+  break;
   }
-}
+  }
+  if (shouldSwitch) {
+  /*If a switch has been marked, make the switch
+  and mark that a switch has been done:*/
+  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+  switching = true;
+  }
+  }
+  }
 
-function sortMassUp(n) {
+  function sortMassUp(n) {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("myTable");
   switching = true;
   /*Make a loop that will continue until
   no switching has been done:*/
   while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 3; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      //check if the two rows should switch place:
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
+  //start by saying: no switching is done:
+  switching = false;
+  rows = table.rows;
+  /*Loop through all table rows (except the
+  first, which contains table headers):*/
+  for (i = 3; i < (rows.length - 1); i++) {
+  //start by saying there should be no switching:
+  shouldSwitch = false;
+  /*Get the two elements you want to compare,
+  one from current row and one from the next:*/
+  x = rows[i].getElementsByTagName("TD")[n];
+  y = rows[i + 1].getElementsByTagName("TD")[n];
+  //check if the two rows should switch place:
+  if (Number(x.innerHTML) > Number(y.innerHTML)) {
+  //if so, mark as a switch and break the loop:
+  shouldSwitch = true;
+  break;
   }
-}
+  }
+  if (shouldSwitch) {
+  /*If a switch has been marked, make the switch
+  and mark that a switch has been done:*/
+  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+  switching = true;
+  }
+  }
+  }
 
-function sortSizeDown(n) {
+  function sortSizeDown(n) {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("myTable");
   switching = true;
   /*Make a loop that will continue until
   no switching has been done:*/
   while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 3; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      //check if the two rows should switch place:
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
+  //start by saying: no switching is done:
+  switching = false;
+  rows = table.rows;
+  /*Loop through all table rows (except the
+  first, which contains table headers):*/
+  for (i = 3; i < (rows.length - 1); i++) {
+  //start by saying there should be no switching:
+  shouldSwitch = false;
+  /*Get the two elements you want to compare,
+  one from current row and one from the next:*/
+  x = rows[i].getElementsByTagName("TD")[n];
+  y = rows[i + 1].getElementsByTagName("TD")[n];
+  //check if the two rows should switch place:
+  if (Number(x.innerHTML) > Number(y.innerHTML)) {
+  //if so, mark as a switch and break the loop:
+  shouldSwitch = true;
+  break;
   }
-}
+  }
+  if (shouldSwitch) {
+  /*If a switch has been marked, make the switch
+  and mark that a switch has been done:*/
+  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+  switching = true;
+  }
+  }
+  }
 
-function sortSizeUp(n) {
+  function sortSizeUp(n) {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("myTable");
   switching = true;
   /*Make a loop that will continue until
   no switching has been done:*/
   while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 3; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      //check if the two rows should switch place:
-      if (Number(x.innerHTML) < Number(y.innerHTML)) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
+  //start by saying: no switching is done:
+  switching = false;
+  rows = table.rows;
+  /*Loop through all table rows (except the
+  first, which contains table headers):*/
+  for (i = 3; i < (rows.length - 1); i++) {
+  //start by saying there should be no switching:
+  shouldSwitch = false;
+  /*Get the two elements you want to compare,
+  one from current row and one from the next:*/
+  x = rows[i].getElementsByTagName("TD")[n];
+  y = rows[i + 1].getElementsByTagName("TD")[n];
+  //check if the two rows should switch place:
+  if (Number(x.innerHTML) < Number(y.innerHTML)) {
+  //if so, mark as a switch and break the loop:
+  shouldSwitch = true;
+  break;
   }
-}
+  }
+  if (shouldSwitch) {
+  /*If a switch has been marked, make the switch
+  and mark that a switch has been done:*/
+  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+  switching = true;
+  }
+  }
+  }
 
-function changeColour(o){
-		o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
-}
+  function changeColour(o){
+  o.style.backgroundColor=(o.style.backgroundColor=='limegreen')?(''):('limegreen');
+  }
 
 </script>
