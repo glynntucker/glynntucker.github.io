@@ -12,7 +12,7 @@
     <div class="row">
       <div class="column">
         <h4 align="Center">250 Grade Plate</h4>
-        <table id="plate250" align="center">
+        <table id="plate250" class="dataTable" align="center">
           <tr><th>Plate Thickness</th></tr>
           <tr><th>mm</th></tr>
           <tbody id="plate250Body"><tr><td>Loading...</td></tr></tbody>
@@ -20,7 +20,7 @@
       </div>
       <div class="column">
         <h4 align="Center">350 Grade Plate</h4>
-        <table id="plate350" align="center">
+        <table id="plate350" class="dataTable" align="center">
           <tr><th>Plate Thickness</th></tr>
           <tr><th>mm</th></tr>
           <tbody id="plate350Body"><tr><td>Loading...</td></tr></tbody>
@@ -28,7 +28,7 @@
       </div>
       <div class="column">
         <h4 align="Center">Floor Plate</h4>
-        <table id="plateFloor" align="center">
+        <table id="plateFloor" class="dataTable" align="center">
           <tr><th>Plate Thickness</th></tr>
           <tr><th>mm</th></tr>
           <tbody id="plateFloorBody"><tr><td>Loading...</td></tr></tbody>
@@ -37,17 +37,6 @@
     </div>
   </body>
 </html>
-<style>
-  .column {
-    float: left;
-    width: 33.33%;
-  }
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-</style>
 <script src="../tables.js"></script>
 <script>
   function parseSimpleCsv(text) {

@@ -15,15 +15,15 @@ table {
   border: 1px solid #000000;
 }
 
-#myTable th, td {
+.dataTable th, .dataTable td {
   border: 1px solid #000000;
 }
 
-#myTable tr:nth-child(odd) {
+.dataTable tr:nth-child(odd) {
   background-color: #b7d7e8;
 }
 
-#myTable tr:nth-child(even) {
+.dataTable tr:nth-child(even) {
   background-color: #cfe0e8;
 }
 
@@ -34,20 +34,31 @@ table {
   margin-bottom: 12px; /* Add some space below the input */
 }
 
-#myTable tr:hover {
+.dataTable tr:hover {
   /* Add a grey background color to the table header and on hover */
   background-color: #084886;
   color: #DDDDDD;
 }
 
-#myTable th{
+.dataTable th{
   background-color: #87bdd8;
   color: #000000;
   text-align: center;
 }
 
-#myTable tr{
+.dataTable tr{
   text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.column {
+  flex: 0 1 auto;
 }
 
 .button {
